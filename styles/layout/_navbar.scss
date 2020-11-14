@@ -1,0 +1,112 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  width: 100%;
+  min-height: 40px;
+  background: $color-primary;
+  color: $color-white;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  &__header {
+    display: flex;
+    background-color: inherit;
+    user-select: none;
+    // z-index: 1000;
+
+    @include respond(tab-port) {
+      padding: 0 4rem;
+    }
+
+    @include respond(phone) {
+      padding: 0 2rem;
+    }
+  }
+
+  &__menu {
+    display: none;
+    
+
+    @include respond(tab-port) {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 80%;
+    }
+  }
+
+  &__title {
+    padding: 1rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    // z-index: 0;
+
+    @include respond(tab-port) {
+      display: none;
+      flex-direction: column;
+
+      // transition: transform 1s ease-in;
+      // transform: translateY(-18rem);
+    }
+
+    &--open {
+      display: flex;
+      // transform: translateY(0);
+    }
+  }
+
+  &__item {
+    display: contents;
+  }
+
+  &__link {
+    margin: 1rem 4rem;
+    color: $color-white;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-secondary;
+      text-decoration: underline;
+    }
+
+    @include respond(tab-port) {
+      margin: 0;
+      border-top: 1px solid $color-primary;
+      padding: 1rem 4rem;
+      width: 100%;
+      background-color: $color-primary-light;
+      text-align: center;
+
+      &:hover {
+        color: $color-black;
+        background-color: $color-secondary-light;
+        text-decoration: none;
+      }
+    }
+  }
+}

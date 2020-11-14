@@ -1,0 +1,23 @@
+.Button {
+  display: inline-block;
+  border: none;
+  padding: 2rem 6rem;
+  background-color: $color-tertiary;
+  color: $color-white;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+
+  @include respond(tab-port) {
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: $color-tertiary-dark;
+    color: $color-black;
+    cursor: pointer;
+  }
+}

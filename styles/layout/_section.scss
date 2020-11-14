@@ -1,0 +1,49 @@
+.Section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6rem 20%;
+  width: 100%;
+
+  @include respond(tab-land) {
+    padding: 6rem 10%;
+  }
+
+  @include respond(tab-port) {
+    padding: 3rem 4rem;
+  }
+
+  @include respond(phone) {
+    padding: 1rem 2rem;
+  }
+
+  &--primary {
+    color: $color-white;
+    background: $color-primary;
+  }
+
+  &--secondary {
+    color: $color-white;
+    background: $color-secondary;
+  }
+
+  &--tertiary {
+    color: $color-black;
+    background: $color-tertiary;
+  }
+
+  &--white {
+    color: $color-black;
+    background: $color-white;
+  }
+
+  &--grey {
+    color: $color-black;
+    background: $color-grey;
+  }
+
+  &--black {
+    color: $color-white;
+    background: $color-black;
+  }
+}

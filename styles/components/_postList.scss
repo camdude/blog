@@ -1,0 +1,24 @@
+.PostList {
+  &__controls {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid $color-grey-dark;
+  }
+
+  &__controlButton {
+    display: block;
+    border-radius: .5rem;
+    padding: .8rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-grey-dark;
+    }
+  }
+
+  &__posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

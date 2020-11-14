@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // This decides what 1rem is
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.main-body {
+  margin: 0 12.5%;
+  margin-top: 6.2rem;
+  padding: 5rem 0;
+  min-height: 80vh;
+
+  @include respond(tab-port) {
+    margin: 0 2rem;
+    margin-top: 5.7rem;
+    padding: 2rem 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  table-layout: fixed;
+}
+
+td {
+  min-width: 10rem;
+}

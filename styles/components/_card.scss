@@ -1,0 +1,37 @@
+.Card {
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  background-color: $color-white;
+
+  &__title {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: $color-primary;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__details {
+    padding-bottom: 1rem;
+    font-weight: 400;
+    font-size: $default-font-size;
+    font-style: italic;
+    line-height: 1;
+    color: $color-grey-dark;
+  }
+
+  &__description {
+    padding-bottom: 1rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}

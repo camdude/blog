@@ -1,0 +1,101 @@
+.blog {
+  &__h1 {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    line-height: 1.25;
+    text-transform: capitalize;
+    color: $color-primary-light;
+  }
+
+  &__h2 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    color: $color-secondary-dark;
+  }
+
+  &__h3 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: $color-grey-dark;
+  }
+
+  &__h4 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    color: $color-black;
+  }
+
+  &__h5 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    font-style: italic;
+    text-transform: capitalize;
+    color: $color-primary;
+  }
+
+  &__h6 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: $color-grey-dark;
+  }
+
+  &__quote {
+    display: block;
+    margin: 1rem 0;
+    border-left: 3px solid $color-tertiary;
+    padding: .5rem 1.5rem;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: $color-grey-dark;
+  }
+
+  &__paragraph {
+    font-size: $default-font-size;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__image {
+    margin-bottom: 0.6rem;
+    text-align: center;
+
+    &--left {
+      float: left;
+      margin-right: 3rem;
+
+      @include respond(phone) {
+        float: none;
+        margin-right: 0;
+      }
+    }
+
+    &--right {
+      float: right;
+      margin-left: 3rem;
+
+      @include respond(phone) {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__alt {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+}

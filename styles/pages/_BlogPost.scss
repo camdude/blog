@@ -1,0 +1,46 @@
+.BlogPost {
+  &__coverImage {
+    display: block;
+    padding: 0 20%;
+    width: 100%;
+    background-color: $color-secondary;
+
+    @include respond(tab-land) {
+      padding: 0 10%;
+    }
+
+    @include respond(tab-port) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: capitalize;
+    color: $color-primary;
+
+    @include respond(phone) {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__details {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $color-grey-dark;
+    padding-bottom: .5rem;
+    font-weight: 400;
+    font-size: $default-font-size;
+    font-style: italic;
+    line-height: 1;
+    color: $color-grey-dark;
+  }
+
+  &__content {
+    margin-top: 1rem;
+    font-size: $default-font-size;
+  }
+}
