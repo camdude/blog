@@ -56,7 +56,7 @@ export default function Home() {
                 more recently started apreciating astronomy and stagazing.
               </p>
               <p className="paragraph">
-                Over the past few years while being at Uni I have discovered how
+                Over the past few years while being at University I have discovered how
                 important it is to be activily living the Christian life. I have
                 a passion for seeing others come to know Christ and to be
                 encouraging others to constantly be growing in their own
