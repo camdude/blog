@@ -1,5 +1,7 @@
 import BlockContent from "@sanity/block-content-to-react";
+import { useState } from "react";
 import Head from "next/head";
+import Modal from "../../components/Modal";
 import Footer from "../../layouts/Footer";
 import Navbar from "../../layouts/Navbar";
 import Section from "../../layouts/Section";
@@ -27,13 +29,29 @@ const serializers = {
         : // otherwise, fallback to the provided default with all props
           BlockContent.defaultSerializers.types.block(props),
     image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
+      const [isModalOpen, setIsModalOpen] = useState(false);
       return (
-        <div className={`blog__image blog__image--${position}`}>
-          <img
-            src={urlFor({ asset, crop, hotspot }).width(300).fit("max").url()}
-          />
-          <div className="blog__alt">{alt}</div>
-        </div>
+        <React.Fragment>
+          {isModalOpen ? (
+            <Modal closeModal={() => setIsModalOpen(false)}>
+              <img src={urlFor({ asset, crop, hotspot }).url()} />
+              <div className="u-center-text u-italic-text">{alt}</div>
+            </Modal>
+          ) : (
+            ""
+          )}
+
+          <div className={`blog__imgContainer blog__imgContainer--${position}`}>
+            <img
+              className="blog__image"
+              src={urlFor({ asset, crop, hotspot }).width(300).fit("max").url()}
+              onClick={() => {
+                setIsModalOpen(!isModalOpen);
+              }}
+            />
+            <div className="blog__alt">{alt}</div>
+          </div>
+        </React.Fragment>
       );
     },
   },

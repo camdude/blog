@@ -1,4 +1,3 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
 import Head from "next/head";
 import { useState } from "react";
 import Button from "../components/Button";

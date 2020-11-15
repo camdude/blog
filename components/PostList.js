@@ -8,7 +8,7 @@ const PostList = ({ onChange, view, children }) => {
       <div className="PostList__controls">
         <FontAwesomeIcon
           className="PostList__controlButton"
-          size="3x"
+          size="lg"
           icon={LIST_VIEW_ICONS[view]}
           onClick={() => {
             onChange();
