@@ -15,7 +15,7 @@ export default function Blog({ blogs }) {
   return (
     <div className="Blog">
       <Head>
-        <title>Cameron Clifford's Blog</title>
+        <title>Cameron Clifford | Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />

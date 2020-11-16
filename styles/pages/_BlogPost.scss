@@ -29,14 +29,16 @@
   }
 
   &__details {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid $color-grey-dark;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     font-weight: 400;
     font-size: $default-font-size;
     font-style: italic;
     line-height: 1;
     color: $color-grey-dark;
+  }
+
+  &__tagList {
+    margin-bottom: 1rem;
   }
 
   &__content {

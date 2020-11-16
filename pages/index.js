@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Cameron Clifford's Blog</title>
+        <title>Cameron Clifford</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />

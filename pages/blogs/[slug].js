@@ -6,6 +6,7 @@ import Footer from "../../layouts/Footer";
 import Navbar from "../../layouts/Navbar";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
+import PillButton from "../../components/PillButton";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -61,7 +62,7 @@ export default function BlogPost({ blog }) {
   return (
     <div className="">
       <Head>
-        <title>Cameron Clifford's Blog</title>
+        <title>{`Cameron Clifford | ${blog.title}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
@@ -80,6 +81,15 @@ export default function BlogPost({ blog }) {
               day: "2-digit",
             }).format(new Date(blog.date))}`}
           </h4>
+          <div className="BlogPost__tagList">
+            {blog.tags?.map((tag) => {
+              return (
+                <PillButton key={tag.name} href={`/blog/?tag=${tag.name}`}>
+                  {tag.name}
+                </PillButton>
+              );
+            })}
+          </div>
           <div className="BlogPost__content">
             <BlockContent serializers={serializers} blocks={blog.content} />
           </div>
