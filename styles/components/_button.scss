@@ -20,4 +20,16 @@
     color: $color-black;
     cursor: pointer;
   }
+
+  &--disabled {
+    background-color: $color-grey;
+    text-decoration: line-through;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $color-grey;
+      color: $color-white;
+      cursor: not-allowed;
+    }
+  }
 }

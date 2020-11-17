@@ -106,7 +106,7 @@ export default function Home() {
               </p>
             </div>
             <div className="section-support__buttons">
-              <Button href="/">Prayer Email</Button>
+              <Button href="/#support" disabled>Prayer Email</Button>
               <Button href="/blog">Blog</Button>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const Button = ({ children, href }) => {
+const Button = ({ children, href, disabled=false }) => {
   return (
     <Link href={href}>
-      <a className="Button">{children}</a>
+      <a className={`Button ${!disabled || "Button--disabled"}`}>{children}</a>
     </Link>
   );
 };

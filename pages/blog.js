@@ -51,7 +51,7 @@ export default function Blog({ blogs }) {
                 of this, please click the subscribe button below.
               </p>
               <div className="u-center-text">
-                <Button href="/blog">SUBSCRIBE</Button>
+                <Button href="/blog" disabled>SUBSCRIBE</Button>
               </div>
             </div>
           </div>
