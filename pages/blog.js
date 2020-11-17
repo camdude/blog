@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import CardImage from "../components/CardImage";
@@ -7,10 +8,26 @@ import PostList from "../components/PostList";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import Section from "../layouts/Section";
-import { getAllBlogs } from "../lib/api";
+import { getAllBlogs, getBlogsByTag } from "../lib/api";
 
 export default function Blog({ blogs }) {
   const [listView, setlistView] = useState(1);
+
+  const router = useRouter();
+  const tag = router.query.tag;
+
+  let filteredBlogs = [];
+  if (tag) {
+    filteredBlogs = blogs.filter((blog) => {
+      let inList = false;
+      blog.tags?.forEach((t) => {
+        inList = inList || t.name == tag;
+      });
+      return inList;
+    });
+
+    blogs = filteredBlogs;
+  }
 
   return (
     <div className="Blog">
@@ -40,6 +57,13 @@ export default function Blog({ blogs }) {
           </div>
         </Section>
         <Section color="grey">
+          {tag && filteredBlogs.length ? (
+            <p>
+              Showing results for "<b>{tag}</b>"
+            </p>
+          ) : (
+            ""
+          )}
           <PostList
             onChange={() => {
               setlistView(+!listView);
@@ -76,6 +100,19 @@ export default function Blog({ blogs }) {
               }
             })}
           </PostList>
+          {tag && !filteredBlogs.length ? (
+            <div>
+              <p className="u-center-text">
+                Could not find any blogs with tag "<b>{tag}</b>".
+              </p>
+              <p className="u-center-text">
+                Please check what you are searching for is correct and try
+                again.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </Section>
       </main>
 

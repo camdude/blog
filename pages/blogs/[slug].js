@@ -84,7 +84,7 @@ export default function BlogPost({ blog }) {
           <div className="BlogPost__tagList">
             {blog.tags?.map((tag) => {
               return (
-                <PillButton key={tag.name} href={`/blog/?tag=${tag.name}`}>
+                <PillButton key={tag.name} href={`/blog?tag=${tag.name}`}>
                   {tag.name}
                 </PillButton>
               );
