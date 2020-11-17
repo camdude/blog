@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import CardImage from "../components/CardImage";
+import PillButton from "../components/PillButton";
 import PostList from "../components/PostList";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
@@ -51,16 +52,21 @@ export default function Blog({ blogs }) {
                 of this, please click the subscribe button below.
               </p>
               <div className="u-center-text">
-                <Button href="/blog" disabled>SUBSCRIBE</Button>
+                <Button href="/blog" disabled>
+                  SUBSCRIBE
+                </Button>
               </div>
             </div>
           </div>
         </Section>
         <Section color="grey">
           {tag && filteredBlogs.length ? (
-            <p>
-              Showing results for "<b>{tag}</b>"
-            </p>
+            <div>
+              <p>
+                Showing results for "<b>{tag}</b>"
+              </p>
+              <PillButton href="/blog">Clear</PillButton>
+            </div>
           ) : (
             ""
           )}
