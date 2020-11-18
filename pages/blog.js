@@ -9,9 +9,9 @@ import PostList from "../components/PostList";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import Section from "../layouts/Section";
-import { getAllBlogs, getBlogsByTag } from "../lib/api";
+import { getAllBlogs, getAllTags } from "../lib/api";
 
-export default function Blog({ blogs }) {
+export default function Blog({ blogs, tags }) {
   const [listView, setlistView] = useState(1);
 
   const router = useRouter();
@@ -60,21 +60,13 @@ export default function Blog({ blogs }) {
           </div>
         </Section>
         <Section color="grey">
-          {tag && filteredBlogs.length ? (
-            <div>
-              <p>
-                Showing results for "<b>{tag}</b>"
-              </p>
-              <PillButton href="/blog">Clear</PillButton>
-            </div>
-          ) : (
-            ""
-          )}
           <PostList
             onChange={() => {
               setlistView(+!listView);
             }}
             view={listView}
+            tagList={tags}
+            blogAmount={filteredBlogs.length}
           >
             {blogs.map((post) => {
               if (listView) {
@@ -106,19 +98,6 @@ export default function Blog({ blogs }) {
               }
             })}
           </PostList>
-          {tag && !filteredBlogs.length ? (
-            <div>
-              <p className="u-center-text">
-                Could not find any blogs with tag "<b>{tag}</b>".
-              </p>
-              <p className="u-center-text">
-                Please check what you are searching for is correct and try
-                again.
-              </p>
-            </div>
-          ) : (
-            ""
-          )}
         </Section>
       </main>
 
@@ -129,9 +108,11 @@ export default function Blog({ blogs }) {
 
 export async function getStaticProps() {
   const blogs = await getAllBlogs();
+  const tags = await getAllTags();
   return {
     props: {
       blogs,
+      tags
     },
   };
 }

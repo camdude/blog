@@ -56,11 +56,11 @@ export default function Home() {
                 more recently started apreciating astronomy and stagazing.
               </p>
               <p className="paragraph">
-                Over the past few years while being at University I have discovered how
-                important it is to be activily living the Christian life. I have
-                a passion for seeing others come to know Christ and to be
-                encouraging others to constantly be growing in their own
-                spiritual maturity.
+                Over the past few years while being at University I have
+                discovered how important it is to be activily living the
+                Christian life. I have a passion for seeing others come to know
+                Christ and to be encouraging others to constantly be growing in
+                their own spiritual maturity.
               </p>
               <p className="paragraph">
                 As I continue to learn how God wants me to serve him in his
@@ -106,7 +106,7 @@ export default function Home() {
               </p>
             </div>
             <div className="section-support__buttons">
-              <Button href="/#support" disabled>Prayer Email</Button>
+              <Button href="/blog?tag=Prayer Email">Prayer Email</Button>
               <Button href="/blog">Blog</Button>
             </div>
           </div>
