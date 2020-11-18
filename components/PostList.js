@@ -33,7 +33,7 @@ const PostList = ({ onChange, view, tagList, blogAmount, children }) => {
           >
             <option value="">All</option>
             {tagList.map((tag) => {
-              return <option value={tag.name}>{tag.name}</option>;
+              return <option key={tag.name} value={tag.name}>{tag.name}</option>;
             })}
           </select>
         </div>

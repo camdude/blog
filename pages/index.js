@@ -65,11 +65,11 @@ export default function Home() {
               <p className="paragraph">
                 As I continue to learn how God wants me to serve him in his
                 kingdom, I am partnering with my home church{" "}
-                <a className="link" href="https://thebranch.org.au/">
+                <a className="link" href="https://thebranch.org.au/" target="_blank">
                   The Branch Christian Church
                 </a>{" "}
                 as well as{" "}
-                <a className="link" href="https://mts.com.au/">
+                <a className="link" href="https://mts.com.au/" target="_blank">
                   Ministry Training Strategy
                 </a>{" "}
                 to help equip me with the right character, conviction and
