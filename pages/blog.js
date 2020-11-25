@@ -1,18 +1,24 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
-import Card from "../components/Card";
-import CardImage from "../components/CardImage";
+
 import PillButton from "../components/PillButton";
 import PostList from "../components/PostList";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import Section from "../layouts/Section";
 import { getAllBlogs, getAllTags } from "../lib/api";
+import { useGetBlogs } from "../actions";
+import { useGetBlogsPages } from "../actions/pagination";
 
 export default function Blog({ blogs, tags }) {
   const [listView, setlistView] = useState(1);
+
+  const { pages, isLoadingMore, isReachingEnd, loadMore } = useGetBlogsPages({
+    blogs,
+    listView,
+  });
 
   const router = useRouter();
   const tag = router.query.tag;
@@ -68,36 +74,15 @@ export default function Blog({ blogs, tags }) {
             tagList={tags}
             blogAmount={filteredBlogs.length}
           >
-            {blogs.map((post) => {
-              if (listView) {
-                return (
-                  <CardImage
-                    key={post.slug}
-                    coverImage={post.coverImage}
-                    title={post.title}
-                    author={post.author.name}
-                    date={post.date}
-                    link={{ href: "/blogs/[slug]", as: `/blogs/${post.slug}` }}
-                  >
-                    {post.description}
-                  </CardImage>
-                );
-              } else {
-                return (
-                  <Card
-                    key={post.slug}
-                    coverImage={post.coverImage}
-                    title={post.title}
-                    author={post.author.name}
-                    date={post.date}
-                    link={{ href: "/blogs/[slug]", as: `/blogs/${post.slug}` }}
-                  >
-                    {post.description}
-                  </Card>
-                );
-              }
-            })}
+            {pages}
           </PostList>
+          <Button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}>
+            {isLoadingMore
+              ? "..."
+              : isReachingEnd
+              ? "No More Blogs"
+              : "More Blogs"}
+          </Button>
         </Section>
       </main>
 
@@ -107,12 +92,12 @@ export default function Blog({ blogs, tags }) {
 }
 
 export async function getStaticProps() {
-  const blogs = await getAllBlogs();
+  const blogs = await getAllBlogs({ offset: 0 });
   const tags = await getAllTags();
   return {
     props: {
       blogs,
-      tags
+      tags,
     },
   };
 }

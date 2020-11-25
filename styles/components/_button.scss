@@ -2,6 +2,7 @@
   display: inline-block;
   border: none;
   padding: 2rem 6rem;
+  box-shadow: 0 0 0.2rem 0 $color-black;
   background-color: $color-tertiary;
   color: $color-white;
   font-weight: bold;
@@ -23,7 +24,7 @@
 
   &--disabled {
     background-color: $color-grey;
-    text-decoration: line-through;
+    // text-decoration: line-through;
     cursor: not-allowed;
 
     &:hover {
