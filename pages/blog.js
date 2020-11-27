@@ -1,40 +1,24 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import Button from "../components/Button";
 
-import PillButton from "../components/PillButton";
 import PostList from "../components/PostList";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import Section from "../layouts/Section";
 import { getAllBlogs, getAllTags } from "../lib/api";
-import { useGetBlogs } from "../actions";
 import { useGetBlogsPages } from "../actions/pagination";
 
 export default function Blog({ blogs, tags }) {
-  const [listView, setlistView] = useState(1);
+  const [filter, setFilter] = useState({
+    view: { list: 1 },
+    date: { asc: 0 },
+  });
 
   const { pages, isLoadingMore, isReachingEnd, loadMore } = useGetBlogsPages({
     blogs,
-    listView,
+    filter,
   });
-
-  const router = useRouter();
-  const tag = router.query.tag;
-
-  let filteredBlogs = [];
-  if (tag) {
-    filteredBlogs = blogs.filter((blog) => {
-      let inList = false;
-      blog.tags?.forEach((t) => {
-        inList = inList || t.name == tag;
-      });
-      return inList;
-    });
-
-    blogs = filteredBlogs;
-  }
 
   return (
     <div className="Blog">
@@ -67,12 +51,11 @@ export default function Blog({ blogs, tags }) {
         </Section>
         <Section color="grey">
           <PostList
-            onChange={() => {
-              setlistView(+!listView);
-            }}
-            view={listView}
+            onChange={(option, value) =>
+              setFilter({ ...filter, [option]: value })
+            }
+            filter={filter}
             tagList={tags}
-            blogAmount={filteredBlogs.length}
           >
             {pages}
           </PostList>
@@ -92,7 +75,7 @@ export default function Blog({ blogs, tags }) {
 }
 
 export async function getStaticProps() {
-  const blogs = await getAllBlogs({ offset: 0 });
+  const blogs = await getAllBlogs({ offset: 0, date: 'desc', tag: ''});
   const tags = await getAllTags();
   return {
     props: {

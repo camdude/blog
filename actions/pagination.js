@@ -1,22 +1,37 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useSWRPages } from "swr";
 import { useGetBlogs } from "../actions";
 import CardImage from "../components/CardImage";
 import Card from "../components/Card";
 
-export const useGetBlogsPages = ({ blogs, listView }) => {
+export const useGetBlogsPages = ({ blogs, filter }) => {
   // TODO: Update as useSWRPages is now depricated (https://swr.vercel.app/docs/pagination)
+
+  useEffect(() => {
+    window.__pagination__init = true;
+  }, []);
+
   return useSWRPages(
     "index-page",
     ({ offset, withSWR }) => {
+      const router = useRouter();
+      const tag = router.query.tag || "";
       let initialData = !offset && blogs;
-      const { data: paginatedBlogs } = withSWR(useGetBlogs({ offset }, initialData));
+
+      if (typeof window !== 'undefined' && window.__pagination__init) {
+        initialData = null;
+      }
+
+      const blogsData = useGetBlogs({ offset, filter, tag }, initialData);
+      const { data: paginatedBlogs } = withSWR(blogsData);
 
       if (!paginatedBlogs) {
-        return "Loading...";
+        return "";
       }
 
       return paginatedBlogs.map((post) =>
-        listView ? (
+        filter.view.list ? (
           <CardImage
             key={post.slug}
             coverImage={post.coverImage}
@@ -47,6 +62,6 @@ export const useGetBlogsPages = ({ blogs, listView }) => {
       }
       return (index + 1) * 3;
     },
-    [listView]
+    [filter]
   );
 };

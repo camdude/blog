@@ -7,7 +7,7 @@ const CardImage = ({ title, coverImage, author, date, children, link }) => {
       <div className="CardImage__imgContainer">
         <img
           className="CardImage__image"
-          src={urlFor(coverImage).url()}
+          src={urlFor(coverImage).width(400).fit("max").url()}
           alt=""
         />
       </div>
