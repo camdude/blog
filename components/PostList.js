@@ -29,10 +29,8 @@ const PostList = ({ onChange, filter, tagList, children }) => {
             className="PostList__tagSelect"
             onChange={(e) => {
               if (e.target.value == "") {
-                console.log("PostList: /blog");
                 router.push("/blog");
               } else {
-                console.log(`PostList: /blog?tag=${e.target.value}`);
                 router.push(`/blog?tag=${e.target.value}`);
               }
             }}

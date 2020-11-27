@@ -19,7 +19,7 @@ export const useGetBlogsPages = ({ blogs, filter }) => {
       const tag = router.query.tag || "";
       let initialData = !offset && blogs;
 
-      if (typeof window !== 'undefined' && window.__pagination__init) {
+      if (typeof window !== "undefined" && window.__pagination__init) {
         initialData = null;
       }
 
@@ -27,7 +27,15 @@ export const useGetBlogsPages = ({ blogs, filter }) => {
       const { data: paginatedBlogs } = withSWR(blogsData);
 
       if (!paginatedBlogs) {
-        return "";
+        return Array(4)
+          .fill(0)
+          .map((_, i) =>
+            filter.view.list ? (
+              <CardImage key={i} placeholder />
+            ) : (
+              <Card key={i} placeholder />
+            )
+          );
       }
 
       return paginatedBlogs.map((post) =>

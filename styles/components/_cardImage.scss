@@ -51,6 +51,19 @@
     object-position: right;
   }
 
+  &__blankImage {
+    display: block;
+    width: 100%;
+    height: 25rem;
+    border-radius: 1rem 1rem 0 0;
+    background-color: $color-grey-dark;
+  }
+
+  &__blank {
+    background-color: $color-grey;
+    color: $color-grey;
+  }
+
   &:not(:last-child) {
     margin-bottom: 2rem;
   }

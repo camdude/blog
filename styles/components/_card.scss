@@ -30,6 +30,11 @@
   &__description {
   }
 
+  &__blank {
+    background-color: $color-grey;
+    color: $color-grey;
+  }
+
   &:not(:last-child) {
     margin-bottom: 2rem;
   }
