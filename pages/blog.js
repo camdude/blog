@@ -75,7 +75,7 @@ export default function Blog({ blogs, tags }) {
 }
 
 export async function getStaticProps() {
-  const blogs = await getAllBlogs({ offset: 0, date: 'desc', tag: ''});
+  const blogs = await getAllBlogs({ offset: 0, date: "desc", tag: "" });
   const tags = await getAllTags();
   return {
     props: {

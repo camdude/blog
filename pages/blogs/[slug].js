@@ -82,13 +82,9 @@ export default function BlogPost({ blog }) {
             }).format(new Date(blog.date))}`}
           </h4>
           <div className="BlogPost__tagList">
-            {blog.tags?.map((tag) => {
-              return (
-                <PillButton key={tag.name} href={`/blog?tag=${tag.name}`}>
-                  {tag.name}
-                </PillButton>
-              );
-            })}
+            <PillButton href={`/blog?tag=${blog.tags}`}>
+              {blog.tags}
+            </PillButton>
           </div>
           <div className="BlogPost__content">
             <BlockContent serializers={serializers} blocks={blog.content} />
