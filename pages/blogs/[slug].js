@@ -11,6 +11,7 @@ import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
 import PillButton from "../../components/PillButton";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AlertMessage from "../../components/AlertMessage";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -62,7 +63,7 @@ const serializers = {
   },
 };
 
-export default function BlogPost({ blog }) {
+export default function BlogPost({ blog, preview }) {
   const router = useRouter();
 
   if (!router.isFallback && !blog?.slug) {
@@ -91,8 +92,8 @@ export default function BlogPost({ blog }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-
       <main className="">
+        {preview && <AlertMessage />}
         <img
           className="BlogPost__coverImage"
           src={urlFor(blog.coverImage).url()}
@@ -112,16 +113,15 @@ export default function BlogPost({ blog }) {
           </div>
         </Section>
       </main>
-
       <Footer />
     </div>
   );
 }
 
-export async function getStaticProps({ params }) {
-  const blog = await getBlogBySlug(params.slug);
+export async function getStaticProps({ params, preview = false, previewData }) {
+  const blog = await getBlogBySlug(params.slug, preview);
   return {
-    props: { blog },
+    props: { blog, preview },
   };
 }
 

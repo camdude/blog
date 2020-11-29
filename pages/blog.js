@@ -8,8 +8,9 @@ import Navbar from "../layouts/Navbar";
 import Section from "../layouts/Section";
 import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import { useGetBlogsPages } from "../actions/pagination";
+import AlertMessage from "../components/AlertMessage";
 
-export default function Blog({ blogs, tags }) {
+export default function Blog({ blogs, preview, tags }) {
   const [filter, setFilter] = useState({
     view: { list: 1 },
     date: { asc: 0 },
@@ -29,6 +30,7 @@ export default function Blog({ blogs, tags }) {
       <Navbar />
 
       <main>
+      {preview && <AlertMessage />}
         <Section color="secondary">
           <div id="about" className="section-second">
             <div className="section-second__content">
@@ -74,12 +76,13 @@ export default function Blog({ blogs, tags }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({preview = false}) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: "desc", tag: "" });
   const tags = await getAllTags();
   return {
     props: {
       blogs,
+      preview,
       tags,
     },
   };
