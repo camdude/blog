@@ -6,7 +6,7 @@ import PostList from "../components/PostList";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
 import Section from "../layouts/Section";
-import { getAllBlogs, getAllTags } from "../lib/api";
+import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import { useGetBlogsPages } from "../actions/pagination";
 
 export default function Blog({ blogs, tags }) {
@@ -75,7 +75,7 @@ export default function Blog({ blogs, tags }) {
 }
 
 export async function getStaticProps() {
-  const blogs = await getAllBlogs({ offset: 0, date: "desc", tag: "" });
+  const blogs = await getPaginatedBlogs({ offset: 0, date: "desc", tag: "" });
   const tags = await getAllTags();
   return {
     props: {

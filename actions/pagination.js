@@ -68,7 +68,7 @@ export const useGetBlogsPages = ({ blogs, filter }) => {
       if (SWR.data && SWR.data.length === 0) {
         return null;
       }
-      return (index + 1) * 4;
+      return (index + 1) * 6;
     },
     [filter]
   );

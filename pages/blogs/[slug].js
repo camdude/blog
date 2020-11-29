@@ -1,12 +1,16 @@
 import BlockContent from "@sanity/block-content-to-react";
 import { useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
 import Modal from "../../components/Modal";
 import Footer from "../../layouts/Footer";
 import Navbar from "../../layouts/Navbar";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
 import PillButton from "../../components/PillButton";
+import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -59,6 +63,27 @@ const serializers = {
 };
 
 export default function BlogPost({ blog }) {
+  const router = useRouter();
+
+  if (!router.isFallback && !blog?.slug) {
+    return <ErrorPage statusCode="404" />;
+  }
+  if (router.isFallback) {
+    return (
+      <React.Fragment>
+        <Navbar />
+        <main className="">
+          <Section color="grey">
+            <h1 className="u-center-text">
+              Loading <FontAwesomeIcon icon="spinner" spin />
+            </h1>
+          </Section>
+        </main>
+        <Footer />
+      </React.Fragment>
+    );
+  }
+
   return (
     <div className="">
       <Head>
@@ -75,16 +100,12 @@ export default function BlogPost({ blog }) {
         <Section color="grey">
           <h1 className="BlogPost__title">{blog.title}</h1>
           <h4 className="BlogPost__details">
-            {`by ${blog.author.name} on ${new Intl.DateTimeFormat("en-AU", {
-              year: "numeric",
-              month: "long",
-              day: "2-digit",
-            }).format(new Date(blog.date))}`}
+            {`by ${blog.author.name} on ${moment(blog.date).format(
+              "MMMM Do, YYYY"
+            )}`}
           </h4>
           <div className="BlogPost__tagList">
-            <PillButton href={`/blog?tag=${blog.tags}`}>
-              {blog.tags}
-            </PillButton>
+            <PillButton href={`/blog?tag=${blog.tags}`}>{blog.tags}</PillButton>
           </div>
           <div className="BlogPost__content">
             <BlockContent serializers={serializers} blocks={blog.content} />
@@ -112,6 +133,6 @@ export async function getStaticPaths() {
         slug: b.slug,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }

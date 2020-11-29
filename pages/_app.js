@@ -7,10 +7,21 @@ import {
   faTh,
   faCalendarDay,
   faSortNumericDown,
-  faSortNumericUp
+  faSortNumericUp,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faTimes, faCircle, faList, faTh, faCalendarDay, faSortNumericDown, faSortNumericUp);
+library.add(
+  faBars,
+  faTimes,
+  faCircle,
+  faList,
+  faTh,
+  faCalendarDay,
+  faSortNumericDown,
+  faSortNumericUp,
+  faSpinner
+);
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../styles/index.scss";
