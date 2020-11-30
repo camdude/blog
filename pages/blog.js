@@ -14,6 +14,7 @@ export default function Blog({ blogs, preview, tags }) {
   const [filter, setFilter] = useState({
     view: { list: 1 },
     date: { asc: 0 },
+    tag: { selected: "" },
   });
 
   const { pages, isLoadingMore, isReachingEnd, loadMore } = useGetBlogsPages({
@@ -30,7 +31,7 @@ export default function Blog({ blogs, preview, tags }) {
       <Navbar />
 
       <main>
-      {preview && <AlertMessage />}
+        {preview && <AlertMessage />}
         <Section color="secondary">
           <div id="about" className="section-second">
             <div className="section-second__content">
@@ -76,7 +77,7 @@ export default function Blog({ blogs, preview, tags }) {
   );
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: "desc", tag: "" });
   const tags = await getAllTags();
   return {

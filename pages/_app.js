@@ -9,6 +9,9 @@ import {
   faSortNumericDown,
   faSortNumericUp,
   faSpinner,
+  faUser,
+  faCalendarAlt,
+  faTag
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -20,7 +23,10 @@ library.add(
   faCalendarDay,
   faSortNumericDown,
   faSortNumericUp,
-  faSpinner
+  faSpinner,
+  faUser,
+  faCalendarAlt,
+  faTag
 );
 
 import "@fortawesome/fontawesome-svg-core/styles.css";

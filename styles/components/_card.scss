@@ -18,13 +18,21 @@
     }
   }
 
-  &__details {
+  &__detailSection {
     padding-bottom: 1rem;
+  }
+
+  &__detail {
+    display: inline;
     font-weight: 400;
     font-size: $default-font-size;
     font-style: italic;
     line-height: 1;
     color: $color-grey-dark;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
   }
 
   &__description {

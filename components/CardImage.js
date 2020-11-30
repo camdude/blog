@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { urlFor } from "../lib/api";
 import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardImage = ({
   title,
@@ -21,7 +22,7 @@ const CardImage = ({
           <a className="CardImage__title CardImage__blank">
             ____________________
           </a>
-          <h4 className="CardImage__details CardImage__blank">
+          <h4 className="CardImage__detailSection CardImage__blank">
             by author on 1 January 2000
           </h4>
           <p className="CardImage__description CardImage__blank">
@@ -51,9 +52,16 @@ const CardImage = ({
           <Link {...link}>
             <a className="CardImage__title">{title}</a>
           </Link>
-          <h4 className="CardImage__details">
-            {`by ${author} on ${moment(date).format("MMMM Do, YYYY")}`}
-          </h4>
+          <div className="CardImage__detailSection">
+            <h4 className="CardImage__detail">
+              <FontAwesomeIcon icon="user" />
+              {` ${author} `}
+            </h4>
+            <h4 className="CardImage__detail">
+              <FontAwesomeIcon icon="calendar-alt" />
+              {` ${moment(date).format("MMMM Do, YYYY")}`}
+            </h4>
+          </div>
           <p className="CardImage__description">{children}</p>
         </div>
       </div>

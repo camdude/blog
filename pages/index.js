@@ -13,22 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-
       <main className="">
-        {/* <Section color="white">
-          <h1 className="heading-primary">Heading 1</h1>
-          <h2 className="heading-secondary">Heading 2</h2>
-          <h3 className="heading-tertiary">Heading 3</h3>
-          <p className="paragraph">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-            explicabo ducimus accusantium, facilis quasi pariatur maxime eveniet
-            nihil corrupti quaerat ab sapiente provident ea architecto at ullam
-            similique non rem?
-          </p>
-          <Link href="/">
-            <a className="link">Link</a>
-          </Link>
-        </Section> */}
         <Section color="grey">
           <div className="hero">
             <div className="hero__content">
@@ -65,7 +50,11 @@ export default function Home() {
               <p className="paragraph">
                 As I continue to learn how God wants me to serve him in his
                 kingdom, I am partnering with my home church{" "}
-                <a className="link" href="https://thebranch.org.au/" target="_blank">
+                <a
+                  className="link"
+                  href="https://thebranch.org.au/"
+                  target="_blank"
+                >
                   The Branch Christian Church
                 </a>{" "}
                 as well as{" "}
@@ -100,8 +89,8 @@ export default function Home() {
               <p className="paragraph">
                 Will you consider partnering with me in the gosepel? I am not
                 asking for any financial support but would love for you to pray
-                as I continue this journey. I am plan to send out regular
-                updates of what I'm thinking and learning through my prayer
+                as I continue this journey. I plan to send out updates every now
+                and then of what I'm thinking and learning through my prayer
                 email and blog.
               </p>
             </div>

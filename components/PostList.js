@@ -7,7 +7,7 @@ const DATE_SORT_ICONS = ["sort-numeric-down", "sort-numeric-up"];
 
 const PostList = ({ onChange, filter, tagList, children }) => {
   const router = useRouter();
-  const selectedTag = router.query.tag || "";
+  filter.tag.selected = router.query.tag || "";
 
   return (
     <div className="PostList">
@@ -34,7 +34,7 @@ const PostList = ({ onChange, filter, tagList, children }) => {
                 router.push(`/blog?tag=${e.target.value}`);
               }
             }}
-            defaultValue={selectedTag}
+            value={filter.tag.selected}
           >
             <option value="">All</option>
             {tagList.map((tag) => {
@@ -48,24 +48,22 @@ const PostList = ({ onChange, filter, tagList, children }) => {
         </div>
       </div>
       <div className="PostList__searchMsg">
-        {!selectedTag || (
+        {!filter.tag.selected || (
           <p>
-            Showing results for "<b>{selectedTag}</b>"
-            <PillButton href="/blog">Clear</PillButton>
+            Showing results for "<b>{filter.tag.selected}</b>"
+            <PillButton
+              onClick={() => {
+                filter.tag.selected = "";
+                router.push("/blog");
+              }}
+            >
+              Clear
+            </PillButton>
           </p>
         )}
       </div>
       <div className="PostList__posts">{children}</div>
-      {/* {!(selectedTag && !blogAmount) || (
-        <div className="PostList__errorMsg">
-          <p>
-            Could not find any blogs with tag "<b>{selectedTag}</b>".
-          </p>
-          <p>
-            Please check what you are searching for is correct and try again.
-          </p>
-        </div>
-      )} */}
+      {/* TODO: Add message for when no blogs with tag */}
     </div>
   );
 };

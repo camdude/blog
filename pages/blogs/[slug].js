@@ -1,6 +1,7 @@
 import BlockContent from "@sanity/block-content-to-react";
 import { useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Modal from "../../components/Modal";
@@ -100,14 +101,23 @@ export default function BlogPost({ blog, preview }) {
         />
         <Section color="grey">
           <h1 className="BlogPost__title">{blog.title}</h1>
-          <h4 className="BlogPost__details">
-            {`by ${blog.author.name} on ${moment(blog.date).format(
-              "MMMM Do, YYYY"
-            )}`}
-          </h4>
-          <div className="BlogPost__tagList">
-            <PillButton href={`/blog?tag=${blog.tags}`}>{blog.tags}</PillButton>
+          <div className="BlogPost__detailSection">
+            <h4 className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
+              {`${blog.author.name}`}
+            </h4>
+            <h4 className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="calendar-alt" />
+              {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+            </h4>
+            <div className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
+              <Link href={`/blog?tag=${blog.tags}`}>
+                <a className="BlogPost__tag">{blog.tags}</a>
+              </Link>
+            </div>
           </div>
+
           <div className="BlogPost__content">
             <BlockContent serializers={serializers} blocks={blog.content} />
           </div>

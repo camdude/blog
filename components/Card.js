@@ -1,12 +1,13 @@
 import Link from "next/link";
 import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Card = ({ title, author, date, children, link, placeholder = false }) => {
   if (placeholder) {
     return (
       <div className="Card">
         <a className="Card__title Card__blank">____________________</a>
-        <h4 className="Card__details Card__blank">
+        <h4 className="Card__detailSection Card__blank">
           by author on 1 January 2000
         </h4>
         <p className="Card__description Card__blank">
@@ -23,9 +24,16 @@ const Card = ({ title, author, date, children, link, placeholder = false }) => {
         <Link {...link}>
           <a className="Card__title">{title}</a>
         </Link>
-        <h4 className="Card__details">
-          {`by ${author} on ${moment(date).format("MMMM Do, YYYY")}`}
-        </h4>
+        <div className="Card__detailSection">
+          <h4 className="CardImage__detail">
+            <FontAwesomeIcon icon="user" />
+            {` ${author} `}
+          </h4>
+          <h4 className="Card__detail">
+            <FontAwesomeIcon icon="calendar-alt" />
+            {` ${moment(date).format("MMMM Do, YYYY")}`}
+          </h4>
+        </div>
         <p className="Card__description">{children}</p>
       </div>
     );
