@@ -9,7 +9,7 @@ import Section from "../layouts/Section";
 import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import { useGetBlogsPages } from "../actions/pagination";
 import AlertMessage from "../components/AlertMessage";
-import MailchimpForm from "../components/MailchimpForm";
+import Mailchimp from "../components/Mailchimp";
 
 export default function Blog({ blogs, preview, tags }) {
   const [formOpen, setFormOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function Blog({ blogs, preview, tags }) {
                 >
                   SUBSCRIBE
                 </Button>
-                {formOpen ? <MailchimpForm /> : ""}
+                {formOpen ? <Mailchimp /> : ""}
               </div>
             </div>
           </div>
