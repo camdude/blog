@@ -9,7 +9,7 @@ import Section from "../layouts/Section";
 import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import { useGetBlogsPages } from "../actions/pagination";
 import AlertMessage from "../components/AlertMessage";
-import MailchimpForm from "../components/MailChimpForm";
+import MailchimpForm from "../components/MailchimpForm";
 
 export default function Blog({ blogs, preview, tags }) {
   const [formOpen, setFormOpen] = useState(false);
