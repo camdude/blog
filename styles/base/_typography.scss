@@ -38,10 +38,15 @@ body {
 .paragraph {
   font-size: $default-font-size;
   line-height: 1.2;
+  text-align:justify;
 
   &:not(:last-child) {
     margin-bottom: 1rem;
   }
+}
+
+li {
+  margin-left: 5rem;
 }
 
 .link {

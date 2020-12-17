@@ -9,8 +9,10 @@ import Section from "../layouts/Section";
 import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import { useGetBlogsPages } from "../actions/pagination";
 import AlertMessage from "../components/AlertMessage";
+import MailchimpForm from "../components/MailChimpForm";
 
 export default function Blog({ blogs, preview, tags }) {
+  const [formOpen, setFormOpen] = useState(false);
   const [filter, setFilter] = useState({
     view: { list: 1 },
     date: { asc: 0 },
@@ -45,9 +47,14 @@ export default function Blog({ blogs, preview, tags }) {
                 of this, please click the subscribe button below.
               </p>
               <div className="u-center-text">
-                <Button href="/blog" disabled>
+                <Button
+                  onClick={() => {
+                    setFormOpen(!formOpen);
+                  }}
+                >
                   SUBSCRIBE
                 </Button>
+                {formOpen ? <MailchimpForm /> : ""}
               </div>
             </div>
           </div>

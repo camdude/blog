@@ -63,9 +63,10 @@
   &__paragraph {
     font-size: $default-font-size;
     line-height: 1.2;
+    text-align:justify;
 
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 1.6rem;
     }
 
     & > a {
@@ -78,6 +79,11 @@
         color: $color-primary-light;
       }
     }
+  }
+
+  &__bullet {
+    color: red;
+    margin-left: 5rem;
   }
 
   &__imgContainer {

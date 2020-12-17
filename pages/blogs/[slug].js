@@ -9,7 +9,6 @@ import Footer from "../../layouts/Footer";
 import Navbar from "../../layouts/Navbar";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
-import PillButton from "../../components/PillButton";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AlertMessage from "../../components/AlertMessage";
@@ -27,14 +26,16 @@ const overrides = {
 
 const serializers = {
   types: {
-    block: (props) =>
+    block: (props) => {
+      console.log(props);
       // Check if we have an override for the “style”
-      overrides[props.node.style]
+      return overrides[props.node.style]
         ? // if so, call the function and pass in the children, ignoring
           // the other unnecessary props
           overrides[props.node.style]({ children: props.children })
         : // otherwise, fallback to the provided default with all props
-          BlockContent.defaultSerializers.types.block(props),
+          BlockContent.defaultSerializers.types.block(props);
+    },
     image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
       const [isModalOpen, setIsModalOpen] = useState(false);
       return (
@@ -107,7 +108,10 @@ export default function BlogPost({ blog, preview }) {
               {`${blog.author.name}`}
             </h4>
             <h4 className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="calendar-alt" />
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="calendar-alt"
+              />
               {`${moment(blog.date).format("MMMM Do, YYYY")}`}
             </h4>
             <div className="BlogPost__detail">
@@ -119,6 +123,7 @@ export default function BlogPost({ blog, preview }) {
           </div>
 
           <div className="BlogPost__content">
+            {console.log(blog.content)}
             <BlockContent serializers={serializers} blocks={blog.content} />
           </div>
         </Section>
@@ -143,6 +148,6 @@ export async function getStaticPaths() {
         slug: b.slug,
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
