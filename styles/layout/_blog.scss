@@ -63,7 +63,7 @@
   &__paragraph {
     font-size: $default-font-size;
     line-height: 1.2;
-    text-align:justify;
+    text-align: justify;
 
     &:not(:last-child) {
       margin-bottom: 1.6rem;
@@ -79,6 +79,10 @@
         color: $color-primary-light;
       }
     }
+  }
+
+  &__break {
+    height: 4rem;
   }
 
   &__bullet {

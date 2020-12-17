@@ -41,10 +41,13 @@ export default function Blog({ blogs, preview, tags }) {
               <p className="paragraph">
                 This space is a place for me to collect and share my thoughts of
                 what I am currently thinking and learning. These topics could
-                range from what I am doing in ministry to the cool random things
-                I am doing with my hobbies or anyhting else I might think is
-                worthwhile sharing. If you would like to get updates about any
-                of this, please click the subscribe button below.
+                range from what I am doing in ministry to random things I am
+                doing with my interests and hobbies or otherwise anyhting else I might
+                think is worthwhile sharing.
+              </p>
+              <p className="paragraph">
+                If you would like to get email updates, particularly for what I'm doing
+                with MTS, please click the subscribe button below.
               </p>
               <div className="u-center-text">
                 <Button
@@ -54,7 +57,7 @@ export default function Blog({ blogs, preview, tags }) {
                 >
                   SUBSCRIBE
                 </Button>
-                {formOpen ? <Mailchimp /> : ""}
+                {formOpen ? <Mailchimp title="Cameron Clifford's MTS Updates"/> : ""}
               </div>
             </div>
           </div>

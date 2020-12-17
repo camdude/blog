@@ -43,13 +43,13 @@ export default function Home() {
               <p className="paragraph">
                 Over the past few years while being at University I have
                 discovered how important it is to be activily living the
-                Christian life. I have a passion for seeing others come to know
+                Christian life. I have a passion for seeing people come to know
                 Christ and to be encouraging others to constantly be growing in
                 their own spiritual maturity.
               </p>
               <p className="paragraph">
                 As I continue to learn how God wants me to serve him in his
-                kingdom, I am partnering with my home church{" "}
+                kingdom, I am working with my home church,{" "}
                 <a
                   className="link"
                   href="https://thebranch.org.au/"
@@ -87,15 +87,14 @@ export default function Home() {
             <div className="section-support__content">
               <h2 className="heading-secondary">Support</h2>
               <p className="paragraph">
-                Will you consider partnering with me in the gosepel? I am not
-                asking for any financial support but would love for you to pray
-                as I continue this journey. I plan to send out updates every now
-                and then of what I'm thinking and learning through my prayer
-                email and blog.
+                Will you consider partnering with me? I am not asking for any
+                financial support but would love for you to pray for me as I
+                continue this journey. I plan to send out updates every now and
+                then of what I'm thinking and learning through email updates and my blog.
               </p>
             </div>
             <div className="section-support__buttons">
-              <Button href="/blog?tag=Ministry Update">Prayer Email</Button>
+              <Button href="/subscribe">MTS Email Updates</Button>
               <Button href="/blog">Blog</Button>
             </div>
           </div>

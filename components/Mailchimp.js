@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Mailchimp = () => {
+const Mailchimp = ({ title }) => {
   const u = "32170d69a75ab717fb3221bc2";
   const id = "c4ed95428a";
 
@@ -32,6 +32,7 @@ const Mailchimp = () => {
 
   return (
     <div className="Mailchimp">
+      {!title || <h1 className="Mailchimp__title">{title}</h1>}
       <form
         action={`https://gmail.us7.list-manage.com/subscribe/post?u=${u}&amp;id=${id}`}
         method="POST"
@@ -78,7 +79,7 @@ const Mailchimp = () => {
             type="text"
             name="b_name"
             tabIndex="-1"
-            value=""
+            defaultValue=""
             placeholder="Freddie"
             id="b_name"
           />
@@ -88,7 +89,7 @@ const Mailchimp = () => {
             type="email"
             name="b_email"
             tabIndex="-1"
-            value=""
+            defaultValue=""
             placeholder="youremail@gmail.com"
             id="b_email"
           />

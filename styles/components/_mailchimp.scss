@@ -1,12 +1,21 @@
 .Mailchimp {
-  margin: 2rem;
-  border-radius: 6px;
-  padding: 20px;
+  margin: 2rem 0;
+  border-radius: 0.6rem;
+  padding: 2rem;
   background-color: #ffffff;
   line-height: 150%;
   font-family: Helvetica;
-  font-size: 14px;
+  font-size: 1.4rem;
+  text-align: left;
   color: #333333;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0;
+    line-height: 110%;
+    font-size: 2.8rem;
+  }
 
   &__fields {
     padding: 0 0 6px 0 !important;
@@ -15,33 +24,33 @@
 
   &__fieldGroup {
     position: relative;
-    margin: 3px 0 12px 0;
+    margin: 0.3rem 0 1.2rem 0;
     overflow: hidden;
     background: transparent !important;
   }
 
   &__label {
     display: block;
-    margin-top: 8px;
+    margin-top: 0.8rem;
     width: auto;
     text-align: left;
     line-height: 150%;
     font-weight: bold;
     font-family: Helvetica;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #5d5d5d;
   }
 
   &__input {
     display: block;
     margin: 0;
-    border: 2px solid #d0d0d0 !important;
-    border-radius: 3px;
-    padding: 10px;
+    border: 0.2rem solid #d0d0d0 !important;
+    border-radius: 0.3rem;
+    padding: 1rem;
     width: 100%;
     background: #fff;
     font-family: Helvetica;
-    font-size: 14px;
+    font-size: 1.4rem;
     color: #5d5d5d !important;
 
     &:focus {
@@ -51,23 +60,22 @@
   }
 
   &__submitContainer {
-    text-align: left;
   }
 
   &__submit {
     display: inline-block;
-    margin: 12px 5px 12px 0;
+    margin: 1.2rem 0.5rem 1.2rem 0;
     border: none !important;
-    border-radius: 3px;
-    padding: 0 22px;
+    border-radius: 0.3rem;
+    padding: 0 2.2rem;
     width: auto;
-    height: 42px;
+    height: 4.2rem;
     vertical-align: top;
     background-color: #5d5d5d !important;
-    line-height: 42px;
+    line-height: 4.2rem;
     font-family: "Helvetica", Arial, sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1.6rem;
     text-decoration: none;
     text-align: left;
     white-space: nowrap;

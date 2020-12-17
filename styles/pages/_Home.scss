@@ -84,6 +84,8 @@
   }
 
   &__image {
+    border-radius: .6rem;
+    
     @include respond(tab-port) {
       float: initial;
       max-width: 100%;

@@ -21,13 +21,17 @@ const overrides = {
   h5: (props) => <h3 className="blog__h5" {...props} />,
   h6: (props) => <h3 className="blog__h6" {...props} />,
   blockquote: (props) => <blockquote className="blog__quote" {...props} />,
-  normal: (props) => <p className="blog__paragraph" {...props} />,
+  normal: (props) =>
+    props.children[0] === "" ? (
+      <div className="blog__break" />
+    ) : (
+      <p className="blog__paragraph" {...props} />
+    ),
 };
 
 const serializers = {
   types: {
     block: (props) => {
-      console.log(props);
       // Check if we have an override for the “style”
       return overrides[props.node.style]
         ? // if so, call the function and pass in the children, ignoring
