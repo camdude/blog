@@ -8,10 +8,10 @@ const Footer = () => {
             Email:
             <a
               className="link Footer__link"
-              href="mailto:cameronclifford@thebranch.org.au"
+              href="mailto:contact@cameronclifford.com"
               target="_blank"
             >
-              cameronclifford@thebranch.org.au
+              contact@cameronclifford.com
             </a>
           </li>
           <li className="Footer__listItem">
