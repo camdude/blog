@@ -1,14 +1,14 @@
 import Link from "next/link";
-import Section from "../layouts/Section";
 
 const AlertMessage = () => {
   return (
-    <Section color="grey">
-      <h4>You are in preview mode</h4>
+    <div className="AlertMessage">
+      <h2 className="heading-secondary">You are in preview mode</h2>
+      <br />
       <Link href="/api/exit-preview">
         <a>Leave preview mode</a>
       </Link>
-    </Section>
+    </div>
   );
 };
 

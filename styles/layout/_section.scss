@@ -20,30 +20,78 @@
   &--primary {
     color: $color-white;
     background: $color-primary;
+
+    & p > a {
+      color: $color-tertiary !important;
+
+      &:hover {
+        color: $color-tertiary-dark !important;
+      }
+    }
   }
 
   &--secondary {
     color: $color-white;
-    background: $color-secondary;
+    background: $color-secondary-dark;
+
+    & p > a {
+      color: $color-primary-dark !important;
+
+      &:hover {
+        color: $color-primary !important;
+      }
+    }
   }
 
   &--tertiary {
-    color: $color-black;
+    color: $color-white;
     background: $color-tertiary;
+
+    & p > a {
+      color: $color-primary-light !important;
+
+      &:hover {
+        color: $color-primary !important;
+      }
+    }
   }
 
   &--white {
     color: $color-black;
     background: $color-white;
+
+    & p > a {
+      color: $color-tertiary-dark !important;
+
+      &:hover {
+        color: $color-tertiary-light !important;
+      }
+    }
   }
 
   &--grey {
     color: $color-black;
     background: $color-grey;
+
+    & p > a {
+      color: $color-tertiary-dark !important;
+
+      &:hover {
+        color: $color-tertiary-light !important;
+      }
+    }
   }
 
   &--black {
     color: $color-white;
     background: $color-black;
+
+    & p > a {
+      color: $color-tertiary-dark !important;
+
+      &:hover {
+        color: $color-tertiary-light !important;
+      }
+    }
   }
 }
