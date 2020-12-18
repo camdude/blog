@@ -34,7 +34,7 @@ const Card = ({ title, author, date, children, link, placeholder = false }) => {
             {` ${moment(date).format("MMMM Do, YYYY")}`}
           </h4>
         </div>
-        <p className="Card__description">{children}</p>
+        <p className="Card__description">{children.length > 200 ? children.substr(0, 200) + '...' : children}</p>
       </div>
     );
   }

@@ -62,7 +62,7 @@ const CardImage = ({
               {` ${moment(date).format("MMMM Do, YYYY")}`}
             </h4>
           </div>
-          <p className="CardImage__description">{children}</p>
+          <p className="CardImage__description">{children.length > 150 ? children.substr(0, 150) + '...' : children}</p>
         </div>
       </div>
     );

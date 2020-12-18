@@ -3,6 +3,10 @@
   flex-direction: column;
   width: calc(50% - 1rem);
 
+  @include respond(big-desktop) {
+    width: 30%;
+  }
+
   @include respond(tab-port) {
     width: 100%;
   }
