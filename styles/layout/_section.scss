@@ -21,11 +21,13 @@
     color: $color-white;
     background: $color-primary;
 
-    & p > a {
-      color: $color-tertiary !important;
+    & p > a:link,
+    & p > a:visited {
+      color: $color-tertiary;
 
-      &:hover {
-        color: $color-tertiary-dark !important;
+      &:hover,
+      &:active {
+        color: $color-tertiary-dark;
       }
     }
   }
@@ -34,11 +36,13 @@
     color: $color-white;
     background: $color-secondary-dark;
 
-    & p > a {
-      color: $color-primary-dark !important;
+    & p > a:link,
+    & p > a:visited {
+      color: $color-primary;
 
-      &:hover {
-        color: $color-primary !important;
+      &:hover,
+      &:active {
+        color: $color-primary-dark;
       }
     }
   }
@@ -47,11 +51,13 @@
     color: $color-white;
     background: $color-tertiary;
 
-    & p > a {
-      color: $color-primary-light !important;
+    & p > a:link,
+    & p > a:visited {
+      color: $color-primary-light;
 
-      &:hover {
-        color: $color-primary !important;
+      &:hover,
+      &:active {
+        color: $color-primary;
       }
     }
   }
@@ -60,11 +66,13 @@
     color: $color-black;
     background: $color-white;
 
-    & p > a {
-      color: $color-tertiary-dark !important;
+    & p > a:link,
+    & p > a:visited {
+      color: $color-tertiary-dark;
 
-      &:hover {
-        color: $color-tertiary-light !important;
+      &:hover,
+      &:active {
+        color: $color-tertiary-light;
       }
     }
   }
@@ -73,11 +81,13 @@
     color: $color-black;
     background: $color-grey;
 
-    & p > a {
-      color: $color-tertiary-dark !important;
+    & p > a:link,
+    & p > a:visited {
+      color: $color-tertiary-dark;
 
-      &:hover {
-        color: $color-tertiary-light !important;
+      &:hover,
+      &:active {
+        color: $color-tertiary-light;
       }
     }
   }
@@ -86,11 +96,13 @@
     color: $color-white;
     background: $color-black;
 
-    & p > a {
-      color: $color-tertiary-dark !important;
+    & p > a:link,
+    & p > a:visited {
+      color: $color-tertiary-dark;
 
-      &:hover {
-        color: $color-tertiary-light !important;
+      &:hover,
+      &:active {
+        color: $color-tertiary-light;
       }
     }
   }

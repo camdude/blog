@@ -53,14 +53,12 @@ li {
   &:link,
   &:visited {
     text-decoration: none;
-    color: $color-primary-light;
     cursor: pointer;
   }
 
   &:hover,
   &:active {
     text-decoration: underline;
-    color: $color-secondary-dark;
   }
 }
 

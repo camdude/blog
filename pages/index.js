@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import Button from "../components/Button";
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
@@ -66,7 +65,7 @@ export default function Home() {
               </p>
             </div>
             <div className="section-about__partner">
-              <p className="u-center-text u-italic-text">Partnering with</p>
+              {/* <p className="u-center-text u-italic-text">Partnering with</p> */}
               <div className="section-about__logos">
                 <div className="section-about__image">
                   <a href="https://thebranch.org.au/" target="_blank">
@@ -88,9 +87,10 @@ export default function Home() {
               <h2 className="heading-secondary">Support</h2>
               <p className="paragraph">
                 Will you consider partnering with me? I am not asking for any
-                financial support but would love for you to pray for me as I
+                financial support but would love for your support in prayer as I
                 continue this journey. I plan to send out updates every now and
-                then of what I'm thinking and learning through email updates and my blog.
+                then of what I'm thinking and learning through email updates and
+                my blog.
               </p>
             </div>
             <div className="section-support__buttons">

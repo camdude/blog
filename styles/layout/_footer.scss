@@ -1,19 +1,23 @@
 .Footer {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 4rem 20%;
-  width: 100%;
-  background: $color-black;
-  color: $color-grey-light;
+  display: block;
 
-  @include respond(tab-land) {
-    padding: 6rem 10%;
-  }
+  &__columns {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background: $color-black;
+    color: $color-grey-light;
+    padding: 4rem 20%;
+    width: 100%;
 
-  @include respond(tab-port) {
-    flex-direction: column;
-    padding: 3rem 4rem;
+    @include respond(tab-land) {
+      padding: 6rem 10%;
+    }
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      padding: 3rem 4rem;
+    }
   }
 
   &__section {
@@ -39,6 +43,23 @@
   }
 
   &__link {
-    float: right;
+    text-decoration: none;
+    color: $color-primary-light;
+  }
+
+  &__copyright {
+    padding: .5rem 20%;
+    background-color: $color-grey-dark;
+    color: $color-grey-light;
+    font-size: 1.2rem;
+    text-align: center;
+
+    @include respond(tab-land) {
+      padding: .5rem 10%;
+    }
+
+    @include respond(tab-port) {
+      padding: .5rem 4rem;
+    }
   }
 }
