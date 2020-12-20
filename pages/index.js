@@ -16,10 +16,8 @@ export default function Home() {
         <Section color="grey">
           <div className="hero">
             <div className="hero__content">
-              <h3 className="hero__subheading">Lorem ipsum</h3>
-              <h1 className="hero__heading">
-                dolor sit amet consectetur adipisicing elit.
-              </h1>
+              <h1 className="hero__heading">To be equipped with everything good for doing his will, to whom be glory for ever.</h1>
+              <h3 className="hero__subheading">Hebrews 13:21</h3>
               <div className="hero__cta">
                 <Button href="/#support">Partner With Me</Button>
               </div>
@@ -37,7 +35,7 @@ export default function Home() {
                 Hi, I'm Cameron, a recent ICT graduate at UTAS currently living
                 in Launceston. I enjoy playing clarinet in concert bands,
                 playing board games, bushwalking, hanging out with friends and
-                more recently started apreciating astronomy and stagazing.
+                more recently started apreciating astronomy.
               </p>
               <p className="paragraph">
                 Over the past few years while being at University I have

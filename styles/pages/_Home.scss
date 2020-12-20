@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-right: 4rem;
+    margin-right: 6rem;
     width: 60%;
 
     @include respond(tab-port) {
@@ -23,37 +23,25 @@
     }
   }
 
-  &__subheading {
-    margin-bottom: 2rem;
-    padding-top: 6rem;
-    padding-right: 4rem;
-    font-size: 3rem;
-    font-weight: 400;
-    color: $color-grey-dark;
-
-    @include respond(tab-port) {
-      padding: 0;
-    }
-
-    @include respond(phone) {
-      margin-bottom: .5rem;
-      font-size: 2rem;
-    }
-  }
-
   &__heading {
-    margin-bottom: 3rem;
-    padding-right: 4rem;
-    font-size: 4rem;
+    margin-bottom: 2rem;
+    padding-top: 4rem;
+    width: 100%;
+    text-align: center;
+    font-size: 3.2rem;
     font-weight: 700;
     font-style: italic;
     line-height: 1.25;
-    text-transform: uppercase;
     color: $color-black;
 
-    @include respond(tab-port) {
+    @include respond(big-desktop) {
       margin-bottom: 1rem;
-      padding: 0;
+      padding-top: 26rem;
+    }
+
+    @include respond(tab-land) {
+      margin-bottom: 1rem;
+      padding-top: 4rem;
     }
 
     @include respond(phone) {
@@ -61,9 +49,23 @@
     }
   }
 
+  &__subheading {
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: right;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: $color-grey-dark;
+
+    @include respond(phone) {
+      margin-bottom: .5rem;
+      font-size: 2rem;
+    }
+  }
+
   &__cta {
     margin: auto;
-    margin-top: 8rem;
+    margin-top: 4rem;
 
     @include respond(tab-port) {
       margin: 0;
