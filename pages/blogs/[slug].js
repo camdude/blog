@@ -46,8 +46,8 @@ const serializers = {
         <React.Fragment>
           {isModalOpen ? (
             <Modal closeModal={() => setIsModalOpen(false)}>
-              <img src={urlFor({ asset, crop, hotspot }).url()} />
-              <div className="u-center-text u-italic-text">{alt}</div>
+              <img className="blog__image--full" src={urlFor({ asset, crop, hotspot }).url()} />
+              <div className="blog__alt u-center-text">{alt}</div>
             </Modal>
           ) : (
             ""
