@@ -16,12 +16,18 @@ export default function Home() {
         <Section color="grey">
           <div className="hero">
             <div className="hero__content">
-              <h1 className="hero__heading">To be equipped with everything good for doing his will, to whom be glory for ever.</h1>
-              <h3 className="hero__subheading">Hebrews 13:21</h3>
+              <div className="hero__headingContainer">
+                <h1 className="hero__heading">
+                  To be equipped with everything good for doing his will, to
+                  whom be glory for ever.
+                </h1>
+                <h2 className="hero__subheading">Hebrews 13:21</h2>
+              </div>
               <div className="hero__cta">
                 <Button href="/#support">Partner With Me</Button>
               </div>
             </div>
+
             <div className="hero__portrait">
               <img className="hero__image" src="/portrait.jpg" alt="" />
             </div>
@@ -87,7 +93,7 @@ export default function Home() {
                 Will you consider partnering with me? I am not asking for any
                 financial support but would love for your support in prayer as I
                 continue this journey. I plan to send out updates every now and
-                then of what I'm thinking and learning through email updates and
+                then of what I'm thinking and learning through email and
                 my blog.
               </p>
             </div>

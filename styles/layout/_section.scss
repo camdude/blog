@@ -38,11 +38,11 @@
 
     & p > a:link,
     & p > a:visited {
-      color: $color-primary;
+      color: $color-tertiary;
 
       &:hover,
       &:active {
-        color: $color-primary-dark;
+        color: $color-black;
       }
     }
   }
