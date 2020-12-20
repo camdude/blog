@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from "moment";
+
 const Footer = () => {
   return (
     <div className="Footer">
@@ -6,23 +9,30 @@ const Footer = () => {
           <h4 className="Footer__heading">Contact</h4>
           <ul className="Footer__list">
             <li className="Footer__listItem">
-              Email:
               <a
-                className="Footer__link link u-float-right"
-                href="mailto:cameronclifford@thebranch.org.au"
-                target="_blank"
+                className="Footer__link link"
+                href="mailto:contact@cameronclifford.com"
+                target="blank"
               >
-                cameronclifford@thebranch.org.au
+                <FontAwesomeIcon icon="envelope" /> Email
               </a>
             </li>
             <li className="Footer__listItem">
-              Facebook:
               <a
-                className="Footer__link link u-float-right"
+                className="Footer__link link"
                 href="https://fb.me/cameron.clifford.1654"
-                target="_blank"
+                target="blank"
               >
-                fb.me/cameron.clifford.1654
+                <FontAwesomeIcon icon={["fab", "facebook-square"]} /> Facebook
+              </a>
+            </li>
+            <li className="Footer__listItem">
+              <a
+                className="Footer__link link"
+                href="https://github.com/camdude"
+                target="blank"
+              >
+                <FontAwesomeIcon icon={["fab", "github"]} /> Github
               </a>
             </li>
           </ul>
@@ -48,8 +58,10 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-
-      <div className="Footer__copyright">Copyright Cameron Clifford © 2020</div>
+      <div className="Footer__copyright">
+        Copyright © 2020-{moment().format("YYYY")} Cameron Clifford, All rights
+        reserved.
+      </div>
     </div>
   );
 };

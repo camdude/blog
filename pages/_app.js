@@ -11,8 +11,11 @@ import {
   faSpinner,
   faUser,
   faCalendarAlt,
-  faTag
+  faTag,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons"
 
 library.add(
   faBars,
@@ -26,7 +29,10 @@ library.add(
   faSpinner,
   faUser,
   faCalendarAlt,
-  faTag
+  faTag,
+  faEnvelope,
+  faFacebookSquare,
+  faGithub
 );
 
 import "@fortawesome/fontawesome-svg-core/styles.css";

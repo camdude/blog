@@ -41,11 +41,11 @@ export default function Home() {
                 Hi, I'm Cameron, a recent ICT graduate at UTAS currently living
                 in Launceston. I enjoy playing clarinet in concert bands,
                 playing board games, bushwalking, hanging out with friends and
-                more recently started apreciating astronomy.
+                more recently started appreciating astronomy.
               </p>
               <p className="paragraph">
                 Over the past few years while being at University I have
-                discovered how important it is to be activily living the
+                discovered how important it is to be actively living the
                 Christian life. I have a passion for seeing people come to know
                 Christ and to be encouraging others to constantly be growing in
                 their own spiritual maturity.

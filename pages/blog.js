@@ -39,10 +39,10 @@ export default function Blog({ blogs, preview, tags }) {
             <div className="section-second__content">
               <h2 className="heading-secondary">Blog</h2>
               <p className="paragraph">
-                This space is a place for me to collect and share my thoughts of
+                This space is a place for me to collect and share my thoughts on
                 what I am currently thinking and learning. These topics could
                 range from what I am doing in ministry to the random interests I
-                have or anyhting else I might think is worthwhile sharing.
+                have or anything else I might think is worthwhile sharing.
               </p>
               <p className="paragraph">
                 If you would like to get email updates, particularly for what

@@ -23,7 +23,7 @@ export default function Subscribe({ blogs, preview, tags }) {
             <div className="section-second__content">
               <h2 className="heading-secondary">MTS Updates</h2>
               <p className="paragraph">
-                Thankyou, I really appreciate your support. To subscribe to my
+                Thank you, I really appreciate your support. To subscribe to my
                 email updates about what I'm doing with MTS, please fill out the
                 form below.
               </p>
