@@ -96,6 +96,13 @@ export default function BlogPost({ blog, preview }) {
       <Head>
         <title>{`Cameron Clifford | ${blog.title}`}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={blog.description > 160 ? blog.description.substr(0, 160) + '...' : blog.description}/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content={blog.title}/>
+        <meta property="og:description" content={blog.description > 160 ? blog.description.substr(0, 160) + '...' : blog.description}/>
+        <meta property="og:image" content={urlFor(blog.coverImage).url()}/>
+        <meta property="og:url" content={`cameronclifford.com/blogs/${blog.slug}`}/>
+        <meta property="og:site_name" content="cameronclifford.com" />
       </Head>
       <Navbar />
       <main className="">

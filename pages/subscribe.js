@@ -13,6 +13,12 @@ export default function Subscribe({ blogs, preview, tags }) {
       <Head>
         <title>Cameron Clifford | Subscribe</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="To subscribe to my
+                email updates about what I'm doing with MTS, please fill out this
+                form."
+        />
       </Head>
       <Navbar />
 

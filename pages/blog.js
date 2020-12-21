@@ -29,6 +29,7 @@ export default function Blog({ blogs, preview, tags }) {
       <Head>
         <title>Cameron Clifford | Blog</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="View all my blog posts here." />
       </Head>
       <Navbar />
 

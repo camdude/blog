@@ -10,6 +10,10 @@ export default function Home() {
       <Head>
         <title>Cameron Clifford</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Welcome to my personal website. Check out my blog to get updates on what I am currently thinking and doing."
+        />
       </Head>
       <Navbar />
       <main className="">
@@ -93,8 +97,8 @@ export default function Home() {
                 Will you consider partnering with me? I am not asking for any
                 financial support but would love for your support in prayer as I
                 continue this journey. I plan to send out updates every now and
-                then of what I'm thinking and learning through email and
-                my blog.
+                then of what I'm thinking and learning through email and my
+                blog.
               </p>
             </div>
             <div className="section-support__buttons">
