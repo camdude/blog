@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>
+			http://cameronclifford.com
+		</loc>
+		<lastmod>
+			2020-12-21
+		</lastmod>
+	</url>
+	<url>
+		<loc>
+			https://cameronclifford.com/blog
+		</loc>
+		<lastmod>
+			2020-12-21
+		</lastmod>
+	</url>
+	<url>
+		<loc>
+			https://cameronclifford.com/subscribe
+		</loc>
+		<lastmod>
+			2020-12-21
+		</lastmod>
+	</url>
+</urlset>
