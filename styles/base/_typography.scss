@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Nobile:wght@400;500;700&display=swap");
-
 body {
-  font-family: "Nobile", sans-serif;
+  font-family: $default-font-family;
   font-weight: 400;
   line-height: 1.6;
   font-size: $default-font-size;
-  color: $color-grey-dark;
+  color: $default-font-color;
 }
 
 .heading-primary,
@@ -38,7 +36,7 @@ body {
 .paragraph {
   font-size: $default-font-size;
   line-height: 1.2;
-  text-align:justify;
+  text-align: justify;
 
   &:not(:last-child) {
     margin-bottom: 1rem;

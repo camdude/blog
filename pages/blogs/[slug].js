@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Modal from "../../components/Modal";
-import Footer from "../../layouts/Footer";
-import Navbar from "../../layouts/Navbar";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
 import moment from "moment";
@@ -81,87 +79,74 @@ export default function BlogPost({ blog, preview }) {
   }
   if (router.isFallback) {
     return (
-      <React.Fragment>
-        <Navbar />
-        <main className="">
-          <Section color="grey">
-            <h1 className="u-center-text">
-              Loading <FontAwesomeIcon icon="spinner" spin />
-            </h1>
-          </Section>
-        </main>
-        <Footer />
-      </React.Fragment>
+      <Layout>
+        <Section color="grey">
+          <h1 className="u-center-text">
+            Loading <FontAwesomeIcon icon="spinner" spin />
+          </h1>
+        </Section>
+      </Layout>
     );
   }
 
   return (
-    <Layout>
-      <div className="">
-        <Head>
-          <title>{`Cameron Clifford | ${blog.title}`}</title>
-          <link rel="icon" href="/favicon.ico" />
-          <meta
-            name="description"
-            content={
-              blog.description > 160
-                ? blog.description.substr(0, 160) + "..."
-                : blog.description
-            }
-          />
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content={blog.title} />
-          <meta
-            property="og:description"
-            content={
-              blog.description > 160
-                ? blog.description.substr(0, 160) + "..."
-                : blog.description
-            }
-          />
-          <meta property="og:image" content={urlFor(blog.coverImage).url()} />
-          <meta
-            property="og:url"
-            content={`cameronclifford.com/blogs/${blog.slug}`}
-          />
-          <meta property="og:site_name" content="cameronclifford.com" />
-        </Head>
-        <Navbar />
-        <main className="">
-          {preview && <AlertMessage />}
-          <img
-            className="BlogPost__coverImage"
-            src={urlFor(blog.coverImage).url()}
-          />
-          <Section color="grey">
-            <h1 className="BlogPost__title">{blog.title}</h1>
-            <div className="BlogPost__detailSection">
-              <h4 className="BlogPost__detail">
-                <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
-                {`${blog.author.name}`}
-              </h4>
-              <h4 className="BlogPost__detail">
-                <FontAwesomeIcon
-                  className="BlogPost__detailIcon"
-                  icon="calendar-alt"
-                />
-                {`${moment(blog.date).format("MMMM Do, YYYY")}`}
-              </h4>
-              <div className="BlogPost__detail">
-                <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
-                <Link href={`/blog?tag=${blog.tags}`}>
-                  <a className="BlogPost__tag">{blog.tags}</a>
-                </Link>
-              </div>
-            </div>
+    <Layout
+      title={`Cameron Clifford | ${blog.title}`}
+      desc={
+        blog.description > 160
+          ? blog.description.substr(0, 160) + "..."
+          : blog.description
+      }
+    >
+      <Head>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={blog.title} />
+        <meta
+          property="og:description"
+          content={
+            blog.description > 160
+              ? blog.description.substr(0, 160) + "..."
+              : blog.description
+          }
+        />
+        <meta property="og:image" content={urlFor(blog.coverImage).url()} />
+        <meta
+          property="og:url"
+          content={`cameronclifford.com/blogs/${blog.slug}`}
+        />
+        <meta property="og:site_name" content="cameronclifford.com" />
+      </Head>
+      {preview && <AlertMessage />}
+      <img
+        className="BlogPost__coverImage"
+        src={urlFor(blog.coverImage).url()}
+      />
+      <Section color="grey">
+        <h1 className="BlogPost__title">{blog.title}</h1>
+        <div className="BlogPost__detailSection">
+          <h4 className="BlogPost__detail">
+            <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
+            {`${blog.author.name}`}
+          </h4>
+          <h4 className="BlogPost__detail">
+            <FontAwesomeIcon
+              className="BlogPost__detailIcon"
+              icon="calendar-alt"
+            />
+            {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+          </h4>
+          <div className="BlogPost__detail">
+            <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
+            <Link href={`/blog?tag=${blog.tags}`}>
+              <a className="BlogPost__tag">{blog.tags}</a>
+            </Link>
+          </div>
+        </div>
 
-            <div className="BlogPost__content">
-              <BlockContent serializers={serializers} blocks={blog.content} />
-            </div>
-          </Section>
-        </main>
-        <Footer />
-      </div>
+        <div className="BlogPost__content">
+          <BlockContent serializers={serializers} blocks={blog.content} />
+        </div>
+      </Section>
     </Layout>
   );
 }

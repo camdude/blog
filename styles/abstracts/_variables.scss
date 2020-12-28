@@ -24,10 +24,9 @@ $color-grey-darker: #444444;
 $color-black: #353535;
 
 // Font
-$default-font-size: 1.6rem;
+@import url("https://fonts.googleapis.com/css2?family=Nobile:wght@400;500;700&display=swap");
 
-// Grid
-$grid-width: 114rem;
-$gutter-vertical: 8rem;
-$gutter-vertical-small: 4rem;
-$gutter-horizontal: 6rem;
+$default-font-family: "Nobile", sans-serif;
+$default-font-size: 1.6rem;
+$default-font-color: $color-grey-dark;
+
