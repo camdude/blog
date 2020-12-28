@@ -12,6 +12,7 @@ import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AlertMessage from "../../components/AlertMessage";
+import Layout from "../../layouts/Layout";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -46,7 +47,10 @@ const serializers = {
         <React.Fragment>
           {isModalOpen ? (
             <Modal closeModal={() => setIsModalOpen(false)}>
-              <img className="blog__image--full" src={urlFor({ asset, crop, hotspot }).url()} />
+              <img
+                className="blog__image--full"
+                src={urlFor({ asset, crop, hotspot }).url()}
+              />
               <div className="blog__alt u-center-text">{alt}</div>
             </Modal>
           ) : (
@@ -92,54 +96,73 @@ export default function BlogPost({ blog, preview }) {
   }
 
   return (
-    <div className="">
-      <Head>
-        <title>{`Cameron Clifford | ${blog.title}`}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content={blog.description > 160 ? blog.description.substr(0, 160) + '...' : blog.description}/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content={blog.title}/>
-        <meta property="og:description" content={blog.description > 160 ? blog.description.substr(0, 160) + '...' : blog.description}/>
-        <meta property="og:image" content={urlFor(blog.coverImage).url()}/>
-        <meta property="og:url" content={`cameronclifford.com/blogs/${blog.slug}`}/>
-        <meta property="og:site_name" content="cameronclifford.com" />
-      </Head>
-      <Navbar />
-      <main className="">
-        {preview && <AlertMessage />}
-        <img
-          className="BlogPost__coverImage"
-          src={urlFor(blog.coverImage).url()}
-        />
-        <Section color="grey">
-          <h1 className="BlogPost__title">{blog.title}</h1>
-          <div className="BlogPost__detailSection">
-            <h4 className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
-              {`${blog.author.name}`}
-            </h4>
-            <h4 className="BlogPost__detail">
-              <FontAwesomeIcon
-                className="BlogPost__detailIcon"
-                icon="calendar-alt"
-              />
-              {`${moment(blog.date).format("MMMM Do, YYYY")}`}
-            </h4>
-            <div className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
-              <Link href={`/blog?tag=${blog.tags}`}>
-                <a className="BlogPost__tag">{blog.tags}</a>
-              </Link>
+    <Layout>
+      <div className="">
+        <Head>
+          <title>{`Cameron Clifford | ${blog.title}`}</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta
+            name="description"
+            content={
+              blog.description > 160
+                ? blog.description.substr(0, 160) + "..."
+                : blog.description
+            }
+          />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={blog.title} />
+          <meta
+            property="og:description"
+            content={
+              blog.description > 160
+                ? blog.description.substr(0, 160) + "..."
+                : blog.description
+            }
+          />
+          <meta property="og:image" content={urlFor(blog.coverImage).url()} />
+          <meta
+            property="og:url"
+            content={`cameronclifford.com/blogs/${blog.slug}`}
+          />
+          <meta property="og:site_name" content="cameronclifford.com" />
+        </Head>
+        <Navbar />
+        <main className="">
+          {preview && <AlertMessage />}
+          <img
+            className="BlogPost__coverImage"
+            src={urlFor(blog.coverImage).url()}
+          />
+          <Section color="grey">
+            <h1 className="BlogPost__title">{blog.title}</h1>
+            <div className="BlogPost__detailSection">
+              <h4 className="BlogPost__detail">
+                <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
+                {`${blog.author.name}`}
+              </h4>
+              <h4 className="BlogPost__detail">
+                <FontAwesomeIcon
+                  className="BlogPost__detailIcon"
+                  icon="calendar-alt"
+                />
+                {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+              </h4>
+              <div className="BlogPost__detail">
+                <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
+                <Link href={`/blog?tag=${blog.tags}`}>
+                  <a className="BlogPost__tag">{blog.tags}</a>
+                </Link>
+              </div>
             </div>
-          </div>
 
-          <div className="BlogPost__content">
-            <BlockContent serializers={serializers} blocks={blog.content} />
-          </div>
-        </Section>
-      </main>
-      <Footer />
-    </div>
+            <div className="BlogPost__content">
+              <BlockContent serializers={serializers} blocks={blog.content} />
+            </div>
+          </Section>
+        </main>
+        <Footer />
+      </div>
+    </Layout>
   );
 }
 
@@ -147,7 +170,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
   const blog = await getBlogBySlug(params.slug, preview);
   return {
     props: { blog, preview },
-    revalidate: 1
+    revalidate: 1,
   };
 }
 

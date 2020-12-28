@@ -10,6 +10,7 @@ import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import { useGetBlogsPages } from "../actions/pagination";
 import AlertMessage from "../components/AlertMessage";
 import Mailchimp from "../components/Mailchimp";
+import Layout from "../layouts/Layout";
 
 export default function Blog({ blogs, preview, tags }) {
   const [formOpen, setFormOpen] = useState(false);
@@ -25,69 +26,75 @@ export default function Blog({ blogs, preview, tags }) {
   });
 
   return (
-    <div className="Blog">
-      <Head>
-        <title>Cameron Clifford | Blog</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="View all my blog posts here." />
-      </Head>
-      <Navbar />
+    <Layout>
+      <div className="Blog">
+        <Head>
+          <title>Cameron Clifford | Blog</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content="View all my blog posts here." />
+        </Head>
+        <Navbar />
 
-      <main>
-        {preview && <AlertMessage />}
-        <Section color="secondary">
-          <div id="about" className="section-second">
-            <div className="section-second__content">
-              <h2 className="heading-secondary">Blog</h2>
-              <p className="paragraph">
-                This space is a place for me to collect and share my thoughts on
-                what I am currently thinking and learning. These topics could
-                range from what I am doing in ministry to the random interests I
-                have or anything else I might think is worthwhile sharing.
-              </p>
-              <p className="paragraph">
-                If you would like to get email updates, particularly for what
-                I'm doing with MTS, please click the subscribe button below.
-              </p>
-              <div className="u-center-text">
-                <Button
-                  onClick={() => {
-                    setFormOpen(!formOpen);
-                  }}
-                >
-                  SUBSCRIBE
-                </Button>
-                {formOpen ? (
-                  <Mailchimp title="Cameron Clifford's MTS Updates" />
-                ) : (
-                  ""
-                )}
+        <main>
+          {preview && <AlertMessage />}
+          <Section color="secondary">
+            <div id="about" className="section-second">
+              <div className="section-second__content">
+                <h2 className="heading-secondary">Blog</h2>
+                <p className="paragraph">
+                  This space is a place for me to collect and share my thoughts
+                  on what I am currently thinking and learning. These topics
+                  could range from what I am doing in ministry to the random
+                  interests I have or anything else I might think is worthwhile
+                  sharing.
+                </p>
+                <p className="paragraph">
+                  If you would like to get email updates, particularly for what
+                  I'm doing with MTS, please click the subscribe button below.
+                </p>
+                <div className="u-center-text">
+                  <Button
+                    onClick={() => {
+                      setFormOpen(!formOpen);
+                    }}
+                  >
+                    SUBSCRIBE
+                  </Button>
+                  {formOpen ? (
+                    <Mailchimp title="Cameron Clifford's MTS Updates" />
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </Section>
-        <Section color="grey">
-          <PostList
-            onChange={(option, value) =>
-              setFilter({ ...filter, [option]: value })
-            }
-            filter={filter}
-            tagList={tags}
-          >
-            {pages}
-          </PostList>
-          <Button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}>
-            {isLoadingMore
-              ? "..."
-              : isReachingEnd
-              ? "No More Blogs"
-              : "More Blogs"}
-          </Button>
-        </Section>
-      </main>
+          </Section>
+          <Section color="grey">
+            <PostList
+              onChange={(option, value) =>
+                setFilter({ ...filter, [option]: value })
+              }
+              filter={filter}
+              tagList={tags}
+            >
+              {pages}
+            </PostList>
+            <Button
+              onClick={loadMore}
+              disabled={isReachingEnd || isLoadingMore}
+            >
+              {isLoadingMore
+                ? "..."
+                : isReachingEnd
+                ? "No More Blogs"
+                : "More Blogs"}
+            </Button>
+          </Section>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Layout>
   );
 }
 

@@ -6,41 +6,44 @@ import Section from "../layouts/Section";
 import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import AlertMessage from "../components/AlertMessage";
 import Mailchimp from "../components/Mailchimp";
+import Layout from "../layouts/Layout";
 
 export default function Subscribe({ blogs, preview, tags }) {
   return (
-    <div className="Blog">
-      <Head>
-        <title>Cameron Clifford | Subscribe</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="To subscribe to my
+    <Layout>
+      <div className="Blog">
+        <Head>
+          <title>Cameron Clifford | Subscribe</title>
+          <link rel="icon" href="/favicon.ico" />
+          <meta
+            name="description"
+            content="To subscribe to my
                 email updates about what I'm doing with MTS, please fill out this
                 form."
-        />
-      </Head>
-      <Navbar />
+          />
+        </Head>
+        <Navbar />
 
-      <main>
-        {preview && <AlertMessage />}
-        <Section color="secondary">
-          <div id="about" className="section-second">
-            <div className="section-second__content">
-              <h2 className="heading-secondary">MTS Updates</h2>
-              <p className="paragraph">
-                Thank you, I really appreciate your support. To subscribe to my
-                email updates about what I'm doing with MTS, please fill out the
-                form below.
-              </p>
-              <Mailchimp />
+        <main>
+          {preview && <AlertMessage />}
+          <Section color="secondary">
+            <div id="about" className="section-second">
+              <div className="section-second__content">
+                <h2 className="heading-secondary">MTS Updates</h2>
+                <p className="paragraph">
+                  Thank you, I really appreciate your support. To subscribe to
+                  my email updates about what I'm doing with MTS, please fill
+                  out the form below.
+                </p>
+                <Mailchimp />
+              </div>
             </div>
-          </div>
-        </Section>
-      </main>
+          </Section>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Layout>
   );
 }
 

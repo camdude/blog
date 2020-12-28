@@ -12,10 +12,11 @@ import {
   faUser,
   faCalendarAlt,
   faTag,
-  faEnvelope
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-
-import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons"
+import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "../styles/index.scss";
 
 library.add(
   faBars,
@@ -34,9 +35,6 @@ library.add(
   faFacebookSquare,
   faGithub
 );
-
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/index.scss";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
