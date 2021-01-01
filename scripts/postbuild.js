@@ -48,7 +48,7 @@ function buildRss(pageFiles, pagesDir) {
         data.favicon = $(`link[sizes='64x64']`).attr("href");
       }
       // only add to RSS if the pathname is '/blog/*'
-      if (pathname.startsWith("blog\\") && pathname != "blog/[slug]") {
+      if (pathname.startsWith("blog/") && pathname != "blog/[slug]") {
         const htmlString = fs.readFileSync(file, "utf8");
         const $ = cheerio.load(htmlString);
         // remove the placeholder image for lazy loading images
