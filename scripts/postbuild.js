@@ -124,7 +124,7 @@ function getBuildId() {
 
 function main() {
   // 'pages' location in Vercel environment
-  let pagesDir = "./.next/server/pages";
+  let pagesDir = "./.next/serverless/pages";
   if (!fs.existsSync(pagesDir)) {
     // 'pages' location in local environment
     pagesDir = `./.next/server/pages`;
