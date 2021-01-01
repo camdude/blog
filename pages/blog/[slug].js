@@ -79,7 +79,15 @@ export default function BlogPost({ blog, preview }) {
   }
   if (router.isFallback) {
     return (
-      <Layout>
+      <Layout
+        meta={{
+          title: "",
+          type: "",
+          image: "",
+          url: "",
+          desc: "",
+        }}
+      >
         <Section color="grey">
           <h1 className="u-center-text">
             Loading <FontAwesomeIcon icon="spinner" spin />
@@ -91,62 +99,55 @@ export default function BlogPost({ blog, preview }) {
 
   return (
     <Layout
-      title={`Cameron Clifford | ${blog.title}`}
-      desc={
-        blog.description > 160
-          ? blog.description.substr(0, 160) + "..."
-          : blog.description
-      }
+      meta={{
+        title: blog.title,
+        type: "article",
+        image: urlFor(blog.coverImage).url(),
+        url: `/blog/${blog.slug}`,
+        desc:
+          blog.description > 160
+            ? blog.description.substr(0, 160) + "..."
+            : blog.description,
+      }}
     >
       <Head>
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={blog.title} />
-        <meta
-          property="og:description"
-          content={
-            blog.description > 160
-              ? blog.description.substr(0, 160) + "..."
-              : blog.description
-          }
-        />
-        <meta property="og:image" content={urlFor(blog.coverImage).url()} />
-        <meta
-          property="og:url"
-          content={`cameronclifford.com/blogs/${blog.slug}`}
-        />
-        <meta property="og:site_name" content="cameronclifford.com" />
+        <meta property="og:article:published_time" content={blog.date} />
+        <meta property="og:article:author" content="Cameron Clifford" />
+        <meta property="og:article:tag" content={blog.tags} />
       </Head>
       {preview && <AlertMessage />}
-      <img
-        className="BlogPost__coverImage"
-        src={urlFor(blog.coverImage).url()}
-      />
-      <Section color="grey">
-        <h1 className="BlogPost__title">{blog.title}</h1>
-        <div className="BlogPost__detailSection">
-          <h4 className="BlogPost__detail">
-            <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
-            {`${blog.author.name}`}
-          </h4>
-          <h4 className="BlogPost__detail">
-            <FontAwesomeIcon
-              className="BlogPost__detailIcon"
-              icon="calendar-alt"
-            />
-            {`${moment(blog.date).format("MMMM Do, YYYY")}`}
-          </h4>
-          <div className="BlogPost__detail">
-            <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
-            <Link href={`/blog?tag=${blog.tags}`}>
-              <a className="BlogPost__tag">{blog.tags}</a>
-            </Link>
+      <article id="Content">
+        <img
+          className="BlogPost__coverImage"
+          src={urlFor(blog.coverImage).url()}
+        />
+        <Section color="grey">
+          <h1 className="BlogPost__title">{blog.title}</h1>
+          <div className="BlogPost__detailSection">
+            <h4 className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
+              {`${blog.author.name}`}
+            </h4>
+            <h4 className="BlogPost__detail">
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="calendar-alt"
+              />
+              {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+            </h4>
+            <div className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
+              <Link href={`/blog?tag=${blog.tags}`}>
+                <a className="BlogPost__tag">{blog.tags}</a>
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="BlogPost__content">
-          <BlockContent serializers={serializers} blocks={blog.content} />
-        </div>
-      </Section>
+          <div className="BlogPost__content">
+            <BlockContent serializers={serializers} blocks={blog.content} />
+          </div>
+        </Section>
+      </article>
     </Layout>
   );
 }

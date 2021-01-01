@@ -7,10 +7,13 @@ import Layout from "../layouts/Layout";
 export default function Subscribe({ blogs, preview, tags }) {
   return (
     <Layout
-      title="Cameron Clifford | Subscribe"
-      desc="To subscribe to my
-    email updates about what I'm doing with MTS, please fill out this
-    form."
+      meta={{
+        title: "Subscribe",
+        type: "website",
+        url: "/subscribe",
+        desc:
+          "To subscribe to my email updates about what I'm doing with MTS, please fill out this form.",
+      }}
     >
       {preview && <AlertMessage />}
       <Section color="secondary">

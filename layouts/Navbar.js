@@ -18,7 +18,7 @@ const Navbar = () => {
             }}
           />
         </div>
-        <h1 className="Navbar__title">Cameron Clifford</h1>
+        <div className="Navbar__title">Cameron Clifford</div>
       </div>
       <ul className={`Navbar__list ${navOpen ? "Navbar__list--open" : ""}`}>
         <li className="Navbar__item">

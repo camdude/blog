@@ -5,8 +5,13 @@ import Section from "../layouts/Section";
 export default function Home() {
   return (
     <Layout
-      title="Cameron Clifford"
-      desc="Welcome to my personal website. Check out my blog to get updates on what I am currently thinking and doing."
+      meta={{
+        title: "Home",
+        type: "website",
+        url: "/",
+        desc:
+          "Welcome to my personal website. Check out my blog to get updates on what I am currently thinking and doing.",
+      }}
     >
       <Section color="grey">
         <div className="hero">

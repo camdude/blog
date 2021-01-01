@@ -23,7 +23,14 @@ export default function Blog({ blogs, preview, tags }) {
   });
 
   return (
-    <Layout title="Cameron Clifford | Blog" desc="View all my blog posts here.">
+    <Layout
+      meta={{
+        title: "Blog",
+        type: "website",
+        url: "/blog",
+        desc: "View all my blog posts here.",
+      }}
+    >
       {preview && <AlertMessage />}
       <Section color="secondary">
         <div id="about" className="section-second">

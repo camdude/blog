@@ -13,7 +13,7 @@ const BlogList = ({ blogs, filter }) => {
         title={post.title}
         author={post.author.name}
         date={post.date}
-        link={{ href: "/blogs/[slug]", as: `/blogs/${post.slug}` }}
+        link={{ href: "/blog/[slug]", as: `/blog/${post.slug}` }}
       >
         {post.description}
       </CardImage>
@@ -24,7 +24,7 @@ const BlogList = ({ blogs, filter }) => {
         title={post.title}
         author={post.author.name}
         date={post.date}
-        link={{ href: "/blogs/[slug]", as: `/blogs/${post.slug}` }}
+        link={{ href: "/blog/[slug]", as: `/blog/${post.slug}` }}
       >
         {post.description}
       </Card>
