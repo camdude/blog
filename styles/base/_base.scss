@@ -40,3 +40,16 @@ table {
 td {
   min-width: 10rem;
 }
+
+.icon {
+  margin: 0 1rem;
+  font-size: 4rem;
+
+  &--rss {
+    color: $color-tertiary;
+
+    &:hover {
+      color: $color-black
+    }
+  }
+}

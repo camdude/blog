@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import PostList from "../components/PostList";
 import Section from "../layouts/Section";
@@ -33,35 +34,57 @@ export default function Blog({ blogs, preview, tags }) {
     >
       {preview && <AlertMessage />}
       <Section color="secondary">
-        <div id="about" className="section-second">
-          <div className="section-second__content">
-            <h2 className="heading-secondary">Blog</h2>
-            <p className="paragraph">
-              This space is a place for me to collect and share my thoughts on
-              what I am currently thinking and learning. These topics could
-              range from what I am doing in ministry to the random interests I
-              have or anything else I might think is worthwhile sharing.
-            </p>
-            <p className="paragraph">
-              If you would like to get email updates, particularly for what I'm
-              doing with MTS, please click the subscribe button below.
-            </p>
+        <h2 className="heading-secondary">Blog</h2>
+        <p className="paragraph">
+          This space is a place for me to collect and share my thoughts on what
+          I am currently thinking and learning. These topics could range from
+          what I am doing in ministry to the random interests I have or anything
+          else I might think is worthwhile sharing.
+        </p>
+        <p className="paragraph">
+          If you would like to get email updates, particularly for what I'm
+          doing with MTS, please click the subscribe button below.
+        </p>
+        <div className="u-center-text">
+          <Button
+            onClick={() => {
+              setFormOpen(!formOpen);
+            }}
+          >
+            SUBSCRIBE
+          </Button>
+        </div>
+        {formOpen ? (
+          <div>
+            <Mailchimp title="Cameron Clifford's MTS Updates" />
             <div className="u-center-text">
-              <Button
-                onClick={() => {
-                  setFormOpen(!formOpen);
-                }}
+              <p>
+                You can also subscribe via RSS if that is something you use.
+              </p>
+              <a
+                className="icon icon--rss"
+                href="http://feed.cameronclifford.com"
+                target="blank"
               >
-                SUBSCRIBE
-              </Button>
-              {formOpen ? (
-                <Mailchimp title="Cameron Clifford's MTS Updates" />
-              ) : (
-                ""
-              )}
+                <FontAwesomeIcon icon="rss-square" />
+              </a>
+              <a
+                className="icon"
+                href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fcameronclifford.com%2Ffeed.json"
+                target="blank"
+              >
+                <img
+                  id="feedlyFollow"
+                  src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png"
+                  alt="follow us in feedly"
+                  width="80"
+                />
+              </a>
             </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
       </Section>
       <Section color="grey">
         <PostList

@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="Footer">
       <div className="Footer__columns">
         <div className="Footer__section">
-          <h4 className="Footer__heading">Contact</h4>
+          <h4 className="Footer__heading">Links</h4>
           <ul className="Footer__list">
             <li className="Footer__listItem">
               <a
@@ -15,6 +15,15 @@ const Footer = () => {
                 target="blank"
               >
                 <FontAwesomeIcon icon="envelope" /> Email
+              </a>
+            </li>
+            <li className="Footer__listItem">
+              <a
+                className="Footer__link link"
+                href="http://feed.cameronclifford.com"
+                target="blank"
+              >
+                <FontAwesomeIcon icon="rss-square" /> RSS Feed
               </a>
             </li>
             <li className="Footer__listItem">
@@ -35,6 +44,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={["fab", "github"]} /> Github
               </a>
             </li>
+            
           </ul>
         </div>
         <div className="Footer__section">

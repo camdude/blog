@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Section from "../layouts/Section";
 import { getPaginatedBlogs, getAllTags } from "../lib/api";
 import AlertMessage from "../components/AlertMessage";
@@ -17,16 +18,34 @@ export default function Subscribe({ blogs, preview, tags }) {
     >
       {preview && <AlertMessage />}
       <Section color="secondary">
-        <div id="about" className="section-second">
-          <div className="section-second__content">
-            <h2 className="heading-secondary">MTS Updates</h2>
-            <p className="paragraph">
-              Thank you, I really appreciate your support. To subscribe to my
-              email updates about what I'm doing with MTS, please fill out the
-              form below.
-            </p>
-            <Mailchimp />
-          </div>
+        <h2 className="heading-secondary">MTS Updates</h2>
+        <p className="paragraph">
+          Thank you, I really appreciate your support. To subscribe to my email
+          updates about what I'm doing with MTS, please fill out the form below.
+        </p>
+
+        <Mailchimp />
+        <div className="u-center-text">
+          <p>You can also subscribe via RSS if that is something you use.</p>
+          <a
+            className="icon icon--rss"
+            href="http://feed.cameronclifford.com"
+            target="blank"
+          >
+            <FontAwesomeIcon icon="rss-square" />
+          </a>
+          <a
+            className="icon"
+            href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fcameronclifford.com%2Ffeed.json"
+            target="blank"
+          >
+            <img
+              id="feedlyFollow"
+              src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png"
+              alt="follow us in feedly"
+              width="80"
+            />
+          </a>
         </div>
       </Section>
     </Layout>

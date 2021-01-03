@@ -13,6 +13,7 @@ import {
   faCalendarAlt,
   faTag,
   faEnvelope,
+  faRssSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -33,7 +34,8 @@ library.add(
   faTag,
   faEnvelope,
   faFacebookSquare,
-  faGithub
+  faGithub,
+  faRssSquare
 );
 
 function MyApp({ Component, pageProps }) {
