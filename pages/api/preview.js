@@ -15,6 +15,6 @@ export default async function enablePreview(req, res) {
   }
 
   res.setPreviewData({});
-  res.writeHead(307, { Location: `/blogs/${blog.slug}` });
+  res.writeHead(307, { Location: `/blog/${blog.slug}` });
   res.end();
 }
