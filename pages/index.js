@@ -72,7 +72,7 @@ export default function Home() {
             <div className="section-about__logos">
               <div className="section-about__image">
                 <a href="https://thebranch.org.au/" target="_blank">
-                  <img src="/thebranch.png" alt="The Branch" />
+                  <img src="/thebranch_new.png" alt="The Branch" />
                 </a>
               </div>
               <div className="section-about__image">

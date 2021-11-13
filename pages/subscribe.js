@@ -25,7 +25,7 @@ export default function Subscribe({ blogs, preview, tags }) {
         </p>
 
         <Mailchimp />
-        <div className="u-center-text">
+        {/* <div className="u-center-text">
           <p>You can also subscribe via RSS if that is something you use.</p>
           <a
             className="icon icon--rss"
@@ -46,7 +46,7 @@ export default function Subscribe({ blogs, preview, tags }) {
               width="80"
             />
           </a>
-        </div>
+        </div> */}
       </Section>
     </Layout>
   );

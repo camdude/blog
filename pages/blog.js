@@ -57,7 +57,7 @@ export default function Blog({ blogs, preview, tags }) {
         {formOpen ? (
           <div>
             <Mailchimp title="Cameron Clifford's MTS Updates" />
-            <div className="u-center-text">
+            {/* <div className="u-center-text">
               <p>
                 You can also subscribe via RSS if that is something you use.
               </p>
@@ -80,7 +80,7 @@ export default function Blog({ blogs, preview, tags }) {
                   width="80"
                 />
               </a>
-            </div>
+            </div> */}
           </div>
         ) : (
           ""
