@@ -29,7 +29,7 @@ export default function Home() {
           </div>
 
           <div className="hero__portrait">
-            <img className="hero__image" src="/portrait_2.jpg" alt="" />
+            <img className="hero__image" src="/portrait.jpg" alt="Cameron" />
           </div>
         </div>
       </Section>
