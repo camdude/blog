@@ -26,9 +26,12 @@ const overrides = {
     ) : (
       <p className="blog__paragraph" {...props} />
     ),
+  
 };
 
 const serializers = {
+  list: (props) => <ul className="blog__list" {...props} />,
+  listItem: (props) => <li className="blog__listItem" {...props} />,
   types: {
     block: (props) => {
       // Check if we have an override for the “style”
