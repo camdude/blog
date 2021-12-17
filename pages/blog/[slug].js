@@ -31,15 +31,6 @@ const overrides = {
 
 const serializers = {
   marks: {
-    internalLink: (mark, children) => {
-      const { slug = {} } = mark;
-      const href = `/${slug.current}`;
-      return (
-        <a className="blog__a" href={href}>
-          {children}
-        </a>
-      );
-    },
     link: ({ mark, children }) => {
       const { blank, href } = mark;
       return blank ? (

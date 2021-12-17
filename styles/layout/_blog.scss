@@ -71,6 +71,7 @@
   }
 
   &__a {
+    word-break: break-word;
     text-decoration: none;
     color: $color-secondary;
     cursor: pointer;
