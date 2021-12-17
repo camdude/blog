@@ -17,7 +17,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon="envelope" /> Email
               </a>
             </li>
-            <li className="Footer__listItem">
+            {/* <li className="Footer__listItem">
               <a
                 className="Footer__link link"
                 href="http://feed.cameronclifford.com"
@@ -25,7 +25,7 @@ const Footer = () => {
               >
                 <FontAwesomeIcon icon="rss-square" /> RSS Feed
               </a>
-            </li>
+            </li> */}
             <li className="Footer__listItem">
               <a
                 className="Footer__link link"
