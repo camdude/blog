@@ -19,6 +19,7 @@ const overrides = {
   h4: (props) => <h3 className="blog__h4" {...props} />,
   h5: (props) => <h3 className="blog__h5" {...props} />,
   h6: (props) => <h3 className="blog__h6" {...props} />,
+  a: (props) => <a className="blog__a" {...props} />,
   blockquote: (props) => <blockquote className="blog__quote" {...props} />,
   normal: (props) =>
     props.children[0] === "" ? (
@@ -26,10 +27,33 @@ const overrides = {
     ) : (
       <p className="blog__paragraph" {...props} />
     ),
-  
 };
 
 const serializers = {
+  marks: {
+    internalLink: (mark, children) => {
+      const { slug = {} } = mark;
+      const href = `/${slug.current}`;
+      return (
+        <a className="blog__a" href={href}>
+          {children}
+        </a>
+      );
+    },
+    link: ({ mark, children }) => {
+      const { blank, href } = mark;
+      return blank ? (
+        <a className="blog__a" href={href} target="_blank" rel="noopener">
+          {children}
+        </a>
+      ) : (
+        <a className="blog__a" href={href}>
+          {children}
+        </a>
+      );
+    },
+  },
+
   list: (props) => <ul className="blog__list" {...props} />,
   listItem: (props) => <li className="blog__listItem" {...props} />,
   types: {

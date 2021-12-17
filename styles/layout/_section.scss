@@ -83,11 +83,11 @@
 
     & p > a:link,
     & p > a:visited {
-      color: $color-tertiary-dark;
+      color: $color-secondary;
 
       &:hover,
       &:active {
-        color: $color-tertiary-light;
+        color: $color-primary-light;
       }
     }
   }

@@ -68,16 +68,16 @@
     &:not(:last-child) {
       margin-bottom: 1.6rem;
     }
+  }
 
-    & > a {
-      text-decoration: none;
-      color: $color-secondary;
-      cursor: pointer;
+  &__a {
+    text-decoration: none;
+    color: $color-secondary;
+    cursor: pointer;
 
-      &:hover {
-        text-decoration: underline;
-        color: $color-primary-light;
-      }
+    &:hover {
+      text-decoration: underline;
+      color: $color-primary-light;
     }
   }
 
