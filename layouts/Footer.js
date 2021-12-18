@@ -65,6 +65,11 @@ const Footer = () => {
                 MTS Updates
               </a>
             </li>
+            <li className="Footer__listItem">
+              <a className="Footer__link link" href="/resources">
+                Resources
+              </a>
+            </li>
           </ul>
         </div>
       </div>
