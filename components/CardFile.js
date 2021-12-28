@@ -19,6 +19,7 @@ const CardFile = ({ title, desc, files, placeholder = false }) => {
           {files.map((file) => {
             return (
               <FileDownload
+                key={file.asset.filename}
                 asset={`${file.asset.url}?dl=`}
                 filename={file.asset.filename}
               />
