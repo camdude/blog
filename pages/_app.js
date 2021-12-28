@@ -14,6 +14,7 @@ import {
   faTag,
   faEnvelope,
   faRssSquare,
+  faFile,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -35,7 +36,8 @@ library.add(
   faEnvelope,
   faFacebookSquare,
   faGithub,
-  faRssSquare
+  faRssSquare,
+  faFile
 );
 
 function MyApp({ Component, pageProps }) {

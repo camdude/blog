@@ -2,9 +2,9 @@ import Section from "../layouts/Section";
 import Layout from "../layouts/Layout";
 import { getAllResources, urlFor } from "../lib/api";
 import Link from "next/link";
+import CardFile from "../components/CardFile";
 
 export default function Blog({ resources }) {
-  console.log(resources);
   return (
     <Layout
       meta={{
@@ -17,24 +17,18 @@ export default function Blog({ resources }) {
       <Section color="secondary">
         <h2 className="heading-secondary">Resources</h2>
         <p className="paragraph">
-          These are resources that I have created which you are welcome to view
-          for personal use.
+          These are some training resources that I have created, which you are welcome to
+          make personal use of.
         </p>
-      </Section>
-      <Section color="grey">
+        <br />
         {resources.map((resource) => {
           return (
-            <div>
-              <h3 className="heading-tertiary">{resource.title}</h3>
-              <p className="paragraph">{resource.description}</p>
-              {resource.files.map((file) => {
-                return (
-                  <Link href={`${file.asset.url}?dl=`}>
-                    <a>{file.asset.filename}</a>
-                  </Link>
-                );
-              })}
-            </div>
+            <CardFile
+              key={resource.title}
+              title={resource.title}
+              desc={resource.description}
+              files={resource.files}
+            />
           );
         })}
       </Section>

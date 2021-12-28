@@ -1,0 +1,29 @@
+.FileDownload {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: $color-grey-light;
+  color: $color-black;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-grey;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 3rem;
+    margin: 0.5rem;
+    line-height: 0;
+    color: $color-grey-dark;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-left: 2rem;
+  }
+}
