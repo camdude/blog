@@ -1,6 +1,7 @@
 import Section from "../layouts/Section";
 import Layout from "../layouts/Layout";
-import { getAllResources } from "../lib/api";
+import { getAllResources, urlFor } from "../lib/api";
+import Link from "next/link";
 
 export default function Blog({ resources }) {
   console.log(resources);
@@ -20,7 +21,23 @@ export default function Blog({ resources }) {
           for personal use.
         </p>
       </Section>
-      <Section color="grey"></Section>
+      <Section color="grey">
+        {resources.map((resource) => {
+          return (
+            <div>
+              <h3 className="heading-tertiary">{resource.title}</h3>
+              <p className="paragraph">{resource.description}</p>
+              {resource.files.map((file) => {
+                return (
+                  <Link href={`${file.asset.url}?dl=`}>
+                    <a>{file.asset.filename}</a>
+                  </Link>
+                );
+              })}
+            </div>
+          );
+        })}
+      </Section>
     </Layout>
   );
 }
