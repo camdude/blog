@@ -17,15 +17,6 @@ const Footer = () => {
                 <FontAwesomeIcon icon="envelope" /> Email
               </a>
             </li>
-            {/* <li className="Footer__listItem">
-              <a
-                className="Footer__link link"
-                href="http://feed.cameronclifford.com"
-                target="blank"
-              >
-                <FontAwesomeIcon icon="rss-square" /> RSS Feed
-              </a>
-            </li> */}
             <li className="Footer__listItem">
               <a
                 className="Footer__link link"
@@ -63,11 +54,6 @@ const Footer = () => {
             <li className="Footer__listItem">
               <a className="Footer__link link" href="/subscribe">
                 MTS Updates
-              </a>
-            </li>
-            <li className="Footer__listItem">
-              <a className="Footer__link link" href="/resources">
-                Resources
               </a>
             </li>
           </ul>

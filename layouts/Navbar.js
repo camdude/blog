@@ -41,11 +41,6 @@ const Navbar = () => {
             <a className="Navbar__link">Blog</a>
           </Link>
         </li>
-        <li className="Navbar__item">
-          <Link href="/resources">
-            <a className="Navbar__link">Resources</a>
-          </Link>
-        </li>
       </ul>
     </div>
   );

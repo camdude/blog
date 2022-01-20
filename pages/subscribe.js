@@ -12,8 +12,7 @@ export default function Subscribe({ blogs, preview, tags }) {
         title: "Subscribe",
         type: "website",
         url: "/subscribe",
-        desc:
-          "To subscribe to my email updates about what I'm doing with MTS, please fill out this form.",
+        desc: "To subscribe to my email updates about what I'm doing with MTS, please fill out this form.",
       }}
     >
       {preview && <AlertMessage />}
@@ -25,28 +24,6 @@ export default function Subscribe({ blogs, preview, tags }) {
         </p>
 
         <Mailchimp />
-        {/* <div className="u-center-text">
-          <p>You can also subscribe via RSS if that is something you use.</p>
-          <a
-            className="icon icon--rss"
-            href="http://feed.cameronclifford.com"
-            target="blank"
-          >
-            <FontAwesomeIcon icon="rss-square" />
-          </a>
-          <a
-            className="icon"
-            href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fcameronclifford.com%2Ffeed.json"
-            target="blank"
-          >
-            <img
-              id="feedlyFollow"
-              src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png"
-              alt="follow us in feedly"
-              width="80"
-            />
-          </a>
-        </div> */}
       </Section>
     </Layout>
   );
