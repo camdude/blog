@@ -11,6 +11,7 @@ import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AlertMessage from "../../components/AlertMessage";
 import Layout from "../../layouts/Layout";
+import FileDownload from "../../components/FileDownload";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -84,6 +85,16 @@ const serializers = {
             <div className="blog__alt">{alt}</div>
           </div>
         </React.Fragment>
+      );
+    },
+    file: ({ node: { asset } }) => {
+      return (
+        <FileDownload
+          key={asset.filename}
+          asset={asset.url}
+          filename={asset.originalFilename}
+          extension={asset.extension}
+        />
       );
     },
   },
