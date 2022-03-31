@@ -61,7 +61,7 @@ const serializers = {
     image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
       const [isModalOpen, setIsModalOpen] = useState(false);
       return (
-        <React.Fragment>
+        <>
           {isModalOpen ? (
             <Modal closeModal={() => setIsModalOpen(false)}>
               <img
@@ -84,7 +84,7 @@ const serializers = {
             />
             <div className="blog__alt">{alt}</div>
           </div>
-        </React.Fragment>
+        </>
       );
     },
     file: ({ node: { asset } }) => {
