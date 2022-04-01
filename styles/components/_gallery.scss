@@ -1,0 +1,22 @@
+.Gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 1rem;
+
+  &__imgContainer {
+    padding: 0.6rem;
+    text-align: center;
+  }
+
+  &__imgAlt {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  &__img {
+    min-width: 100%;
+    max-height: 30vh;
+  }
+}

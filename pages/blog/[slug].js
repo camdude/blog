@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Modal from "../../components/Modal";
+import Image from "../../components/Image";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
 import moment from "moment";
@@ -12,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AlertMessage from "../../components/AlertMessage";
 import Layout from "../../layouts/Layout";
 import FileDownload from "../../components/FileDownload";
+import Gallery from "../../components/Gallery";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -59,32 +61,14 @@ const serializers = {
           BlockContent.defaultSerializers.types.block(props);
     },
     image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
-      const [isModalOpen, setIsModalOpen] = useState(false);
       return (
-        <>
-          {isModalOpen ? (
-            <Modal closeModal={() => setIsModalOpen(false)}>
-              <img
-                className="blog__image--full"
-                src={urlFor({ asset, crop, hotspot }).url()}
-              />
-              <div className="blog__alt u-center-text">{alt}</div>
-            </Modal>
-          ) : (
-            ""
-          )}
-
-          <div className={`blog__imgContainer blog__imgContainer--${position}`}>
-            <img
-              className="blog__image"
-              src={urlFor({ asset, crop, hotspot }).width(300).fit("max").url()}
-              onClick={() => {
-                setIsModalOpen(!isModalOpen);
-              }}
-            />
-            <div className="blog__alt">{alt}</div>
-          </div>
-        </>
+        <Image
+          asset={asset}
+          alt={alt}
+          position={position}
+          crop={crop}
+          hotspot={hotspot}
+        />
       );
     },
     file: ({ node: { asset } }) => {
@@ -96,6 +80,9 @@ const serializers = {
           extension={asset.extension}
         />
       );
+    },
+    gallery: ({ node: { images } }) => {
+      return <Gallery images={images} />;
     },
   },
 };

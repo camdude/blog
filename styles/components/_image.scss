@@ -1,0 +1,40 @@
+.Image {
+  &__imgContainer {
+    margin-bottom: 0.6rem;
+    text-align: center;
+
+    &--left {
+      float: left;
+      margin-right: 3rem;
+
+      @include respond(phone) {
+        float: none;
+        margin-right: 0;
+      }
+    }
+
+    &--right {
+      float: right;
+      margin-left: 3rem;
+
+      @include respond(phone) {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__image {
+    cursor: pointer;
+
+    &--full {
+      max-width: 100%;
+      max-height: 80vh;
+    }
+  }
+
+  &__alt {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+}
