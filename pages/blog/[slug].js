@@ -167,7 +167,7 @@ export default function BlogPost({ blog, preview }) {
       </article>
       <Section color="secondary">
         <p className="paragraph">
-          Want to be notified of future updates and recieve them in your inbox? Subscribe using the link below.
+          Want to be notified of future updates and recieve them in your inbox? Subscribe using the button below.
         </p>
         <Button href="/subscribe">Subscribe</Button>
       </Section>
