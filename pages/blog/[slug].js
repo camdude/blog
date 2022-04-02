@@ -14,6 +14,7 @@ import AlertMessage from "../../components/AlertMessage";
 import Layout from "../../layouts/Layout";
 import FileDownload from "../../components/FileDownload";
 import Gallery from "../../components/Gallery";
+import Button from "../../components/Button";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -164,6 +165,12 @@ export default function BlogPost({ blog, preview }) {
           </div>
         </Section>
       </article>
+      <Section color="secondary">
+        <p className="paragraph">
+          Want to be notified of future updates and recieve them in your inbox? Subscribe using the link below.
+        </p>
+        <Button href="/subscribe">Subscribe</Button>
+      </Section>
     </Layout>
   );
 }
