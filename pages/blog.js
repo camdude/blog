@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "../components/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import PostList from "../components/PostList";
 import Section from "../layouts/Section";
