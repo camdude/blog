@@ -15,6 +15,7 @@ import Layout from "../../layouts/Layout";
 import FileDownload from "../../components/FileDownload";
 import Gallery from "../../components/Gallery";
 import Button from "../../components/Button";
+import YouTube from "../../components/YouTube";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -84,6 +85,9 @@ const serializers = {
     },
     gallery: ({ node: { images } }) => {
       return <Gallery images={images} />;
+    },
+    youtube: ({ node: { url } }) => {
+      return <YouTube url={url} />;
     },
   },
 };
