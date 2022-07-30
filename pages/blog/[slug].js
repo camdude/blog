@@ -1,10 +1,8 @@
 import BlockContent from "@sanity/block-content-to-react";
-import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Modal from "../../components/Modal";
 import Image from "../../components/Image";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
