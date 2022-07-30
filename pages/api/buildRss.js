@@ -90,15 +90,15 @@ function createFeed(pageFiles, pagesDir) {
 }
 
 export default async function buildRss(req, res) {
-  // 'pages' location in Vercel environment
-  let pagesDir = "./.next/serverless/pages";
-  if (!fs.existsSync(pagesDir)) {
-    // 'pages' location in local environment
-    pagesDir = `./.next/server/pages`;
-  }
-  const pageFiles = getPageFiles(pagesDir);
-  createFeed(pageFiles, pagesDir);
-  console.log("RSS Feed created");
+//   // 'pages' location in Vercel environment
+//   let pagesDir = "./.next/serverless/pages";
+//   if (!fs.existsSync(pagesDir)) {
+//     // 'pages' location in local environment
+//     pagesDir = `./.next/server/pages`;
+//   }
+//   const pageFiles = getPageFiles(pagesDir);
+//   createFeed(pageFiles, pagesDir);
+//   console.log("RSS Feed created");
 
   res.status(200).json({ message: "RSS Feed created" });
 }
