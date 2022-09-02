@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-import { Feed } from "feed";
+const Feed = require("feed");
 
 const posts = [
   {
