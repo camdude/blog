@@ -17,7 +17,7 @@ const posts = [
   },
 ];
 
-export default function buildRss(pageFiles, pagesDir) {
+exports.buildRss = function (pageFiles, pagesDir) {
   const feed = new Feed({
     title: "Cameron Clifford's Blog",
     description:
