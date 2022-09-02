@@ -1,12 +1,8 @@
 const RSS = require("./buildRss");
 
 function main() {
-  // 'pages' location in Vercel environment
-  let pagesDir = "./.next/serverless/pages";
-  if (!fs.existsSync(pagesDir)) {
-    // 'pages' location in local environment
-    pagesDir = `./.next/server/pages`;
-  }
+  let pagesDir = "./.next/serverless/pages"; // 'pages' location in Vercel environment
+//   let pagesDir = `./.next/server/pages`; // 'pages' location in local environment
   const pageFiles = getPageFiles(pagesDir);
   RSS.buildRss(pageFiles, pagesDir);
   console.log("RSS Feed created");
