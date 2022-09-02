@@ -1,4 +1,4 @@
-import buildRss from "./buildRss";
+import {buildRss} from "./buildRss";
 
 function main() {
   // 'pages' location in Vercel environment
