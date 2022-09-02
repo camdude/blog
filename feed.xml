@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Cameron Clifford's Blog</title>
+        <link>https://www.cameronclifford.com/</link>
+        <description>Welcome to my personal website. Check out my blog to get updates on what I am currently thinking and doing.</description>
+        <lastBuildDate>Fri, 02 Sep 2022 07:38:37 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <language>en</language>
+        <image>
+            <title>Cameron Clifford's Blog</title>
+            <url>https://www.cameronclifford.com/portrait.jpg</url>
+            <link>https://www.cameronclifford.com/</link>
+        </image>
+        <copyright>All rights reserved 2022, Cameron Clifford</copyright>
+        <category>Ministry</category>
+        <item>
+            <title><![CDATA[The Gospel Proclaimed]]></title>
+            <pubDate>Wed, 15 Jun 2022 14:00:00 GMT</pubDate>
+            <description><![CDATA[I'm currently writing most of this update while on the Gold Coast at the moment. I have had the privilege of joining all the other AFES staff at a con...]]></description>
+            <content:encoded><![CDATA[I'm currently writing most of this update while on the Gold Coast at the moment. I have had the privilege of joining all the other AFES staff at a conference this week. It's been great already to connect with other staff, both new and seasoned, all around Australia (even connecting with some of my old strand leaders from NTE).]]></content:encoded>
+            <author>mail@cameronclifford.com (Cameron Clifford)</author>
+            <enclosure url="https://cdn.sanity.io/images/b7iirkjr/production/295a160837d512a42c65017bb79ccf36479d5b07-2240x1260.png" length="0" type="image/png"/>
+        </item>
+    </channel>
+</rss>

@@ -66,7 +66,7 @@ export default async function buildRss(req, res) {
   console.log(feed.rss2());
   // Output: RSS 2.0
 
-  fs.writeFileSync(path.join("./.next/static", "feed.xml"), feed.rss2());
+  fs.writeFileSync(path.join(process.env.RSS_PATH, "feed.xml"), feed.rss2());
 
   res.status(200).json({ message: "RSS Feed created", feed: feed.json1() });
 }
