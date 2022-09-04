@@ -1,25 +1,28 @@
-import { toHTML } from "@portabletext/to-html";
+import { toHTML, uriLooksSafe } from "@portabletext/to-html";
 import { Feed } from "feed";
 import { getAllBlogsWithContent, urlFor } from "../../../lib/api";
 
-function toPlainText(blocks = []) {
-  return (
-    blocks
-      // loop through each block
-      .map((block) => {
-        // if it's not a text block with children,
-        // return nothing
-        if (block._type !== "block" || !block.children) {
-          return "";
-        }
-        // loop through the children spans, and join the
-        // text strings
-        return block.children.map((child) => child.text).join("");
-      })
-      // join the paragraphs leaving split by two linebreaks
-      .join("\n\n")
-  );
-}
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }) => `<img src="${value.imageUrl}" />`,
+  },
+
+  marks: {
+    link: ({ children, value }) => {
+      // ⚠️ `value.href` IS NOT "SAFE" BY DEFAULT ⚠️
+      // ⚠️ Make sure you sanitize/validate the href! ⚠️
+      const href = value.href || "";
+
+      if (uriLooksSafe(href)) {
+        const rel = href.startsWith("/") ? undefined : "noreferrer noopener";
+        return `<a href="${href}" rel="${rel}">${children}</a>`;
+      }
+
+      // If the URI appears unsafe, render the children (eg, text) without the link
+      return children;
+    },
+  },
+};
 
 export default async function buildRss() {
   const feed = new Feed({
@@ -55,7 +58,9 @@ export default async function buildRss() {
       id: `https://www.cameronclifford.com/blog/${post.slug}`,
       link: `https://www.cameronclifford.com/blog/${post.slug}`,
       description: post.description,
-      content: toHTML(post.content),
+      content: toHTML(post.content, {
+        components: myPortableTextComponents,
+      }),
       author: [
         {
           name: "Cameron Clifford",
