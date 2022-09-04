@@ -1,21 +1,7 @@
 import { Feed } from "feed";
+import { getAllBlogs, urlFor } from "../../../lib/api";
 
-const posts = [
-  {
-    title: "The Gospel Proclaimed",
-    id: "mts-update-june-2022",
-    link: "https://cameronclifford.com/blog/mts-update-june-2022",
-    description:
-      "I'm currently writing most of this update while on the Gold Coast at the moment. I have had the privilege of joining all the other AFES staff at a con...",
-    content:
-      "I'm currently writing most of this update while on the Gold Coast at the moment. I have had the privilege of joining all the other AFES staff at a conference this week. It's been great already to connect with other staff, both new and seasoned, all around Australia (even connecting with some of my old strand leaders from NTE).",
-    date: new Date("2022-06-16T00:00:00"),
-    image:
-      "https://cdn.sanity.io/images/b7iirkjr/production/295a160837d512a42c65017bb79ccf36479d5b07-2240x1260.png",
-  },
-];
-
-export default function buildRss() {
+export default async function buildRss() {
   const feed = new Feed({
     title: "Cameron Clifford's Blog",
     description:
@@ -39,13 +25,15 @@ export default function buildRss() {
     },
   });
 
-  posts.forEach((post) => {
+  const data = await getAllBlogs();
+
+  data.forEach((post) => {
     feed.addItem({
       title: post.title,
-      id: post.url,
-      link: post.url,
+      id: `https://www.cameronclifford.com/blog/${post.slug}`,
+      link: `https://www.cameronclifford.com/blog/${post.slug}`,
       description: post.description,
-      content: post.content,
+    //   content: "post.content",
       author: [
         {
           name: "Cameron Clifford",
@@ -54,8 +42,8 @@ export default function buildRss() {
         },
       ],
       contributor: [],
-      date: post.date,
-      image: post.image,
+      date: new Date(post.date),
+      image: urlFor(post.coverImage).url(),
     });
   });
 
