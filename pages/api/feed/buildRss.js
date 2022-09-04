@@ -1,22 +1,25 @@
+import { toHTML } from "@portabletext/to-html";
 import { Feed } from "feed";
 import { getAllBlogsWithContent, urlFor } from "../../../lib/api";
 
 function toPlainText(blocks = []) {
-    return blocks
+  return (
+    blocks
       // loop through each block
-      .map(block => {
-        // if it's not a text block with children, 
+      .map((block) => {
+        // if it's not a text block with children,
         // return nothing
-        if (block._type !== 'block' || !block.children) {
-          return ''
+        if (block._type !== "block" || !block.children) {
+          return "";
         }
         // loop through the children spans, and join the
         // text strings
-        return block.children.map(child => child.text).join('')
+        return block.children.map((child) => child.text).join("");
       })
       // join the paragraphs leaving split by two linebreaks
-      .join('\n\n')
-  }
+      .join("\n\n")
+  );
+}
 
 export default async function buildRss() {
   const feed = new Feed({
@@ -45,14 +48,14 @@ export default async function buildRss() {
   const data = await getAllBlogsWithContent();
 
   data.forEach((post) => {
-    console.log(toPlainText(post.content));
+    console.log(toHTML(post.content));
 
     feed.addItem({
       title: post.title,
       id: `https://www.cameronclifford.com/blog/${post.slug}`,
       link: `https://www.cameronclifford.com/blog/${post.slug}`,
       description: post.description,
-      content: toPlainText(post.content),
+      content: toHTML(post.content),
       author: [
         {
           name: "Cameron Clifford",
