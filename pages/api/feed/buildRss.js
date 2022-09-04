@@ -4,8 +4,8 @@ import { getAllBlogsWithContent, urlFor } from "../../../lib/api";
 
 const myPortableTextComponents = {
   types: {
-    // image: ({ value }) => `<img src="${value.imageUrl}" />`,
-    image: ({ value }) => `<p>${value.imageUrl}</p>`,
+    image: ({ value }) => `<img src="${value.asset.url}" />`,
+    // image: ({ value }) => console.log(value.asset.url),
   },
 
   marks: {
