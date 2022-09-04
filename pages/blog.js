@@ -8,7 +8,6 @@ import { useGetBlogsPages } from "../actions/pagination";
 import AlertMessage from "../components/AlertMessage";
 import Mailchimp from "../components/Mailchimp";
 import Layout from "../layouts/Layout";
-import buildRss from "../utils/buildRss";
 
 export default function Blog({ blogs, preview, tags }) {
   const [formOpen, setFormOpen] = useState(false);
@@ -87,7 +86,7 @@ export default function Blog({ blogs, preview, tags }) {
 export async function getStaticProps({ preview = false }) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: "desc", tag: "" });
   const tags = await getAllTags();
-  buildRss();
+
   return {
     props: {
       blogs,
