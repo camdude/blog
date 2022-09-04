@@ -24,6 +24,28 @@ export default function Subscribe({ blogs, preview, tags }) {
         </p>
 
         <Mailchimp />
+        <div className="u-center-text">
+          <p>You can also subscribe via RSS if that is something you use.</p>
+          <a
+            className="icon icon--rss"
+            href="http://rss.cameronclifford.com"
+            target="blank"
+          >
+            <FontAwesomeIcon icon="rss-square" />
+          </a>
+          <a
+            className="icon"
+            href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fcameronclifford.com%2Fapi%2Ffeed%2Frss"
+            target="blank"
+          >
+            <img
+              id="feedlyFollow"
+              src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png"
+              alt="follow us in feedly"
+              width="80"
+            />
+          </a>
+        </div>
       </Section>
     </Layout>
   );
