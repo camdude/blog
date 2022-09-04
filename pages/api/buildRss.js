@@ -66,7 +66,7 @@ export default async function buildRss(req, res) {
   console.log(feed.rss2());
   // Output: RSS 2.0
 
-  fs.writeFileSync(path.join(process.env.RSS_PATH, "feed.xml"), feed.rss2());
+  // fs.writeFileSync(path.join(process.env.RSS_PATH, "feed.xml"), feed.rss2());
 
   res.statusCode = 200;
   res.setHeader("content-type", "application/rss+xml");
