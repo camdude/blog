@@ -5,14 +5,24 @@ import { getAllBlogsWithContent, urlFor } from "../../../lib/api";
 const myPortableTextComponents = {
   types: {
     image: ({ value }) => `<img src="${value.asset.url}" />`,
-    file: ({ value }) => `<a href="${value.asset.url}">${value.asset.originalFilename}</a>`,
+    file: ({ value }) => {
+      // Sanitize/validate the href!
+      const href = value.asset.url || "";
+
+      if (uriLooksSafe(href)) {
+        const rel = href.startsWith("/") ? undefined : "noreferrer noopener";
+        return `<a href="${href}" rel="${rel}">${value.asset.originalFilename}</a>`;
+      }
+
+      // If the URI appears unsafe, render the children (eg, text) without the link
+      return value.asset.originalFilename;
+    },
     youtube: ({ value }) => `<a href="${value.url}">${value.url}</a>`,
   },
 
   marks: {
     link: ({ children, value }) => {
-      // ⚠️ `value.href` IS NOT "SAFE" BY DEFAULT ⚠️
-      // ⚠️ Make sure you sanitize/validate the href! ⚠️
+      // Sanitize/validate the href!
       const href = value.href || "";
 
       if (uriLooksSafe(href)) {
