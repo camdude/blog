@@ -59,11 +59,11 @@ export default function Blog({ blogs, preview, tags }) {
             <Mailchimp title="Cameron Clifford's MTS Updates" />
             <div className="u-center-text">
               <p>
-                You can also subscribe via RSS if that is something you use.
+                You can also subscribe via RSS, if that is something you use.
               </p>
               <a
                 className="icon icon--rss"
-                href="http://rss.cameronclifford.com"
+                href="http://cameronclifford.com/api/feed/rss"
                 target="blank"
               >
                 <FontAwesomeIcon icon="rss-square" />
