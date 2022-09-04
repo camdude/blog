@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 import { Feed } from "feed";
 
 const posts = [
@@ -17,7 +15,7 @@ const posts = [
   },
 ];
 
-export default async function buildRss(req, res) {
+export default function buildRss() {
   const feed = new Feed({
     title: "Cameron Clifford's Blog",
     description:
@@ -31,8 +29,8 @@ export default async function buildRss(req, res) {
     updated: new Date(Date.now()), // optional, default = today
     generator: "Feed for Node.js", // optional, default = 'Feed for Node.js'
     feedLinks: {
-      json: "https://www.cameronclifford.com/json",
-      atom: "https://www.cameronclifford.com/atom",
+      json: "https://www.cameronclifford.com/api/feed/json",
+      atom: "https://www.cameronclifford.com/api/feed/atom",
     },
     author: {
       name: "Cameron Clifford",
@@ -62,14 +60,5 @@ export default async function buildRss(req, res) {
   });
 
   feed.addCategory("Ministry");
-
-  console.log(feed.rss2());
-  // Output: RSS 2.0
-
-  // fs.writeFileSync(path.join(process.env.RSS_PATH, "feed.xml"), feed.rss2());
-
-  res.statusCode = 200;
-  res.setHeader("content-type", "application/rss+xml");
-  res.end(feed.rss2());
-  // res.status(200).json({ message: "RSS Feed created", feed: feed.json1() });
+  return feed;
 }
