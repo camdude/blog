@@ -5,7 +5,8 @@ import { getAllBlogsWithContent, urlFor } from "../../../lib/api";
 const myPortableTextComponents = {
   types: {
     image: ({ value }) => `<img src="${value.asset.url}" />`,
-    // image: ({ value }) => console.log(value.asset.url),
+    file: ({ value }) => `<a href="${value.asset.url}">${value.asset.originalFilename}</a>`,
+    youtube: ({ value }) => `<a href="${value.url}">${value.url}</a>`,
   },
 
   marks: {
@@ -52,8 +53,6 @@ export default async function buildRss() {
   const data = await getAllBlogsWithContent();
 
   data.forEach((post) => {
-    console.log(toHTML(post.content));
-
     feed.addItem({
       title: post.title,
       id: `https://www.cameronclifford.com/blog/${post.slug}`,
