@@ -9,8 +9,7 @@ export default function Home() {
         title: "Home",
         type: "website",
         url: "/",
-        desc:
-          "Welcome to my personal website. Check out my blog to get updates on what I am currently thinking and doing.",
+        desc: "Welcome to my personal website. Check out my blog to get updates on what I am currently thinking and doing.",
       }}
     >
       <Section color="grey">
@@ -38,46 +37,48 @@ export default function Home() {
           <div className="section-about__content">
             <h2 className="heading-secondary">About Me</h2>
             <p className="paragraph">
-              Hi, I'm Cameron, a recent ICT graduate at UTAS currently living in
-              Launceston. I enjoy playing clarinet in concert bands, playing
-              board games, bushwalking, hanging out with friends and more
-              recently started appreciating astronomy.
+              Hi, I'm Cameron, a current{" "}
+              <a className="link" href="https://mts.com.au/" target="_blank">
+                MTS apprentice
+              </a>{" "}
+              currently living in Launceston. I enjoy playing clarinet in
+              concert bands, playing board games, bushwalking, hanging out with
+              friends and getting out of the city lights to stargaze into earth's amazing galaxy.
             </p>
             <p className="paragraph">
-              Over the past few years while being at University I have
-              discovered how important it is to be actively living the Christian
-              life. I have a passion for seeing people come to know Christ and
-              to be encouraging others to constantly be growing in their own
-              spiritual maturity.
+              Over the two years of my apprenticeship, by God's grace, I have grown in my
+              character, conviction and competencies, which I seek to continue
+              to use in gospel ministry. I have a passion for seeing people come
+              to know Christ and to be encouraging others to constantly be
+              growing in their own spiritual maturity.
             </p>
             <p className="paragraph">
-              As I continue to learn how God wants me to serve him in his
-              kingdom, I am working with my home church,{" "}
+              I am currently seeking support to start working with the{" "}
+              <a className="link" href="https://afes.org.au/" target="_blank">
+                Australian Fellowship of Evangelical Students
+              </a>{" "}
+              in 2023. I will also continue to serve on staff at
+              my home church,{" "}
               <a
                 className="link"
                 href="https://thebranch.org.au/"
                 target="_blank"
               >
                 The Branch Christian Church
-              </a>{" "}
-              as well as{" "}
-              <a className="link" href="https://mts.com.au/" target="_blank">
-                Ministry Training Strategy
-              </a>{" "}
-              to help equip me with the right character, conviction and
-              competencies to be working in gospel ministry.
+              </a>
+              .
             </p>
           </div>
           <div className="section-about__partner">
             <div className="section-about__logos">
               <div className="section-about__image">
-                <a href="https://thebranch.org.au/" target="_blank">
-                  <img src="/thebranch_new.png" alt="The Branch" />
+                <a href="https://afes.org.au/" target="_blank">
+                  <img src="/afes.png" alt="AFES" />
                 </a>
               </div>
               <div className="section-about__image">
-                <a href="https://mts.com.au/" target="_blank">
-                  <img src="/mts.png" alt="MTS" />
+                <a href="https://thebranch.org.au/" target="_blank">
+                  <img src="/thebranch_new.png" alt="The Branch" />
                 </a>
               </div>
             </div>
@@ -88,16 +89,31 @@ export default function Home() {
         <div id="support" className="section-support">
           <div className="section-support__content">
             <h2 className="heading-secondary">Support</h2>
+            <p className="paragraph">Will you consider partnering with me?</p>
             <p className="paragraph">
-              Will you consider partnering with me? I am not asking for any
-              financial support but would love for your support in prayer as I
-              continue this journey. I plan to send out updates every now and
-              then of what I'm thinking and learning through email and my blog.
+              I am currently seeking people to support me financially to start
+              working with{" "}
+              <a className="link" href="https://afes.org.au/" target="_blank">
+                AFES
+              </a>{" "}
+              in 2023. I'm hoping to be able to support the Launceston students
+              on campus 2 days a week. Please prayerfully consider if you would
+              be able to make a regular pledge.
+            </p>
+            <p className="paragraph">
+              If you are currently not in a position to partner with me
+              financially, I would still highly value your prayers for me and
+              the ministry.
             </p>
           </div>
           <div className="section-support__buttons">
-            <Button href="/subscribe">MTS Email Updates</Button>
-            <Button href="/blog">Blog</Button>
+            <Button
+              target="_blank"
+              href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
+            >
+              AFES Partnership
+            </Button>
+            <Button href="/subscribe">MTS Prayer Updates</Button>
           </div>
         </div>
       </Section>
