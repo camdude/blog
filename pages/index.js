@@ -41,24 +41,24 @@ export default function Home() {
               <a className="link" href="https://mts.com.au/" target="_blank">
                 MTS apprentice
               </a>{" "}
-              currently living in Launceston. I enjoy playing clarinet in
-              concert bands, playing board games, bushwalking, hanging out with
-              friends and getting out of the city lights to stargaze into earth's amazing galaxy.
+              living in Launceston. I enjoy playing clarinet in concert bands,
+              playing board games, bushwalking, hanging out with friends and
+              getting out of the city lights to stargaze into earth's amazing
+              galaxy.
             </p>
             <p className="paragraph">
-              Over the two years of my apprenticeship, by God's grace, I have grown in my
-              character, conviction and competencies, which I seek to continue
-              to use in gospel ministry. I have a passion for seeing people come
-              to know Christ and to be encouraging others to constantly be
-              growing in their own spiritual maturity.
+              Over the two years of my apprenticeship, by God's grace, I have
+              grown in my character, conviction and competencies, which I seek
+              to continue to use in gospel ministry. I have a passion for seeing
+              people come to know Christ and to be encouraging others to
+              constantly be growing in their own spiritual maturity.
             </p>
             <p className="paragraph">
               I am currently seeking support to start working with the{" "}
               <a className="link" href="https://afes.org.au/" target="_blank">
                 Australian Fellowship of Evangelical Students
               </a>{" "}
-              in 2023. I will also continue to serve on staff at
-              my home church,{" "}
+              in 2023. I will also continue to serve on staff at my home church,{" "}
               <a
                 className="link"
                 href="https://thebranch.org.au/"
