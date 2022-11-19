@@ -101,19 +101,14 @@ export default function Home() {
               be able to make a regular pledge.
             </p>
             <p className="paragraph">
-              If you are currently not in a position to partner with me
+              If you aren't currently in a position to partner with me
               financially, I would still highly value your prayers for me and
               the ministry.
             </p>
           </div>
           <div className="section-support__buttons">
-            <Button
-              target="_blank"
-              href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
-            >
-              AFES Partnership
-            </Button>
-            <Button href="/subscribe">MTS Prayer Updates</Button>
+            <Button href="/support">AFES Partnership</Button>
+            <Button href="/blog?tag=MTS%20Updates">Prayer Updates</Button>
           </div>
         </div>
       </Section>

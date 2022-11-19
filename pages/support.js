@@ -24,11 +24,15 @@ export default function Subscribe({ supportData }) {
             AFES
           </a>{" "}
           in 2023. I'm hoping to be able to support the Launceston students on
-          campus 2 days a week. Please prayerfully consider if you would be able
-          to make a regular pledge.
+          campus {supportData.time} days a week. Before I start I will need to raise 80% of my annual target.
         </p>
         <p className="paragraph">
-          You can see below how I am currently going in my support.
+          Please prayerfully consider if you would be able to make a regular
+          pledge of $25/$50/$75/$100/month or another amount as you feel led.
+          One off contributions are also very welcome.
+        </p>
+        <p className="paragraph">
+          You can see below my current support-raising progress.
         </p>
         <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
@@ -51,13 +55,14 @@ export default function Subscribe({ supportData }) {
           )}`}
           raised={supportData.raisedAnnual}
           target={supportData.target}
+          minTarget={80}
         />
         <br />
         <Button
           target="_blank"
           href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
         >
-          Give Financially
+          Partner Financially
         </Button>
       </Section>
     </Layout>

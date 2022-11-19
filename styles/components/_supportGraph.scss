@@ -1,20 +1,23 @@
 .SupportGraph {
+  display: block;
   width: 100%;
   margin: 1rem 0;
   padding: 2rem;
-  background-color: $color-grey;
+  box-shadow: 0 0 0.4rem 0 #353535;
+  background-color: $color-grey-light;
   color: $color-black;
 
   &_graph {
     position: relative;
     width: 100%;
     height: 4rem;
+    margin: 0.5rem 0;
     background-color: $color-grey-dark;
   }
 
   &_raised {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 0%;
     height: 4rem;
@@ -26,6 +29,24 @@
     text-align: center;
     vertical-align: middle;
     line-height: 4rem;
+    color: $color-white;
+  }
+
+  &_target {
+    position: absolute;
+    top: -0.5rem;
+    // left: 80%;
+    width: 0.5rem;
+    height: 5rem;
+    background-color: $color-black;
+  }
+
+  &_targetText {
+    padding: 1rem;
+    width: 8rem;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    text-align: center;
     color: $color-white;
   }
 }
