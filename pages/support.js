@@ -27,6 +27,15 @@ export default function Subscribe({ supportData }) {
           pledge of $25/$50/$100/month or another amount as you feel led. One
           off contributions are also very welcome.
         </p>
+        <div className="u-center-text">
+          <Button
+            target="_blank"
+            href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
+          >
+            Give Financially
+          </Button>
+        </div>
+        <br />
         <p className="paragraph">
           I hope to spend {supportData.time} days per week on campus but before
           I start I will need to raise 80% of my annual target. You can see my
@@ -55,17 +64,15 @@ export default function Subscribe({ supportData }) {
           target={supportData.target}
           minTarget={80}
         />
-      </Section>
-      <Section color="grey">
-        <p className="paragraph">How would you like to partner with me?</p>
-        <div className="section-support__buttons">
-          <Button
-            target="_blank"
-            href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
-          >
-            Financially
-          </Button>
-          <Button href="/blog?tag=AFES">Prayerfully</Button>
+        <br />
+        <p className="paragraph">
+          If now isn't a good time for you to support me in this way, please
+          consider subscribing to my email updates and continue to pray for me
+          and the Uni ministry. It is only through your prayers and God's grace
+          that he continues to carry out his good will in people's lives.
+        </p>
+        <div className="u-center-text">
+          <Button href="/subscribe">Support Prayerfully</Button>
         </div>
       </Section>
     </Layout>

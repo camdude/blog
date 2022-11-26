@@ -11,7 +11,7 @@ const Footer = () => {
             <li className="Footer__listItem">
               <a
                 className="Footer__link link"
-                href="mailto:contact@cameronclifford.com"
+                href="mailto:afes@cameronclifford.com"
                 target="blank"
               >
                 <FontAwesomeIcon icon="envelope" /> Email
@@ -35,7 +35,6 @@ const Footer = () => {
                 <FontAwesomeIcon icon={["fab", "github"]} /> Github
               </a>
             </li>
-            
           </ul>
         </div>
         <div className="Footer__section">
@@ -52,8 +51,8 @@ const Footer = () => {
               </a>
             </li>
             <li className="Footer__listItem">
-              <a className="Footer__link link" href="/subscribe">
-                MTS Updates
+              <a className="Footer__link link" href="/support">
+                Support
               </a>
             </li>
           </ul>

@@ -32,7 +32,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="Navbar__item">
-          <Link href="/#support">
+          <Link href="/support">
             <a className="Navbar__link">Support</a>
           </Link>
         </li>

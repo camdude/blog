@@ -108,7 +108,7 @@ export default function Home() {
           </div>
           <div className="section-support__buttons">
             <Button href="/support">AFES Partnership</Button>
-            <Button href="/blog?tag=MTS%20Updates">Prayer Updates</Button>
+            <Button href="/blog?tag=AFES%20Updates">Prayer Updates</Button>
           </div>
         </div>
       </Section>
