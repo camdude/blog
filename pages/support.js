@@ -27,6 +27,11 @@ export default function Subscribe({ supportData }) {
           pledge of $25/$50/$100/month or another amount as you feel led. One
           off contributions are also very welcome.
         </p>
+        <p className="paragraph">
+          I hope to spend {supportData.time} days per week on campus but before
+          I start I will need to raise 80% of my annual target.
+          {/* You can see my current support below. */}
+        </p>
         <div className="u-center-text">
           <Button
             target="_blank"
@@ -36,12 +41,8 @@ export default function Subscribe({ supportData }) {
           </Button>
         </div>
         <br />
-        <p className="paragraph">
-          I hope to spend {supportData.time} days per week on campus but before
-          I start I will need to raise 80% of my annual target. You can see my
-          current support below.
-        </p>
-        <SupportGraph
+        
+        {/* <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
             undefined,
             {
@@ -64,7 +65,7 @@ export default function Subscribe({ supportData }) {
           target={supportData.target}
           minTarget={80}
         />
-        <br />
+        <br /> */}
         <p className="paragraph">
           If now isn't a good time for you to support me in this way, please
           consider subscribing to my email updates and continue to pray for me
