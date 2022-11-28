@@ -23,26 +23,36 @@ export default function Subscribe({ supportData }) {
           campus, there is still a great need for people to hear the good news.
         </p>
         <p className="paragraph">
-          Please prayerfully consider if you would be able to make a regular
-          pledge of $25/$50/$100/month or another amount as you feel led. One
-          off contributions are also very welcome.
+          If you haven't already read my partnership letter yet, please do so{" "}
+          <a href="/blog/afes-partnership-letter">here</a>, to find out more
+          about the ministry and what my role is.
         </p>
         <p className="paragraph">
-          I hope to spend {supportData.time} days per week on campus but before
-          I start I will need to raise 80% of my annual target.
-          {/* You can see my current support below. */}
+          Would you be willing to prayerfully consider if you would be able to
+          generously give to help me support the students {supportData.time}{" "}
+          days per week on campus? A regular pledge of $25/$50/$100/month or
+          another amount as you feel led would be most appreciated. One-off
+          contributions are also very welcome.
         </p>
-        <div className="u-center-text">
+        <p className="paragraph">
+          If now isn't a good time for you to support me in this way, please
+          consider subscribing to my email updates and continue to pray for me
+          and the Uni ministry. It is only through your prayers and God's grace
+          that he continues to carry out his good will in people's lives.
+        </p>
+        <div className="section-support__buttons">
           <Button
             target="_blank"
             href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
           >
             Give Financially
           </Button>
+          <Button href="/subscribe">Support Prayerfully</Button>
         </div>
-        <br />
-        
-        {/* <SupportGraph
+      </Section>
+      <Section color="primary">
+        <p className="paragraph">You can see my current support below.</p>
+        <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
             undefined,
             {
@@ -65,16 +75,6 @@ export default function Subscribe({ supportData }) {
           target={supportData.target}
           minTarget={80}
         />
-        <br /> */}
-        <p className="paragraph">
-          If now isn't a good time for you to support me in this way, please
-          consider subscribing to my email updates and continue to pray for me
-          and the Uni ministry. It is only through your prayers and God's grace
-          that he continues to carry out his good will in people's lives.
-        </p>
-        <div className="u-center-text">
-          <Button href="/subscribe">Support Prayerfully</Button>
-        </div>
       </Section>
     </Layout>
   );
