@@ -17,10 +17,10 @@ export default function Home() {
           <div className="hero__content">
             <div className="hero__headingContainer">
               <h1 className="hero__heading">
-                To be equipped with everything good for doing his will, to whom
-                be glory for ever.
+                Proclaiming Jesus Christ at University to make everyone mature
+                in him.
               </h1>
-              <h2 className="hero__subheading">Hebrews 13:21</h2>
+              {/* <h2 className="hero__subheading">Hebrews 13:21</h2> */}
             </div>
             <div className="hero__cta">
               <Button href="/#support">Partner With Me</Button>
