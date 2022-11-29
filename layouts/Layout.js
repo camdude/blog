@@ -16,7 +16,7 @@ export default function Layout({ meta, children }) {
   return (
     <div>
       <Head>
-        <title>{`Cameron Clifford | ${meta.title}`}</title>
+        <title>{`${meta.title} | Cameron Clifford`}</title>
         <link rel="icon" type="image/png" href="/favicon-64x64.png" sizes="64x64" />
         <link rel="icon" type="image/png" href="/favicon-512x512.png" sizes="512x512" />
         <meta property="og:title" content={meta.title} />

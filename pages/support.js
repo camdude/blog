@@ -12,9 +12,13 @@ export default function Subscribe({ supportData }) {
         title: "Support",
         type: "website",
         url: "/support",
-        desc: "",
+        desc: "Would you be willing to prayerfully consider if you would be able to generously give to help me support the students on campus?",
       }}
     >
+      <img
+        className="BlogPost__coverImage"
+        src="/support-banner.png"
+      />
       <Section color="secondary">
         <h2 className="heading-secondary">Ministry Partnership</h2>
         <p className="paragraph">
