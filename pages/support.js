@@ -16,10 +16,7 @@ export default function Subscribe({ supportData }) {
         desc: "Would you be willing to prayerfully consider if you would be able to generously give to help me support the students on campus?",
       }}
     >
-      <img
-        className="BlogPost__coverImage"
-        src="/support-banner.png"
-      />
+      <img className="BlogPost__coverImage" src="/support-banner.png" />
       <Section color="secondary">
         <h2 className="heading-secondary">Partner with Cameron?</h2>
         <p className="paragraph">
@@ -93,5 +90,6 @@ export async function getStaticProps() {
     props: {
       supportData: supportData[0],
     },
+    revalidate: 1,
   };
 }
