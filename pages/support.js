@@ -11,6 +11,7 @@ export default function Subscribe({ supportData }) {
       meta={{
         title: "Support",
         type: "website",
+        image: "/support-banner.png",
         url: "/support",
         desc: "Would you be willing to prayerfully consider if you would be able to generously give to help me support the students on campus?",
       }}
