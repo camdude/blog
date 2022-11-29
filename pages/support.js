@@ -57,6 +57,7 @@ export default function Subscribe({ supportData }) {
       </Section>
       <Section color="primary">
         <p className="paragraph">You can see my current support below.</p>
+        {console.log(supportData)}
         <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
             undefined,
