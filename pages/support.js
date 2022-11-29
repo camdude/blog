@@ -9,7 +9,7 @@ export default function Subscribe({ supportData }) {
   return (
     <Layout
       meta={{
-        title: "Support",
+        title: "Partner with Cameron",
         type: "website",
         image: "/support-banner.png",
         url: "/support",
@@ -21,7 +21,7 @@ export default function Subscribe({ supportData }) {
         src="/support-banner.png"
       />
       <Section color="secondary">
-        <h2 className="heading-secondary">Ministry Partnership</h2>
+        <h2 className="heading-secondary">Partner with Cameron?</h2>
         <p className="paragraph">
           I’m very grateful for you considering how you can partner with me to
           serve the students at UTAS. Although Launceston is a small and quiet
