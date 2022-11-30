@@ -38,7 +38,7 @@ export default function Subscribe({ supportData }) {
         </p>
         <p className="paragraph">
           If now isn't a good time for you to support me in this way, please
-          consider subscribing to my email updates and continue to pray for me
+          consider subscribing to my prayer newsletter so you can continue to pray for me
           and the Uni ministry. It is only through your prayers and God's grace
           that he continues to carry out his good will in people's lives.
         </p>

@@ -43,7 +43,7 @@ export default function Blog({ blogs, preview, tags }) {
         </p>
         <p className="paragraph">
           If you would like to get email updates, particularly for what I'm
-          doing with MTS, please click the subscribe button below.
+          doing with AFES, please click the subscribe button below.
         </p>
         <div className="u-center-text">
           <Button
@@ -56,7 +56,7 @@ export default function Blog({ blogs, preview, tags }) {
         </div>
         {formOpen ? (
           <div>
-            <Mailchimp title="Cameron Clifford's MTS Updates" />
+            <Mailchimp title="Cameron Clifford's AFES Updates" />
             <div className="u-center-text">
               <p>
                 You can also subscribe via RSS, if that is something you use.
