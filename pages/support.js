@@ -54,6 +54,11 @@ export default function Subscribe({ supportData }) {
       </Section>
       <Section color="primary">
         <p className="paragraph">You can see my current support below.</p>
+        <p className="paragraph">
+          The markings indicate the minimum AFES requires me to raise before I can
+          can commit to starting {supportData.time} days a week with the
+          students.
+        </p>
         {console.log(supportData)}
         <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
@@ -65,6 +70,7 @@ export default function Subscribe({ supportData }) {
           )}`}
           raised={supportData.raisedMonthly}
           target={supportData.target / 12}
+          minTarget={60}
         />
         <SupportGraph
           heading={`Annual Target: $${supportData.target.toLocaleString(
