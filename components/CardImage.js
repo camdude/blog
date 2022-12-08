@@ -41,7 +41,7 @@ const CardImage = ({
           {coverImage ? (
             <img
               className="CardImage__image"
-              src={urlFor(coverImage).width(400).fit("max").url()}
+              src={urlFor(coverImage).fit("max").url()}
               alt=""
             />
           ) : (

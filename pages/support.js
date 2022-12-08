@@ -5,7 +5,7 @@ import SupportGraph from "../components/SupportGraph";
 import { getSupport } from "../lib/api";
 import Button from "../components/Button";
 
-export default function Subscribe({ supportData }) {
+export default function Support({ supportData }) {
   return (
     <Layout
       meta={{
@@ -53,6 +53,7 @@ export default function Subscribe({ supportData }) {
         </div>
       </Section>
       <Section color="primary">
+      <h2 className="heading-secondary">Support Progress</h2>
         <p className="paragraph">You can see my current support below.</p>
         <p className="paragraph">
           The markings indicate the minimum AFES requires me to raise before I can

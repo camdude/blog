@@ -21,7 +21,7 @@ const Image = ({ asset, alt, position = "center", crop, hotspot }) => {
       <div className={`Image__imgContainer Image__imgContainer--${position}`}>
         <img
           className="Image__image"
-          src={urlFor({ asset, crop, hotspot }).width(300).fit("max").url()}
+          src={urlFor({ asset, crop, hotspot }).width(250).fit("max").url()}
           onClick={() => {
             setIsModalOpen(!isModalOpen);
           }}
