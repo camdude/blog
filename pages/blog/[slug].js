@@ -196,7 +196,7 @@ export default function BlogPost({ blog, preview }) {
         </p>
         <p className="paragraph">
           Would you be willing to invest in this ministry so that students will
-          be trained and equipped to procliam Christ at University?
+          be trained and equipped to proclaim Christ at University?
         </p>
         <p className="paragraph">
           Please see the options below to either give financially or join my
