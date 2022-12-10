@@ -104,6 +104,24 @@ export default function Blog({ blogs, preview, tags }) {
             : "More Blogs"}
         </Button>
       </Section>
+      <Section color="primary">
+        <h2 className="heading-secondary">Partner with me?</h2>
+        <p className="paragraph">
+          Would you like to hear more about the work Cameron is doing on campus
+          in Launceston?
+        </p>
+        <p className="paragraph">
+          Would you be willing to invest in this ministry so that students will
+          be trained and equipped to procliam Christ at University?
+        </p>
+        <p className="paragraph">
+          Please see the options below to either give financially or join my
+          prayer network.
+        </p>
+        <div className="section-support__buttons">
+          <Button href="/support">Partner With Cameron</Button>
+        </div>
+      </Section>
     </Layout>
   );
 }

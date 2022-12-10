@@ -1,10 +1,12 @@
 .Image {
   &__imgContainer {
+    width: 25rem;
     margin-bottom: 0.6rem;
     text-align: center;
 
     &--left {
       float: left;
+      width: 25rem;
       margin-right: 3rem;
 
       @include respond(phone) {
@@ -15,6 +17,7 @@
 
     &--right {
       float: right;
+      width: 25rem;
       margin-left: 3rem;
 
       @include respond(phone) {
