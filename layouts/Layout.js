@@ -5,6 +5,7 @@ import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 
 export default function Layout({ meta, children }) {
+  // GA3 - will be depricated in 2023
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA();
@@ -17,12 +18,28 @@ export default function Layout({ meta, children }) {
     <div>
       <Head>
         <title>{`${meta.title} | Cameron Clifford`}</title>
-        <link rel="icon" type="image/png" href="/favicon-64x64.png" sizes="64x64" />
-        <link rel="icon" type="image/png" href="/favicon-512x512.png" sizes="512x512" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-64x64.png"
+          sizes="64x64"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-512x512.png"
+          sizes="512x512"
+        />
         <meta property="og:title" content={meta.title} />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:image" content={meta.image|| "/portrait-square.png"} />
-        <meta property="og:url" content={`https://cameronclifford.com${meta.url}`} />
+        <meta
+          property="og:image"
+          content={meta.image || "/portrait-square.png"}
+        />
+        <meta
+          property="og:url"
+          content={`https://cameronclifford.com${meta.url}`}
+        />
         <meta property="og:site_name" content="Cameron Clifford" />
         <meta name="description" content={meta.desc} />
       </Head>
