@@ -29,7 +29,7 @@ export default function Blog({ blogs, preview, tags }) {
         title: "Blog",
         type: "website",
         url: "/blog",
-        desc: "View all my blog posts here.",
+        desc: "This space is a place for me to collect and share my thoughts on what I'm currently thinking and learning.",
       }}
     >
       {preview && <AlertMessage />}
@@ -37,8 +37,8 @@ export default function Blog({ blogs, preview, tags }) {
         <h2 className="heading-secondary">Blog</h2>
         <p className="paragraph">
           This space is a place for me to collect and share my thoughts on what
-          I am currently thinking and learning. These topics could range from
-          what I am doing in ministry to the random interests I have or anything
+          I'm currently thinking and learning. These topics could range from
+          what I'm doing in ministry to the random interests I have or anything
           else I might think is worthwhile sharing.
         </p>
         <p className="paragraph">
@@ -119,7 +119,7 @@ export default function Blog({ blogs, preview, tags }) {
           prayer network.
         </p>
         <div className="section-support__buttons">
-          <Button href="/support">Partner With Cameron</Button>
+          <Button href="/partner">Partner With Cameron</Button>
         </div>
       </Section>
     </Layout>

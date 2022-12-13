@@ -203,7 +203,7 @@ export default function BlogPost({ blog, preview }) {
           prayer network.
         </p>
         <div className="section-support__buttons">
-          <Button href="/support">Give Financially</Button>
+          <Button href="/partner">Give Financially</Button>
           <Button href="/subscribe">Support Prayerfully</Button>
         </div>
       </Section>

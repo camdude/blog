@@ -2,24 +2,17 @@ import Section from "../layouts/Section";
 
 import Layout from "../layouts/Layout";
 import SupportGraph from "../components/SupportGraph";
+import { getSupport } from "../lib/api";
 import Button from "../components/Button";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
-export default function Support({}) {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/partner");
-  }, []);
-
+export default function Partner({ supportData }) {
   return (
     <Layout
       meta={{
         title: "Partner with Cameron",
         type: "website",
         image: "/support-banner.png",
-        url: "/support",
+        url: "/partner",
         desc: "Would you be willing to prayerfully consider if you would be able to generously give to help me support the students on campus?",
       }}
     >
@@ -38,17 +31,16 @@ export default function Support({}) {
         </p>
         <p className="paragraph">
           Would you be willing to prayerfully consider if you would be able to
-          generously give to help me support the students 2 days per week on
-          campus? A regular pledge of $25/$50/$100/month or another amount as
-          you feel led would be most appreciated. One-off contributions are also
-          very welcome.
+          generously give to help me support the students {supportData.time}{" "}
+          days per week on campus? A regular pledge of $25/$50/$100/month or
+          another amount as you feel led would be most appreciated. One-off
+          contributions are also very welcome.
         </p>
         <p className="paragraph">
           If now isn't a good time for you to support me in this way, please
-          consider subscribing to my prayer newsletter so you can continue to
-          pray for me and the Uni ministry. It is only through your prayers and
-          God's grace that he continues to carry out his good will in people's
-          lives.
+          consider subscribing to my prayer newsletter so you can continue to pray for me
+          and the Uni ministry. It is only through your prayers and God's grace
+          that he continues to carry out his good will in people's lives.
         </p>
         <div className="section-support__buttons">
           <Button
@@ -61,25 +53,50 @@ export default function Support({}) {
         </div>
       </Section>
       <Section color="primary">
-        <h2 className="heading-secondary">Support Progress</h2>
+      <h2 className="heading-secondary">Support Progress</h2>
         <p className="paragraph">You can see my current support below.</p>
         <p className="paragraph">
-          The markings indicate the minimum AFES requires me to raise before I
-          can can commit to starting 2 days a week with the students.
+          The markings indicate the minimum AFES requires me to raise before I can
+          can commit to starting {supportData.time} days a week with the
+          students.
         </p>
+        {console.log(supportData)}
         <SupportGraph
-          heading={`Monthly Target: $2,205.11`}
-          raised={0}
-          target={26461.29 / 12}
+          heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
+            undefined,
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            }
+          )}`}
+          raised={supportData.raisedMonthly}
+          target={supportData.target / 12}
           minTarget={60}
         />
         <SupportGraph
-          heading={`Annual Target: $26,461.29`}
-          raised={0}
-          target={26461.29}
+          heading={`Annual Target: $${supportData.target.toLocaleString(
+            undefined,
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            }
+          )}`}
+          raised={supportData.raisedAnnual}
+          target={supportData.target}
           minTarget={80}
         />
       </Section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const supportData = await getSupport();
+
+  return {
+    props: {
+      supportData: supportData[0],
+    },
+    revalidate: 1,
+  };
 }

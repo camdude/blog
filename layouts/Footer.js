@@ -51,8 +51,8 @@ const Footer = () => {
               </a>
             </li>
             <li className="Footer__listItem">
-              <a className="Footer__link link" href="/support">
-                Support
+              <a className="Footer__link link" href="/partner">
+                Partner
               </a>
             </li>
           </ul>

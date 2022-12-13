@@ -12,7 +12,7 @@ export default function Subscribe({ blogs, preview, tags }) {
         title: "Subscribe",
         type: "website",
         url: "/subscribe",
-        desc: "To subscribe to my email updates about what I'm doing with MTS, please fill out this form.",
+        desc: "To subscribe to my email updates about what I'm doing with AFES, please fill out this form.",
       }}
     >
       {preview && <AlertMessage />}
