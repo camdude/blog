@@ -132,6 +132,7 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: {
+      page: "blog",
       blogs,
       preview,
       tags,

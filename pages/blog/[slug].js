@@ -214,7 +214,7 @@ export default function BlogPost({ blog, preview }) {
 export async function getStaticProps({ params, preview = false, previewData }) {
   const blog = await getBlogBySlug(params.slug, preview);
   return {
-    props: { blog, preview },
+    props: { page: blog.title, blog, preview },
     revalidate: 1,
   };
 }

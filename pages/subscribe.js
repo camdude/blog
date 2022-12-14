@@ -56,6 +56,7 @@ export async function getStaticProps({ preview = false }) {
   const tags = await getAllTags();
   return {
     props: {
+      page: "subscribe",
       blogs,
       preview,
       tags,

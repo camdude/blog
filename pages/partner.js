@@ -95,6 +95,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      page: "partner",
       supportData: supportData[0],
     },
     revalidate: 1,
