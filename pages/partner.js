@@ -32,7 +32,7 @@ export default function Partner({ supportData }) {
         <p className="paragraph">
           Would you be willing to prayerfully consider if you would be able to
           generously give to help me support the students {supportData.time}{" "}
-          days per week on campus? A regular pledge of $25/$50/$100/month or
+          days per week on campus? A regular pledge of $25/$50/$100/$200 per month or
           another amount as you feel led would be most appreciated. One-off
           contributions are also very welcome.
         </p>

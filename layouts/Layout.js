@@ -3,9 +3,10 @@ import { initGA, logPageView } from "../utils/analytics";
 import Head from "next/head";
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
+import Script from "next/script";
 
 export default function Layout({ meta, children }) {
-  // GA3 - will be depricated in 2023
+  // GA3 - will be depricated in July 2023
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA();
@@ -43,6 +44,30 @@ export default function Layout({ meta, children }) {
         <meta property="og:site_name" content="Cameron Clifford" />
         <meta name="description" content={meta.desc} />
       </Head>
+      {/* Google Tag Manager  */}
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KKB5V23');
+      `,
+        }}
+      />
+      {/* End Google Tag Manager */}
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-KKB5V23"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>`,
+        }}
+      />
       <Navbar />
       <main>{children}</main>
       <Footer />
