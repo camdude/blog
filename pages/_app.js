@@ -41,13 +41,23 @@ library.add(
   faFile,
   faDownload
 );
+import { useEffect } from 'react';
+import { useRouter } from 'next/router'
+import { gtmVirtualPageView } from '../lib/gtm';
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-    </>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    const mainDataLayer = {
+      pageTypeName: pageProps.page || null,
+      url: router.pathname,
+    };
+
+    gtmVirtualPageView(mainDataLayer);
+  }, [pageProps]);
+
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
