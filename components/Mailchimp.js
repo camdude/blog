@@ -34,6 +34,7 @@ const Mailchimp = ({ title }) => {
     <div className="Mailchimp">
       {!title || <h1 className="Mailchimp__title">{title}</h1>}
       <form
+        id="mailchimp_form"
         action={`https://gmail.us7.list-manage.com/subscribe/post?u=${u}&amp;id=${id}`}
         method="POST"
         noValidate

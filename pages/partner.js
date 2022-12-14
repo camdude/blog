@@ -44,12 +44,13 @@ export default function Partner({ supportData }) {
         </p>
         <div className="section-support__buttons">
           <Button
+            id="give_financially"
             target="_blank"
             href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
           >
             Give Financially
           </Button>
-          <Button href="/subscribe">Support Prayerfully</Button>
+          <Button   href="/subscribe">Support Prayerfully</Button>
         </div>
       </Section>
       <Section color="primary">
@@ -60,7 +61,6 @@ export default function Partner({ supportData }) {
           can commit to starting {supportData.time} days a week with the
           students.
         </p>
-        {console.log(supportData)}
         <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
             undefined,
