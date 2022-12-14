@@ -7,13 +7,13 @@ import Script from "next/script";
 
 export default function Layout({ meta, children }) {
   // GA3 - will be depricated in July 2023
-  useEffect(() => {
-    if (!window.GA_INITIALIZED) {
-      initGA();
-      window.GA_INITIALIZED = true;
-    }
-    logPageView();
-  }, []);
+  // useEffect(() => {
+  //   if (!window.GA_INITIALIZED) {
+  //     initGA();
+  //     window.GA_INITIALIZED = true;
+  //   }
+  //   logPageView();
+  // }, []);
 
   return (
     <div>
