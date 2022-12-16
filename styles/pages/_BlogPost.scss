@@ -75,5 +75,8 @@
   &__content {
     margin-top: 2rem;
     font-size: $default-font-size;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 }

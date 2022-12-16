@@ -52,20 +52,20 @@ const serializers = {
     const { type } = props;
     const bullet = type === "bullet";
     if (bullet) {
-      return <ul className="block__list" {...props} />;
+      return <ul className="blog__list" {...props} />;
     }
-    return <ol className="block__list" {...props} />;
+    return <ol className="blog__list" {...props} />;
   },
   listItem: (props) => <li className="blog__listItem" {...props} />,
   marks: {
     link: ({ mark, children }) => {
       const { blank, href } = mark;
       return blank ? (
-        <a className="block__a" href={href} target="_blank" rel="noreferrer">
+        <a className="blog__a" href={href} target="_blank" rel="noreferrer">
           {children}
         </a>
       ) : (
-        <a className="block__a" href={href}>
+        <a className="blog__a" href={href}>
           {children}
         </a>
       );
