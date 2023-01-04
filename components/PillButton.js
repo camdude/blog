@@ -3,8 +3,8 @@ import Link from "next/link";
 const PillButton = ({ children, href, onClick }) => {
   if (href) {
     return (
-      <Link href={href}>
-        <a className="PillButton">{children}</a>
+      <Link className="PillButton" href={href}>
+        {children}
       </Link>
     );
   } else {

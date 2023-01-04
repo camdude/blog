@@ -49,8 +49,8 @@ const CardImage = ({
           )}
         </div>
         <div className="CardImage__content">
-          <Link {...link}>
-            <a className="CardImage__title">{title}</a>
+          <Link className="CardImage__title" {...link}>
+            {title}
           </Link>
           <div className="CardImage__detailSection">
             <h4 className="CardImage__detail">
@@ -62,7 +62,9 @@ const CardImage = ({
               {` ${moment(date).format("MMMM Do, YYYY")}`}
             </h4>
           </div>
-          <p className="CardImage__description">{children.length > 150 ? children.substr(0, 150) + '...' : children}</p>
+          <p className="CardImage__description">
+            {children.length > 150 ? children.substr(0, 150) + "..." : children}
+          </p>
         </div>
       </div>
     );

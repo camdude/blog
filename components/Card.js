@@ -21,8 +21,8 @@ const Card = ({ title, author, date, children, link, placeholder = false }) => {
   } else {
     return (
       <div className="Card">
-        <Link {...link}>
-          <a className="Card__title">{title}</a>
+        <Link className="Card__title" {...link}>
+          {title}
         </Link>
         <div className="Card__detailSection">
           <h4 className="CardImage__detail">
@@ -34,7 +34,9 @@ const Card = ({ title, author, date, children, link, placeholder = false }) => {
             {` ${moment(date).format("MMMM Do, YYYY")}`}
           </h4>
         </div>
-        <p className="Card__description">{children.length > 200 ? children.substr(0, 200) + '...' : children}</p>
+        <p className="Card__description">
+          {children.length > 200 ? children.substr(0, 200) + "..." : children}
+        </p>
       </div>
     );
   }

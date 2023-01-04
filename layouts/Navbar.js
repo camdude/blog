@@ -22,23 +22,23 @@ const Navbar = () => {
       </div>
       <ul className={`Navbar__list ${navOpen ? "Navbar__list--open" : ""}`}>
         <li className="Navbar__item">
-          <Link href="/">
-            <a className="Navbar__link">Home</a>
+          <Link className="Navbar__link" href="/">
+            Home
           </Link>
         </li>
         <li className="Navbar__item">
-          <Link href="/#about">
-            <a className="Navbar__link">About</a>
+          <Link className="Navbar__link" href="/#about">
+            About
           </Link>
         </li>
         <li className="Navbar__item">
-          <Link href="/partner">
-            <a className="Navbar__link">Partner</a>
+          <Link className="Navbar__link" href="/partner">
+            Partner
           </Link>
         </li>
         <li className="Navbar__item">
-          <Link href="/blog">
-            <a className="Navbar__link">Blog</a>
+          <Link className="Navbar__link" href="/blog">
+            Blog
           </Link>
         </li>
       </ul>

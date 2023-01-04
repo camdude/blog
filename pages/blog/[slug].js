@@ -177,8 +177,8 @@ export default function BlogPost({ blog, preview }) {
             </h4>
             <div className="BlogPost__detail">
               <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
-              <Link href={`/blog?tag=${blog.tags}`}>
-                <a className="BlogPost__tag">{blog.tags}</a>
+              <Link className="BlogPost__tag" href={`/blog?tag=${blog.tags}`}>
+                {blog.tags}
               </Link>
             </div>
           </div>

@@ -6,7 +6,7 @@ const AlertMessage = () => {
       <h2 className="heading-secondary">You are in preview mode</h2>
       <br />
       <Link href="/api/exit-preview">
-        <a>Leave preview mode</a>
+        Leave preview mode
       </Link>
     </div>
   );
