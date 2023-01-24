@@ -2,7 +2,7 @@
   &__imgContainer {
     margin: auto;
     margin-bottom: 0.6rem;
-    width: 50%;
+    max-width: 50%;
     text-align: center;
 
     &--left {
@@ -11,9 +11,9 @@
       margin-right: 3rem;
 
       @include respond(phone) {
+        margin: auto;
         float: none;
         width: 100%;
-        margin-right: 0;
       }
     }
 
@@ -23,9 +23,9 @@
       margin-left: 3rem;
 
       @include respond(phone) {
+        margin: auto;
         float: none;
         width: 100%;
-        margin-left: 0;
       }
     }
   }
