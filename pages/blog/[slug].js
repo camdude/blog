@@ -14,6 +14,7 @@ import FileDownload from "../../components/FileDownload";
 import Gallery from "../../components/Gallery";
 import Button from "../../components/Button";
 import YouTube from "../../components/YouTube";
+import TextBlock from "../../components/TextBlock";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -107,6 +108,9 @@ const serializers = {
     },
     youtube: ({ node: { url } }) => {
       return <YouTube url={url} />;
+    },
+    textBlock: ({ node: { heading, body } }) => {
+      return <TextBlock heading={heading}>{body}</TextBlock>;
     },
   },
 };
