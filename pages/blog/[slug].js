@@ -64,11 +64,11 @@ const serializers = {
       console.log(mark)
       const { blank, href } = mark;
       return blank ? (
-        <a className="block__a" href={href} target="_blank" rel="noreferrer">
+        <a className="blog__a" href={href} target="_blank" rel="noreferrer">
           {children}
         </a>
       ) : (
-        <a className="block__a" href={href}>
+        <a className="blog__a" href={href}>
           {children}
         </a>
       );

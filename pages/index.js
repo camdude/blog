@@ -37,9 +37,9 @@ export default function Home() {
           <div className="section-about__content">
             <h2 className="heading-secondary">About Me</h2>
             <p className="paragraph">
-              Hi, I'm Cameron, a current{" "}
+              Hi, I'm Cameron, a recent {" "}
               <a className="link" href="https://mts.com.au/" target="_blank">
-                MTS apprentice
+                MTS graduate
               </a>{" "}
               living in Launceston. I enjoy playing clarinet in concert bands,
               playing board games, bushwalking, hanging out with friends and
