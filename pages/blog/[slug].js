@@ -16,6 +16,7 @@ import Button from "../../components/Button";
 import YouTube from "../../components/YouTube";
 import TextBlock from "../../components/TextBlock";
 import ImageTextBlock from "../../components/ImageTextBlock";
+import { useState } from "react";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -61,7 +62,7 @@ const serializers = {
   listItem: (props) => <li className="blog__listItem" {...props} />,
   marks: {
     link: ({ mark, children }) => {
-      console.log(mark)
+      console.log(mark);
       const { blank, href } = mark;
       return blank ? (
         <a className="blog__a" href={href} target="_blank" rel="noreferrer">
@@ -126,7 +127,6 @@ const serializers = {
 
 export default function BlogPost({ blog, preview }) {
   const router = useRouter();
-  console.log(blog)
 
   if (!router.isFallback && !blog?.slug) {
     return <ErrorPage statusCode="404" />;
@@ -146,6 +146,49 @@ export default function BlogPost({ blog, preview }) {
           <h1 className="u-center-text">
             Loading <FontAwesomeIcon icon="spinner" spin />
           </h1>
+        </Section>
+      </Layout>
+    );
+  }
+  if (blog.protected?.isHidden && router.query.pwd != blog.protected.pwd) {
+    const [pwdInput, setPwdInput] = useState("");
+
+    return (
+      <Layout
+        meta={{
+          title: "Password Protected",
+          type: "",
+          image: "",
+          url: "",
+          desc: "",
+        }}
+      >
+        <Section color="tertiary">
+          <h1 className="u-center-text">Password Protected</h1>
+          <p className="paragraph u-center-text">
+            This post is protected with a password. Please enter the password to
+            see it's contents.
+          </p>
+          <br />
+          <div className="u-center-text">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                  if (pwdInput === blog.protected.pwd) {
+                  router.push(`/blog/${blog.slug}?pwd=${blog.protected.pwd}`);
+                } else {
+                  alert("Incorrect Password");
+                }
+              }}
+            >
+              <input
+                type="text"
+                value={pwdInput}
+                onChange={(e) => setPwdInput(e.target.value)}
+              />
+              <input type="submit" />
+            </form>
+          </div>
         </Section>
       </Layout>
     );
