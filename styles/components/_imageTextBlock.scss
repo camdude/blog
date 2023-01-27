@@ -1,0 +1,41 @@
+.ImageTextBlock {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 0;
+  
+  width: 100%;
+  background-color: $color-grey-lighter;
+  color: $color-black;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+
+  &__imgContainer {
+    font-size: 0;
+    width: 200rem;
+
+    @include respond(tab-land) {
+      width: 250rem;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    
+  }
+
+  &__imgContainer > img {
+    width: 100%;
+  }
+
+
+  &__textBlock {
+    padding: 2rem 4rem;
+  }
+
+  &__heading {
+    color: $color-tertiary;
+  }
+}

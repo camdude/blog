@@ -15,6 +15,7 @@ import Gallery from "../../components/Gallery";
 import Button from "../../components/Button";
 import YouTube from "../../components/YouTube";
 import TextBlock from "../../components/TextBlock";
+import ImageTextBlock from "../../components/ImageTextBlock";
 
 const overrides = {
   h1: (props) => <h1 className="blog__h1" {...props} />,
@@ -60,13 +61,14 @@ const serializers = {
   listItem: (props) => <li className="blog__listItem" {...props} />,
   marks: {
     link: ({ mark, children }) => {
+      console.log(mark)
       const { blank, href } = mark;
       return blank ? (
-        <a className="blog__a" href={href} target="_blank" rel="noreferrer">
+        <a className="block__a" href={href} target="_blank" rel="noreferrer">
           {children}
         </a>
       ) : (
-        <a className="blog__a" href={href}>
+        <a className="block__a" href={href}>
           {children}
         </a>
       );
@@ -112,11 +114,19 @@ const serializers = {
     textBlock: ({ node: { heading, body } }) => {
       return <TextBlock heading={heading}>{body}</TextBlock>;
     },
+    imageTextBlock: ({ node: { heading, body, image } }) => {
+      return (
+        <ImageTextBlock heading={heading} image={image}>
+          {body}
+        </ImageTextBlock>
+      );
+    },
   },
 };
 
 export default function BlogPost({ blog, preview }) {
   const router = useRouter();
+  console.log(blog)
 
   if (!router.isFallback && !blog?.slug) {
     return <ErrorPage statusCode="404" />;
