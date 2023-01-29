@@ -157,24 +157,58 @@ export default function BlogPost({ blog, preview }) {
       <Layout
         meta={{
           title: "Password Protected",
-          type: "",
+          type: "article",
           image: "",
-          url: "",
+          url: `/blog/${blog.slug}`,
           desc: "",
         }}
       >
-        <Section color="tertiary">
+        <Head>
+          <meta property="og:article:published_time" content={blog.date} />
+          <meta property="og:article:author" content="Cameron Clifford" />
+          <meta property="og:article:tag" content={blog.tags} />
+        </Head>
+        {preview && <AlertMessage />}
+        <article id="Content">
+          <img
+            className="BlogPost__coverImage"
+            src={urlFor(blog.coverImage).url()}
+          />
+        </article>
+        <Section color="grey">
+          <h1 className="BlogPost__title">{blog.title}</h1>
+          <div className="BlogPost__detailSection">
+            <h4 className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
+              {`${blog.author.name}`}
+            </h4>
+            <h4 className="BlogPost__detail">
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="calendar-alt"
+              />
+              {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+            </h4>
+            <div className="BlogPost__detail">
+              <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
+              <Link className="BlogPost__tag" href={`/blog?tag=${blog.tags}`}>
+                {blog.tags}
+              </Link>
+            </div>
+          </div>
+        </Section>
+        <Section color="grey">
           <h1 className="u-center-text">Password Protected</h1>
           <p className="paragraph u-center-text">
-            This post is protected with a password. Please enter the password to
-            see it's contents.
+            This post is protected with a password. Please enter it below to
+            access it's contents.
           </p>
           <br />
           <div className="u-center-text">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                  if (pwdInput === blog.protected.pwd) {
+                if (pwdInput === blog.protected.pwd) {
                   router.push(`/blog/${blog.slug}?pwd=${blog.protected.pwd}`);
                 } else {
                   alert("Incorrect Password");
@@ -182,11 +216,12 @@ export default function BlogPost({ blog, preview }) {
               }}
             >
               <input
+                className="Form__field"
                 type="text"
                 value={pwdInput}
                 onChange={(e) => setPwdInput(e.target.value)}
               />
-              <input type="submit" />
+              <input className="Form__button" type="submit" />
             </form>
           </div>
         </Section>

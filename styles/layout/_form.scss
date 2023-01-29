@@ -1,0 +1,62 @@
+.Form {
+  &__field {
+    margin: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    min-width: 25rem;
+    box-shadow: 0 0 0.4rem 0 $color-black;
+    background: #fff;
+    font-family: Helvetica;
+    font-size: 1.4rem;
+    color: #5d5d5d ;
+
+    @include respond(tab-port) {
+        margin: 1rem 0;
+        width: 100%;
+      }
+
+    &:focus {
+        // border: 0.2rem solid #5d5d5d;
+        outline: none;
+      }
+  }
+
+  &__button {
+    display: inline-block;
+    border: none;
+    border-radius: .2rem;
+    padding: 1rem 3rem;
+    box-shadow: 0 0 0.4rem 0 $color-black;
+    background-color: $color-tertiary;
+    color: $color-white;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+
+    @include respond(tab-port) {
+      margin: 1rem 0;
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: $color-tertiary-dark;
+      color: $color-black;
+      cursor: pointer;
+    }
+
+    &--disabled {
+      background-color: $color-grey;
+      // text-decoration: line-through;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: $color-grey;
+        color: $color-white;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
