@@ -57,11 +57,11 @@ export default function Partner({ supportData }) {
       <h2 className="heading-secondary">Support Progress</h2>
         <p className="paragraph">You can see my current support below.</p>
         <p className="paragraph">
-          The markings indicate the minimum AFES requires me to raise before I can
-          can commit to starting {supportData.time} days a week with the
+          The marking indicates the minimum AFES requires me to raise before I can
+          can commit to {supportData.time} days a week with the
           students.
         </p>
-        <SupportGraph
+        {/* <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
             undefined,
             {
@@ -72,7 +72,7 @@ export default function Partner({ supportData }) {
           raised={supportData.raisedMonthly}
           target={supportData.target / 12}
           minTarget={60}
-        />
+        /> */}
         <SupportGraph
           heading={`Annual Target: $${supportData.target.toLocaleString(
             undefined,

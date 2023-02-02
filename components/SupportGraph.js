@@ -1,5 +1,11 @@
 const SupportGraph = ({ raised, target, minTarget, heading }) => {
-  const percentage = (raised / target) * 100;
+  let percentage = 0;
+  if (raised >= target) {
+    percentage = 100;
+  } else {
+    percentage = (raised / target) * 100;;
+  }
+  
 
   return (
     <div className="SupportGraph">
