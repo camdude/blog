@@ -53,7 +53,7 @@ export default function Partner({ supportData }) {
           <Button   href="/subscribe">Support Prayerfully</Button>
         </div>
       </Section>
-      <Section color="primary">
+      {/* <Section color="primary">
       <h2 className="heading-secondary">Support Progress</h2>
         <p className="paragraph">You can see my current support below.</p>
         <p className="paragraph">
@@ -61,7 +61,7 @@ export default function Partner({ supportData }) {
           can commit to {supportData.time} days a week with the
           students.
         </p>
-        {/* <SupportGraph
+        <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
             undefined,
             {
@@ -72,7 +72,7 @@ export default function Partner({ supportData }) {
           raised={supportData.raisedMonthly}
           target={supportData.target / 12}
           minTarget={60}
-        /> */}
+        />
         <SupportGraph
           heading={`Annual Target: $${supportData.target.toLocaleString(
             undefined,
@@ -85,7 +85,7 @@ export default function Partner({ supportData }) {
           target={supportData.target}
           minTarget={80}
         />
-      </Section>
+      </Section> */}
     </Layout>
   );
 }
