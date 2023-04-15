@@ -137,3 +137,15 @@
     font-style: italic;
   }
 }
+
+.rtBibleRef {
+  word-break: break-word;
+  text-decoration: none;
+  color: #1e91d6 !important;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    color: $color-grey-dark !important;
+  }
+}

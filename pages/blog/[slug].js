@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
+import { RefTagger } from "react-reftagger";
 import Image from "../../components/Image";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
@@ -62,7 +63,6 @@ const serializers = {
   listItem: (props) => <li className="blog__listItem" {...props} />,
   marks: {
     link: ({ mark, children }) => {
-      console.log(mark);
       const { blank, href } = mark;
       return blank ? (
         <a className="blog__a" href={href} target="_blank" rel="noreferrer">
@@ -247,6 +247,15 @@ export default function BlogPost({ blog, preview }) {
         <meta property="og:article:author" content="Cameron Clifford" />
         <meta property="og:article:tag" content={blog.tags} />
       </Head>
+      <RefTagger
+        bibleVersion={"NIV"}
+        roundCorners={true}
+        socialSharing={""}
+        customStyle={{
+          heading: { backgroundColor: "#1e91d6", color: "#ffffff" },
+          body: { moreLink: { color: "#1e91d6" } },
+        }}
+      />
       {preview && <AlertMessage />}
       <article id="Content">
         <img
