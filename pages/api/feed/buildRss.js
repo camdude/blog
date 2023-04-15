@@ -4,10 +4,20 @@ import { getAllBlogsWithContent, urlFor } from "../../../lib/api";
 
 const myPortableTextComponents = {
   types: {
+    textBlock: ({ value }) =>
+      `<h3>${value.heading}</h3>${toHTML(value.body, {
+        components: myPortableTextComponents,
+      })}`,
+    imageTextBlock: ({ value }) =>
+      `<h3>${value.heading}</h3>${toHTML(value.body, {
+        components: myPortableTextComponents,
+      })}`,
     image: ({ value }) => `<img src="${value.asset.url}" />`,
+    gallery: () => ``,
     file: ({ value }) =>
       `<a href="${value.asset.url}">${value.asset.originalFilename}</a>`,
     youtube: ({ value }) => `<a href="${value.url}">${value.url}</a>`,
+    undefined: () => ``,
   },
 
   marks: {

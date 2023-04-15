@@ -96,7 +96,7 @@ export default function Home() {
               <a className="link" href="https://afes.org.au/" target="_blank">
                 AFES
               </a>{" "}
-              in 2023. I'm hoping to be able to support the Launceston students
+              in 2023. I'm hoping to support the Launceston students
               on campus 2 days a week. Please prayerfully consider if you would
               be able to make a regular pledge.
             </p>
