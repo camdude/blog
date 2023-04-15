@@ -16,6 +16,7 @@ import {
   faRssSquare,
   faFile,
   faDownload,
+  faComments
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -39,7 +40,8 @@ library.add(
   faGithub,
   faRssSquare,
   faFile,
-  faDownload
+  faDownload,
+  faComments
 );
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'

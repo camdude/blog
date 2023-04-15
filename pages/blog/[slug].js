@@ -282,6 +282,15 @@ export default function BlogPost({ blog, preview }) {
                 {blog.tags}
               </Link>
             </div>
+            <div className="BlogPost__detail">
+            <FontAwesomeIcon className="BlogPost__detailIcon" icon="comments" />
+            <Link
+              className="BlogPost__tag"
+              href={`mailto:afes@cameronclifford.com`}
+            >
+              Reply
+            </Link>
+          </div>
           </div>
 
           <div className="BlogPost__content">
@@ -289,6 +298,7 @@ export default function BlogPost({ blog, preview }) {
           </div>
         </Section>
       </article>
+
       <Section color="primary">
         <h2 className="heading-secondary">Partner with me?</h2>
         <p className="paragraph">
