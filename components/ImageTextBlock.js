@@ -8,7 +8,9 @@ const ImageTextBlock = ({ heading, image, children }) => {
         <img className="Image__image" src={urlFor(image).fit("max").url()} />
       </div>
       <div className="ImageTextBlock__textBlock">
-        <h2 className="heading-secondary ImageTextBlock__heading">{heading}</h2>
+        <h2 className="heading-secondary ImageTextBlock__heading" id={heading}>
+          {heading}
+        </h2>
         <p>{children}</p>
       </div>
     </div>

@@ -2,12 +2,12 @@ import BlockContent from "@sanity/block-content-to-react";
 
 const TextBlock = ({heading, children}) => {
   const overrides = {
-    h1: (props) => <h1 className="blog__h1" {...props} />,
-    h2: (props) => <h2 className="blog__h2" {...props} />,
-    h3: (props) => <h3 className="blog__h3" {...props} />,
-    h4: (props) => <h3 className="blog__h4" {...props} />,
-    h5: (props) => <h3 className="blog__h5" {...props} />,
-    h6: (props) => <h3 className="blog__h6" {...props} />,
+    h1: (props) => <h1 className="blog__h1" id={props.children[0]} {...props} />,
+    h2: (props) => <h2 className="blog__h2" id={props.children[0]} {...props} />,
+    h3: (props) => <h3 className="blog__h3" id={props.children[0]} {...props} />,
+    h4: (props) => <h3 className="blog__h4" id={props.children[0]} {...props} />,
+    h5: (props) => <h3 className="blog__h5" id={props.children[0]} {...props} />,
+    h6: (props) => <h3 className="blog__h6" id={props.children[0]} {...props} />,
     a: (props) => <a className="blog__a" {...props} />,
     blockquote: (props) => <blockquote className="blog__quote" {...props} />,
     normal: (props) =>
@@ -72,7 +72,7 @@ const TextBlock = ({heading, children}) => {
 
   return (
     <div className="TextBlock">
-      <h2 className="heading-secondary TextBlock__heading">{heading}</h2>
+      <h2 className="heading-secondary TextBlock__heading" id={heading}>{heading}</h2>
       <BlockContent serializers={serializers} blocks={children} />
     </div>
   );
