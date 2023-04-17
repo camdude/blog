@@ -17,15 +17,65 @@ import Button from "../../components/Button";
 import YouTube from "../../components/YouTube";
 import TextBlock from "../../components/TextBlock";
 import ImageTextBlock from "../../components/ImageTextBlock";
+import { createFragmentId } from "../../utils/urlFunctions";
 import { useState } from "react";
+import ReactionElement from "../../components/ReactionElement";
 
 const overrides = {
-  h1: (props) => <h1 className="blog__h1" id={props.children[0]} {...props} />,
-  h2: (props) => <h2 className="blog__h2" id={props.children[0]} {...props} />,
-  h3: (props) => <h3 className="blog__h3" id={props.children[0]} {...props} />,
-  h4: (props) => <h3 className="blog__h4" id={props.children[0]} {...props} />,
-  h5: (props) => <h3 className="blog__h5" id={props.children[0]} {...props} />,
-  h6: (props) => <h3 className="blog__h6" id={props.children[0]} {...props} />,
+  h1: (props) => (
+    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
+      <h1
+        className="blog__h1"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    </ReactionElement>
+  ),
+  h2: (props) => (
+    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
+      <h2
+        className="blog__h2"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    </ReactionElement>
+  ),
+  h3: (props) => (
+    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
+      <h3
+        className="blog__h3"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    </ReactionElement>
+  ),
+  h4: (props) => (
+    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
+      <h4
+        className="blog__h4"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    </ReactionElement>
+  ),
+  h5: (props) => (
+    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
+      <h5
+        className="blog__h5"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    </ReactionElement>
+  ),
+  h6: (props) => (
+    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
+      <h6
+        className="blog__h6"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    </ReactionElement>
+  ),
   a: (props) => <a className="blog__a" {...props} />,
   blockquote: (props) => <blockquote className="blog__quote" {...props} />,
   normal: (props) =>
@@ -282,7 +332,7 @@ export default function BlogPost({ blog, preview }) {
                 {blog.tags}
               </Link>
             </div>
-            <div className="BlogPost__detail">
+            {/* <div className="BlogPost__detail">
               <FontAwesomeIcon
                 className="BlogPost__detailIcon"
                 icon="comments"
@@ -291,9 +341,9 @@ export default function BlogPost({ blog, preview }) {
                 className="BlogPost__tag"
                 href={`mailto:afes@cameronclifford.com`}
               >
-                Reply
+                Respond
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <div className="BlogPost__content">

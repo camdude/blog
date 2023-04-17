@@ -1,13 +1,51 @@
 import BlockContent from "@sanity/block-content-to-react";
+import { createFragmentId } from "../utils/urlFunctions";
+import ReactionElement from "./ReactionElement";
 
-const TextBlock = ({heading, children}) => {
+const TextBlock = ({ heading, children }) => {
   const overrides = {
-    h1: (props) => <h1 className="blog__h1" id={props.children[0]} {...props} />,
-    h2: (props) => <h2 className="blog__h2" id={props.children[0]} {...props} />,
-    h3: (props) => <h3 className="blog__h3" id={props.children[0]} {...props} />,
-    h4: (props) => <h3 className="blog__h4" id={props.children[0]} {...props} />,
-    h5: (props) => <h3 className="blog__h5" id={props.children[0]} {...props} />,
-    h6: (props) => <h3 className="blog__h6" id={props.children[0]} {...props} />,
+    h1: (props) => (
+      <h1
+        className="blog__h1"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    ),
+    h2: (props) => (
+      <h2
+        className="blog__h2"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    ),
+    h3: (props) => (
+      <h3
+        className="blog__h3"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    ),
+    h4: (props) => (
+      <h4
+        className="blog__h4"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    ),
+    h5: (props) => (
+      <h5
+        className="blog__h5"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    ),
+    h6: (props) => (
+      <h6
+        className="blog__h6"
+        id={createFragmentId(props.children[0])}
+        {...props}
+      />
+    ),
     a: (props) => <a className="blog__a" {...props} />,
     blockquote: (props) => <blockquote className="blog__quote" {...props} />,
     normal: (props) =>
@@ -72,7 +110,14 @@ const TextBlock = ({heading, children}) => {
 
   return (
     <div className="TextBlock">
-      <h2 className="heading-secondary TextBlock__heading" id={heading}>{heading}</h2>
+      <ReactionElement subject={`Response to "${heading}"`} body="">
+        <h2
+          className="heading-secondary TextBlock__heading"
+          id={createFragmentId(heading)}
+        >
+          {heading}
+        </h2>
+      </ReactionElement>
       <BlockContent serializers={serializers} blocks={children} />
     </div>
   );

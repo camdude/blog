@@ -1,5 +1,7 @@
 import { urlFor } from "../lib/api";
+import { createFragmentId } from "../utils/urlFunctions";
 import Image from "./Image";
+import ReactionElement from "./ReactionElement";
 
 const ImageTextBlock = ({ heading, image, children }) => {
   return (
@@ -8,9 +10,15 @@ const ImageTextBlock = ({ heading, image, children }) => {
         <img className="Image__image" src={urlFor(image).fit("max").url()} />
       </div>
       <div className="ImageTextBlock__textBlock">
-        <h2 className="heading-secondary ImageTextBlock__heading" id={heading}>
-          {heading}
-        </h2>
+      <ReactionElement subject={`Response to "${heading}"`} body="">
+          <h2
+            className="heading-secondary ImageTextBlock__heading"
+            id={createFragmentId(heading)}
+          >
+            {heading}
+          </h2>
+        </ReactionElement>
+
         <p>{children}</p>
       </div>
     </div>

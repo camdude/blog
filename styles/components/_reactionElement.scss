@@ -1,0 +1,41 @@
+.ReactionElement {
+  position: relative;
+
+  &__content {
+    &:hover + .ReactionElement__options {
+      visibility: visible;
+    }
+  }
+
+  &__options {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.8rem 0.4rem;
+    border-radius: 0.4rem;
+    background-color: $color-grey-light;
+    color: $color-grey-dark;
+    line-height: 1;
+
+    &:hover {
+      visibility: visible;
+    }
+  }
+
+  &__link, &__link--heart{
+    color: $color-grey-dark;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+
+    &--heart:hover {
+      color: $color-danger;
+    }
+  }
+
+  &__icon {
+    margin: 0 0.5rem;
+  }
+}

@@ -16,7 +16,9 @@ import {
   faRssSquare,
   faFile,
   faDownload,
-  faComments
+  faComments,
+  faReply,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -41,11 +43,13 @@ library.add(
   faRssSquare,
   faFile,
   faDownload,
-  faComments
+  faComments,
+  faReply,
+  faHeart
 );
-import { useEffect } from 'react';
-import { useRouter } from 'next/router'
-import { gtmVirtualPageView } from '../lib/gtm';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { gtmVirtualPageView } from "../lib/gtm";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
