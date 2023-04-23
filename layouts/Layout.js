@@ -31,6 +31,10 @@ export default function Layout({ meta, children }) {
           href="/favicon-512x512.png"
           sizes="512x512"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nobile:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
         <meta property="og:title" content={meta.title} />
         <meta property="og:type" content={meta.type} />
         <meta
