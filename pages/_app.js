@@ -19,6 +19,7 @@ import {
   faComments,
   faReply,
   faHeart,
+  faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -45,7 +46,8 @@ library.add(
   faDownload,
   faComments,
   faReply,
-  faHeart
+  faHeart,
+  faLink
 );
 import { useEffect } from "react";
 import { useRouter } from "next/router";

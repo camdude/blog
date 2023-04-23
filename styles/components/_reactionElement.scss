@@ -23,7 +23,10 @@
     }
   }
 
-  &__link, &__link--heart{
+  &__link,
+  &__link--heart {
+    display: inline-block;
+    cursor: pointer;
     color: $color-grey-dark;
 
     &:hover {
@@ -37,5 +40,33 @@
 
   &__icon {
     margin: 0 0.5rem;
+  }
+
+  &__alert {
+    position: absolute;
+    top: -2.2rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    width: max-content;
+    background-color: $color-grey-dark;
+    font-size: 1rem;
+    color: $color-white;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -50%;
+      left: 7px;
+      border: 6px solid transparent;
+      border-bottom-color: $color-grey-dark;
+      transform: rotate(180deg);
+    }
+
+    &::after {
+      left: 8px;
+      border: 5px solid transparent;
+      border-bottom-color: $color-grey-dark;
+    }
   }
 }

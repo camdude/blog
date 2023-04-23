@@ -21,161 +21,215 @@ import { createFragmentId } from "../../utils/urlFunctions";
 import { useState } from "react";
 import ReactionElement from "../../components/ReactionElement";
 
-const overrides = {
-  h1: (props) => (
-    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
-      <h1
-        className="blog__h1"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    </ReactionElement>
-  ),
-  h2: (props) => (
-    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
-      <h2
-        className="blog__h2"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    </ReactionElement>
-  ),
-  h3: (props) => (
-    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
-      <h3
-        className="blog__h3"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    </ReactionElement>
-  ),
-  h4: (props) => (
-    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
-      <h4
-        className="blog__h4"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    </ReactionElement>
-  ),
-  h5: (props) => (
-    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
-      <h5
-        className="blog__h5"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    </ReactionElement>
-  ),
-  h6: (props) => (
-    <ReactionElement subject={`Response to "${props.children[0]}"`} body="">
-      <h6
-        className="blog__h6"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    </ReactionElement>
-  ),
-  a: (props) => <a className="blog__a" {...props} />,
-  blockquote: (props) => <blockquote className="blog__quote" {...props} />,
-  normal: (props) =>
-    props.children[0] === "" ? (
-      <div className="blog__break" />
-    ) : (
-      <p className="blog__paragraph" {...props} />
-    ),
-};
-
-const serializers = {
-  marks: {
-    link: ({ mark, children }) => {
-      const { blank, href } = mark;
-      return blank ? (
-        <a className="blog__a" href={href} target="_blank" rel="noopener">
-          {children}
-        </a>
-      ) : (
-        <a className="blog__a" href={href}>
-          {children}
-        </a>
-      );
-    },
-  },
-
-  list: (props) => {
-    const { type } = props;
-    const bullet = type === "bullet";
-    if (bullet) {
-      return <ul className="blog__list" {...props} />;
-    }
-    return <ol className="blog__list" {...props} />;
-  },
-  listItem: (props) => <li className="blog__listItem" {...props} />,
-  marks: {
-    link: ({ mark, children }) => {
-      const { blank, href } = mark;
-      return blank ? (
-        <a className="blog__a" href={href} target="_blank" rel="noreferrer">
-          {children}
-        </a>
-      ) : (
-        <a className="blog__a" href={href}>
-          {children}
-        </a>
-      );
-    },
-  },
-  types: {
-    block: (props) => {
-      // Check if we have an override for the “style”
-      return overrides[props.node.style]
-        ? // if so, call the function and pass in the children, ignoring
-          // the other unnecessary props
-          overrides[props.node.style]({ children: props.children })
-        : // otherwise, fallback to the provided default with all props
-          BlockContent.defaultSerializers.types.block(props);
-    },
-    image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
-      return (
-        <Image
-          asset={asset}
-          alt={alt}
-          position={position}
-          crop={crop}
-          hotspot={hotspot}
-        />
-      );
-    },
-    file: ({ node: { asset } }) => {
-      return (
-        <FileDownload
-          key={asset.filename}
-          asset={asset.url}
-          filename={asset.originalFilename}
-          extension={asset.extension}
-        />
-      );
-    },
-    gallery: ({ node: { images } }) => {
-      return <Gallery images={images} />;
-    },
-    youtube: ({ node: { url } }) => {
-      return <YouTube url={url} />;
-    },
-    textBlock: ({ node: { heading, body } }) => {
-      return <TextBlock heading={heading}>{body}</TextBlock>;
-    },
-    imageTextBlock: ({ node: { heading, body, image } }) => {
-      return (
-        <ImageTextBlock heading={heading} image={image}>
-          {body}
-        </ImageTextBlock>
-      );
-    },
-  },
-};
-
 export default function BlogPost({ blog, preview }) {
+  const overrides = {
+    h1: (props) => {
+      const idLink = `https://cameronclifford.com/blog/${
+        blog?.slug
+      }#${createFragmentId(props.children[0])}`;
+      return (
+        <ReactionElement
+          subject={`Response to "${props.children[0]}"`}
+          body={idLink}
+          link={idLink}
+        >
+          <h1
+            className="blog__h1"
+            id={createFragmentId(props.children[0])}
+            {...props}
+          />
+        </ReactionElement>
+      );
+    },
+    h2: (props) => {
+      const idLink = `https://cameronclifford.com/blog/${
+        blog?.slug
+      }#${createFragmentId(props.children[0])}`;
+      return (
+        <ReactionElement
+          subject={`Response to "${props.children[0]}`}
+          body={idLink}
+          link={idLink}
+        >
+          <h2
+            className="blog__h2"
+            id={createFragmentId(props.children[0])}
+            {...props}
+          />
+        </ReactionElement>
+      );
+    },
+    h3: (props) => {
+      const idLink = `https://cameronclifford.com/blog/${
+        blog?.slug
+      }#${createFragmentId(props.children[0])}`;
+      return (
+        <ReactionElement
+          subject={`Response to "${props.children[0]}"`}
+          body={idLink}
+          link={idLink}
+        >
+          <h3
+            className="blog__h3"
+            id={createFragmentId(props.children[0])}
+            {...props}
+          />
+        </ReactionElement>
+      );
+    },
+    h4: (props) => {
+      const idLink = `https://cameronclifford.com/blog/${
+        blog?.slug
+      }#${createFragmentId(props.children[0])}`;
+      return (
+        <ReactionElement
+          subject={`Response to "${props.children[0]}"`}
+          body={idLink}
+          link={idLink}
+        >
+          <h4
+            className="blog__h4"
+            id={createFragmentId(props.children[0])}
+            {...props}
+          />
+        </ReactionElement>
+      );
+    },
+    h5: (props) => {
+      const idLink = `https://cameronclifford.com/blog/${
+        blog?.slug
+      }#${createFragmentId(props.children[0])}`;
+      return (
+        <ReactionElement
+          subject={`Response to "${props.children[0]}"`}
+          body={idLink}
+          link={idLink}
+        >
+          <h5
+            className="blog__h5"
+            id={createFragmentId(props.children[0])}
+            {...props}
+          />
+        </ReactionElement>
+      );
+    },
+    h6: (props) => {
+      const idLink = `https://cameronclifford.com/blog/${
+        blog?.slug
+      }#${createFragmentId(props.children[0])}`;
+      return (
+        <ReactionElement
+          subject={`Response to "${props.children[0]}"`}
+          body={idLink}
+          link={idLink}
+        >
+          <h6
+            className="blog__h6"
+            id={createFragmentId(props.children[0])}
+            {...props}
+          />
+        </ReactionElement>
+      );
+    },
+    a: (props) => <a className="blog__a" {...props} />,
+    blockquote: (props) => <blockquote className="blog__quote" {...props} />,
+    normal: (props) =>
+      props.children[0] === "" ? (
+        <div className="blog__break" />
+      ) : (
+        <p className="blog__paragraph" {...props} />
+      ),
+  };
+
+  const serializers = {
+    marks: {
+      link: ({ mark, children }) => {
+        const { blank, href } = mark;
+        return blank ? (
+          <a className="blog__a" href={href} target="_blank" rel="noopener">
+            {children}
+          </a>
+        ) : (
+          <a className="blog__a" href={href}>
+            {children}
+          </a>
+        );
+      },
+    },
+
+    list: (props) => {
+      const { type } = props;
+      const bullet = type === "bullet";
+      if (bullet) {
+        return <ul className="blog__list" {...props} />;
+      }
+      return <ol className="blog__list" {...props} />;
+    },
+    listItem: (props) => <li className="blog__listItem" {...props} />,
+    marks: {
+      link: ({ mark, children }) => {
+        const { blank, href } = mark;
+        return blank ? (
+          <a className="blog__a" href={href} target="_blank" rel="noreferrer">
+            {children}
+          </a>
+        ) : (
+          <a className="blog__a" href={href}>
+            {children}
+          </a>
+        );
+      },
+    },
+    types: {
+      block: (props) => {
+        // Check if we have an override for the “style”
+        return overrides[props.node.style]
+          ? // if so, call the function and pass in the children, ignoring
+            // the other unnecessary props
+            overrides[props.node.style]({ children: props.children })
+          : // otherwise, fallback to the provided default with all props
+            BlockContent.defaultSerializers.types.block(props);
+      },
+      image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
+        return (
+          <Image
+            asset={asset}
+            alt={alt}
+            position={position}
+            crop={crop}
+            hotspot={hotspot}
+          />
+        );
+      },
+      file: ({ node: { asset } }) => {
+        return (
+          <FileDownload
+            key={asset.filename}
+            asset={asset.url}
+            filename={asset.originalFilename}
+            extension={asset.extension}
+          />
+        );
+      },
+      gallery: ({ node: { images } }) => {
+        return <Gallery images={images} />;
+      },
+      youtube: ({ node: { url } }) => {
+        return <YouTube url={url} />;
+      },
+      textBlock: ({ node: { heading, body } }) => {
+        return <TextBlock heading={heading}>{body}</TextBlock>;
+      },
+      imageTextBlock: ({ node: { heading, body, image } }) => {
+        return (
+          <ImageTextBlock heading={heading} image={image}>
+            {body}
+          </ImageTextBlock>
+        );
+      },
+    },
+  };
+
   const router = useRouter();
 
   if (!router.isFallback && !blog?.slug) {

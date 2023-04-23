@@ -10,7 +10,15 @@ const ImageTextBlock = ({ heading, image, children }) => {
         <img className="Image__image" src={urlFor(image).fit("max").url()} />
       </div>
       <div className="ImageTextBlock__textBlock">
-      <ReactionElement subject={`Response to "${heading}"`} body="">
+        <ReactionElement
+          subject={`Response to "${heading}"`}
+          body={`https://cameronclifford.com/blog/[slug]#${createFragmentId(
+            heading
+          )}`}
+          link={`https://cameronclifford.com/blog/[slug]#${createFragmentId(
+            heading
+          )}`}
+        >
           <h2
             className="heading-secondary ImageTextBlock__heading"
             id={createFragmentId(heading)}

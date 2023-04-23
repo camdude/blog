@@ -11,7 +11,7 @@ const FileDownload = ({ asset, filename, extension }) => {
         <div className="FileDownload__link">{filename}</div>
       </div>
       <div className="FileDownload__icon">
-        <FontAwesomeIcon icon="download" size="lg"/>
+        <FontAwesomeIcon icon="download" size="lg"/>  
       </div>
     </a>
   );

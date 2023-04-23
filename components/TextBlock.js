@@ -110,7 +110,11 @@ const TextBlock = ({ heading, children }) => {
 
   return (
     <div className="TextBlock">
-      <ReactionElement subject={`Response to "${heading}"`} body="">
+      <ReactionElement
+        subject={`Response to "${heading}"`}
+        body={`https://cameronclifford.com/blog/[slug]#${createFragmentId(heading)}`}
+        link={`https://cameronclifford.com/blog/[slug]#${createFragmentId(heading)}`}
+      >
         <h2
           className="heading-secondary TextBlock__heading"
           id={createFragmentId(heading)}
