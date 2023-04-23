@@ -218,11 +218,15 @@ export default function BlogPost({ blog, preview }) {
         return <YouTube url={url} />;
       },
       textBlock: ({ node: { heading, body } }) => {
-        return <TextBlock heading={heading}>{body}</TextBlock>;
+        return (
+          <TextBlock heading={heading} slug={blog.slug}>
+            {body}
+          </TextBlock>
+        );
       },
       imageTextBlock: ({ node: { heading, body, image } }) => {
         return (
-          <ImageTextBlock heading={heading} image={image}>
+          <ImageTextBlock heading={heading} slug={blog.slug} image={image}>
             {body}
           </ImageTextBlock>
         );

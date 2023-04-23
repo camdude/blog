@@ -3,7 +3,7 @@ import { createFragmentId } from "../utils/urlFunctions";
 import Image from "./Image";
 import ReactionElement from "./ReactionElement";
 
-const ImageTextBlock = ({ heading, image, children }) => {
+const ImageTextBlock = ({ heading, slug, image, children }) => {
   return (
     <div className="ImageTextBlock">
       <div className="ImageTextBlock__imgContainer">
@@ -12,10 +12,10 @@ const ImageTextBlock = ({ heading, image, children }) => {
       <div className="ImageTextBlock__textBlock">
         <ReactionElement
           subject={`Response to "${heading}"`}
-          body={`https://cameronclifford.com/blog/[slug]#${createFragmentId(
+          body={`https://cameronclifford.com/blog/${slug}#${createFragmentId(
             heading
           )}`}
-          link={`https://cameronclifford.com/blog/[slug]#${createFragmentId(
+          link={`https://cameronclifford.com/blog/${slug}#${createFragmentId(
             heading
           )}`}
         >

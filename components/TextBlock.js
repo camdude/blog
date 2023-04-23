@@ -2,7 +2,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import { createFragmentId } from "../utils/urlFunctions";
 import ReactionElement from "./ReactionElement";
 
-const TextBlock = ({ heading, children }) => {
+const TextBlock = ({ heading, slug, children }) => {
   const overrides = {
     h1: (props) => (
       <h1
@@ -112,8 +112,8 @@ const TextBlock = ({ heading, children }) => {
     <div className="TextBlock">
       <ReactionElement
         subject={`Response to "${heading}"`}
-        body={`https://cameronclifford.com/blog/[slug]#${createFragmentId(heading)}`}
-        link={`https://cameronclifford.com/blog/[slug]#${createFragmentId(heading)}`}
+        body={`https://cameronclifford.com/blog/${slug}#${createFragmentId(heading)}`}
+        link={`https://cameronclifford.com/blog/${slug}#${createFragmentId(heading)}`}
       >
         <h2
           className="heading-secondary TextBlock__heading"
