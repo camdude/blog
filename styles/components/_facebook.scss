@@ -1,0 +1,15 @@
+.Facebook {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 50rem;
+  height: 50rem;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: $color-white;
+
+  &__iframe {
+    margin: 0;
+    width: 100%;
+    border: 0;
+  }
+}

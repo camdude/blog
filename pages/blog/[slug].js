@@ -20,6 +20,7 @@ import ImageTextBlock from "../../components/ImageTextBlock";
 import { createFragmentId } from "../../utils/urlFunctions";
 import { useState } from "react";
 import ReactionElement from "../../components/ReactionElement";
+import Facebook from "../../components/Facebook";
 
 export default function BlogPost({ blog, preview }) {
   const overrides = {
@@ -216,6 +217,9 @@ export default function BlogPost({ blog, preview }) {
       },
       youtube: ({ node: { url } }) => {
         return <YouTube url={url} />;
+      },
+      facebook: ({ node: { url, size } }) => {
+        return <Facebook url={url} size={size} />;
       },
       textBlock: ({ node: { heading, body } }) => {
         return (
