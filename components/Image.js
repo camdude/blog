@@ -2,7 +2,7 @@ import { useState } from "react";
 import { urlFor } from "../lib/api";
 import Modal from "./Modal";
 
-const Image = ({ asset, alt, position = "center", crop, hotspot }) => {
+const Image = ({ asset, alt, position, crop, hotspot }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>

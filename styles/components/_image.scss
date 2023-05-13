@@ -2,13 +2,22 @@
   &__imgContainer {
     margin: auto;
     margin-bottom: 0.6rem;
-    max-width: 50%;
     text-align: center;
 
     &--left {
       float: left;
       width: 25rem;
       margin-right: 3rem;
+
+      @include respond(phone) {
+        margin: auto;
+        float: none;
+        width: 100%;
+      }
+    }
+
+    &--center {
+      width: 50%;
 
       @include respond(phone) {
         margin: auto;

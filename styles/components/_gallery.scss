@@ -1,13 +1,18 @@
 .Gallery {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   padding: 1rem;
 
   &__imgContainer {
+    max-width: 25rem;
     padding: 0.6rem;
     text-align: center;
+
+    @include respond(phone) {
+      max-width: 15rem;
+    }
   }
 
   &__imgAlt {
