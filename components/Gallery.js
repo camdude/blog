@@ -4,7 +4,6 @@ import Image from "./Image";
 const Gallery = ({ images }) => {
   return (
     <div className="Gallery">
-      {console.log(images)}
       {images.map((i) => (
         <div key={i._key} className="Gallery__imgContainer">
           <Image

@@ -16,8 +16,8 @@ const Image = ({ asset, alt, position, crop, hotspot }) => {
             height={asset.metadata.dimensions.height}
             alt={alt}
             placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU8E6uBwAC0AFX4KNg9wAAAABJRU5ErkJggg=="
-            // blurDataURL={`${urlFor({ asset, crop, hotspot }).url()}&w=10&q=10`}
+            // blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU8E6uBwAC0AFX4KNg9wAAAABJRU5ErkJggg=="
+            blurDataURL={asset.metadata.lqip}
             loading="lazy"
           />
           <div className="Image__alt u-center-text">{alt}</div>
@@ -34,8 +34,8 @@ const Image = ({ asset, alt, position, crop, hotspot }) => {
           height={asset.metadata.dimensions.height}
           alt={alt}
           placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU8E6uBwAC0AFX4KNg9wAAAABJRU5ErkJggg=="
-          // blurDataURL={`${urlFor({ asset, crop, hotspot }).fit("max").url()}&w=10&q=10`}
+          // blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU8E6uBwAC0AFX4KNg9wAAAABJRU5ErkJggg=="
+          blurDataURL={asset.metadata.lqip}
           loading="lazy"
           onClick={() => {
             setIsModalOpen(!isModalOpen);

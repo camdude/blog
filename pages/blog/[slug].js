@@ -413,7 +413,6 @@ export default function BlogPost({ blog, preview }) {
           </div>
 
           <div className="BlogPost__content">
-            {console.log(blog.content)}
             <BlockContent serializers={serializers} blocks={blog.content} />
           </div>
         </Section>
