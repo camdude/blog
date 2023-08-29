@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { RefTagger } from "react-reftagger";
 import Image from "../../components/Image";
+import NextImage from "next/image";
 import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
 import moment from "moment";
@@ -237,7 +238,7 @@ export default function BlogPost({ blog, preview }) {
         );
       },
       banner: ({ node: { image, alt, link } }) => {
-        return <Banner image={image} alt={alt} link={link}/>;
+        return <Banner image={image} alt={alt} link={link} />;
       },
     },
   };
@@ -286,10 +287,16 @@ export default function BlogPost({ blog, preview }) {
         </Head>
         {preview && <AlertMessage />}
         <article id="Content">
-          <img
-            className="BlogPost__coverImage"
-            src={urlFor(blog.coverImage).url()}
-          />
+        <NextImage
+          className="BlogPost__coverImage"
+          src={urlFor(blog.coverImage).url()}
+          width={blog.coverImage.metadata.dimensions.width}
+          height={blog.coverImage.metadata.dimensions.height}
+          alt={""}
+          placeholder="blur"
+          blurDataURL={blog.coverImage.metadata.lqip}
+          loading="lazy"
+        />
         </article>
         <Section color="grey">
           <h1 className="BlogPost__title">{blog.title}</h1>
@@ -374,9 +381,15 @@ export default function BlogPost({ blog, preview }) {
       />
       {preview && <AlertMessage />}
       <article id="Content">
-        <img
+        <NextImage
           className="BlogPost__coverImage"
           src={urlFor(blog.coverImage).url()}
+          width={blog.coverImage.metadata.dimensions.width}
+          height={blog.coverImage.metadata.dimensions.height}
+          alt={""}
+          placeholder="blur"
+          blurDataURL={blog.coverImage.metadata.lqip}
+          loading="lazy"
         />
         <Section color="grey">
           <h1 className="BlogPost__title">{blog.title}</h1>

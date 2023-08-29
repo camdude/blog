@@ -2,6 +2,7 @@ import Link from "next/link";
 import { urlFor } from "../lib/api";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 const CardImage = ({
   title,
@@ -38,12 +39,23 @@ const CardImage = ({
     return (
       <div className="CardImage">
         <div className="CardImage__imgContainer">
+          {console.log(coverImage)}
           {coverImage ? (
-            <img
-              className="CardImage__image"
-              src={urlFor(coverImage).fit("max").url()}
-              alt=""
-            />
+            <Image
+            className="CardImage__image"
+            src={urlFor(coverImage).fit("max").url()}
+            width={coverImage.metadata.dimensions.width}
+            height={coverImage.metadata.dimensions.height}
+            alt={""}
+            placeholder="blur"
+            blurDataURL={coverImage.metadata.lqip}
+            loading="lazy"
+          />
+            // <img
+            //   className="CardImage__image"
+            //   src={urlFor(coverImage).fit("max").url()}
+            //   alt=""
+            // />
           ) : (
             <div className="CardImage__blankImage" />
           )}

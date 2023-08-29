@@ -26,7 +26,6 @@ export default function Home() {
               <Button href="/#support">Partner With Me</Button>
             </div>
           </div>
-
           <div className="hero__portrait">
             <img className="hero__image" src="/portrait.jpg" alt="Cameron" />
           </div>

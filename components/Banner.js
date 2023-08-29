@@ -11,7 +11,6 @@ const Banner = ({ image, alt, link }) => {
         height={image.metadata.dimensions.height}
         alt={alt}
         placeholder="blur"
-        // blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPU8E6uBwAC0AFX4KNg9wAAAABJRU5ErkJggg=="
         blurDataURL={image.metadata.lqip}
         loading="lazy"
       />

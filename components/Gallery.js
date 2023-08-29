@@ -1,4 +1,3 @@
-import { urlFor } from "../lib/api";
 import Image from "./Image";
 
 const Gallery = ({ images }) => {
