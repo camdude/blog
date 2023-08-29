@@ -21,6 +21,7 @@ import { createFragmentId } from "../../utils/urlFunctions";
 import { useState } from "react";
 import ReactionElement from "../../components/ReactionElement";
 import Facebook from "../../components/Facebook";
+import Banner from "../../components/Banner";
 
 export default function BlogPost({ blog, preview }) {
   const overrides = {
@@ -235,6 +236,9 @@ export default function BlogPost({ blog, preview }) {
           </ImageTextBlock>
         );
       },
+      banner: ({ node: { image, alt, link } }) => {
+        return <Banner image={image} alt={alt} link={link}/>;
+      },
     },
   };
 
@@ -409,6 +413,7 @@ export default function BlogPost({ blog, preview }) {
           </div>
 
           <div className="BlogPost__content">
+            {console.log(blog.content)}
             <BlockContent serializers={serializers} blocks={blog.content} />
           </div>
         </Section>
