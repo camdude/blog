@@ -39,7 +39,7 @@ const CardImage = ({
     return (
       <div className="CardImage">
         <div className="CardImage__imgContainer">
-          {console.log(coverImage)}
+          {/* {console.log(coverImage)} */}
           {coverImage ? (
             <Image
             className="CardImage__image"
@@ -51,11 +51,6 @@ const CardImage = ({
             blurDataURL={coverImage.metadata.lqip}
             loading="lazy"
           />
-            // <img
-            //   className="CardImage__image"
-            //   src={urlFor(coverImage).fit("max").url()}
-            //   alt=""
-            // />
           ) : (
             <div className="CardImage__blankImage" />
           )}
