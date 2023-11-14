@@ -32,15 +32,16 @@ export default function Partner({ supportData }) {
         <p className="paragraph">
           Would you be willing to prayerfully consider if you would be able to
           generously give to help me support the students {supportData.time}{" "}
-          days per week on campus? A regular pledge of $25/$50/$100/$200 per month or
-          another amount as you feel led would be most appreciated. One-off
-          contributions are also very welcome.
+          days per week on campus? A regular pledge of $25/$50/$100/$200 per
+          month or another amount as you feel led would be most appreciated.
+          One-off contributions are also very welcome.
         </p>
         <p className="paragraph">
           If now isn't a good time for you to support me in this way, please
-          consider subscribing to my prayer newsletter so you can continue to pray for me
-          and the Uni ministry. It is only through your prayers and God's grace
-          that he continues to carry out his good will in people's lives.
+          consider subscribing to my prayer newsletter so you can continue to
+          pray for me and the Uni ministry. It is only through your prayers and
+          God's grace that he continues to carry out his good will in people's
+          lives.
         </p>
         <div className="section-support__buttons">
           <Button
@@ -50,16 +51,16 @@ export default function Partner({ supportData }) {
           >
             Give Financially
           </Button>
-          <Button   href="/subscribe">Support Prayerfully</Button>
+          <Button href="/subscribe">Support Prayerfully</Button>
         </div>
       </Section>
-      {/* <Section color="primary">
-      <h2 className="heading-secondary">Support Progress</h2>
+      <Section color="primary">
+        <h2 className="heading-secondary">Support Progress</h2>
         <p className="paragraph">You can see my current support below.</p>
         <p className="paragraph">
-          The marking indicates the minimum AFES requires me to raise before I can
-          can commit to {supportData.time} days a week with the
-          students.
+          The marking indicates the minimum AFES requires me to raise so I can
+          can commit to {supportData.time} days a week with the students. This
+          target includes my pay, as well as other training and ministry expenses.
         </p>
         <SupportGraph
           heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
@@ -85,7 +86,7 @@ export default function Partner({ supportData }) {
           target={supportData.target}
           minTarget={80}
         />
-      </Section> */}
+      </Section>
     </Layout>
   );
 }
