@@ -5,6 +5,8 @@ export default async function getBlogs(req, res) {
   const date = req.query.date || 'desc';
   const tag = req.query.tag || '';
 
+  console.log("api/blogs", offset, date, tag)
+
   let data;
   if (tag) {
     data = await getPaginatedBlogsByTag({ offset, date, tag });
