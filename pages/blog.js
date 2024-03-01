@@ -17,11 +17,40 @@ export default function Blog({ blogs, preview, tags }) {
     date: { asc: 0 },
     tag: { selected: "" },
   });
+  // const [index, setIndex] = useState(0);
 
-  const { pages, isLoadingMore, isReachingEnd, loadMore } = useGetBlogsPages({
+  const { pages, size, setSize, isLoading } = useGetBlogsPages({
     blogs,
     filter,
   });
+
+  // const pages = useGetBlogsPages({
+  //   blogs,
+  //   filter,
+  //   index
+  // });
+
+  // const pages = [];
+  // for (let i = 0; i < index+1; i++) {
+  //   pages.push(
+  //     useGetBlogsPages({
+  //       blogs,
+  //       filter,
+  //       i
+  //     })
+  //   );
+  // }
+  console.log("useGetBlogsPages", pages);
+
+  const isLoadingMore =
+    isLoading ||
+    (size > 0 &&
+      pages.props.blogs &&
+      typeof pages.props.blogs[size - 1] === "undefined");
+  const isEmpty = pages.props.blogs?.[0]?.length === 0;
+  const isReachingEnd =
+    isEmpty ||
+    (pages.props.blogs && pages.props.blogs[pages.length - 1]?.length < 4);
 
   return (
     <Layout
@@ -96,7 +125,10 @@ export default function Blog({ blogs, preview, tags }) {
         >
           {pages}
         </PostList>
-        <Button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}>
+        <Button
+          onClick={() => setSize(size + 1)}
+          disabled={isReachingEnd || isLoadingMore}
+        >
           {isLoadingMore
             ? "..."
             : isReachingEnd
