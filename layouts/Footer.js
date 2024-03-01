@@ -55,6 +55,11 @@ const Footer = () => {
                 Partner
               </a>
             </li>
+            <li className="Footer__listItem">
+              <a className="Footer__link link" href="/bookings">
+                Book a Meeting
+              </a>
+            </li>
           </ul>
         </div>
       </div>
