@@ -23,6 +23,11 @@ export default function Blog({ blogs, preview, tags }) {
     filter,
   });
 
+  // const pages = useGetBlogsPages({
+  //   blogs,
+  //   filter,
+  // });
+
   return (
     <Layout
       meta={{
