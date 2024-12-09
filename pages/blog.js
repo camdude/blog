@@ -48,7 +48,7 @@ export default function Blog({ blogs, preview, tags }) {
         </p>
         <p className="paragraph">
           If you would like to get email updates, particularly for what I'm
-          doing with AFES, please click the subscribe button below.
+          doing at college, please click the subscribe button below.
         </p>
         <div className="u-center-text">
           <Button
@@ -61,7 +61,7 @@ export default function Blog({ blogs, preview, tags }) {
         </div>
         {formOpen ? (
           <div>
-            <Mailchimp title="Cameron Clifford's AFES Updates" />
+            <Mailchimp title="Cameron Clifford's Prayer Updates" />
             <div className="u-center-text">
               <p>
                 You can also subscribe via RSS, if that is something you use.
@@ -109,7 +109,7 @@ export default function Blog({ blogs, preview, tags }) {
             : "More Blogs"}
         </Button>
       </Section>
-      <Section color="primary">
+      {/* <Section color="primary">
         <h2 className="heading-secondary">Partner with me?</h2>
         <p className="paragraph">
           Would you like to hear more about the work Cameron is doing on campus
@@ -126,7 +126,7 @@ export default function Blog({ blogs, preview, tags }) {
         <div className="section-support__buttons">
           <Button href="/partner">Partner With Cameron</Button>
         </div>
-      </Section>
+      </Section> */}
     </Layout>
   );
 }

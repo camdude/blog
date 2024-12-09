@@ -16,34 +16,29 @@ export default function Partner({ supportData }) {
         desc: "Would you be willing to prayerfully consider if you would be able to generously give to help me support the students on campus?",
       }}
     >
-      <img className="BlogPost__coverImage" src="/support-banner.png" />
+      {/* <img className="BlogPost__coverImage" src="/support-banner.png" /> */}
       <Section color="secondary">
         <h2 className="heading-secondary">Partner with Cameron?</h2>
         <p className="paragraph">
           I’m very grateful for you considering how you can partner with me to
-          serve the students at UTAS. Although Launceston is a small and quiet
-          campus, there is still a great need for people to hear the good news.
+          help support at college as I'm trained to prepare me serve in gospel
+          ministry.
+        </p>
+
+        <p className="paragraph">
+          Thankfully most of my expenses will be covered through goverment
+          assistance and a paid ministry placement. Although my need is not
+          great, if you would like to support me financially you can contibute
+          to my scholarship through AFES.
         </p>
         <p className="paragraph">
-          If you haven't already read my partnership letter yet, please do so{" "}
-          <a href="/blog/afes-partnership-letter">here</a>, to find out more
-          about the ministry and what my role is.
-        </p>
-        <p className="paragraph">
-          Would you be willing to prayerfully consider if you would be able to
-          generously give to help me support the students {supportData.time}{" "}
-          days per week on campus? A regular pledge of $25/$50/$100/$200 per
-          month or another amount as you feel led would be most appreciated.
-          One-off contributions are also very welcome.
-        </p>
-        <p className="paragraph">
-          If now isn't a good time for you to support me in this way, please
-          consider subscribing to my prayer newsletter so you can continue to
-          pray for me and the Uni ministry. It is only through your prayers and
-          God's grace that he continues to carry out his good will in people's
-          lives.
+          Most importantly however I appreciate your prayers. You can stay
+          informed of what to prayer for through my prayer updates. want to. It
+          is only through your prayers and God's grace that I can do what I'm
+          currently doing.
         </p>
         <div className="section-support__buttons">
+          <Button href="/subscribe">Support Prayerfully</Button>
           <Button
             id="give_financially"
             target="_blank"
@@ -51,31 +46,17 @@ export default function Partner({ supportData }) {
           >
             Give Financially
           </Button>
-          <Button href="/subscribe">Support Prayerfully</Button>
         </div>
       </Section>
       <Section color="primary">
         <h2 className="heading-secondary">Support Progress</h2>
-        <p className="paragraph">You can see my current support below.</p>
         <p className="paragraph">
-          The marking indicates the minimum AFES requires me to raise so I can
-          can commit to {supportData.time} days a week with the students. This
-          target includes my pay, as well as other training and ministry expenses.
+          You can see my projected income and current support for my scholarship
+          below.
         </p>
+        <img className="" src="/budget.png" />
         <SupportGraph
-          heading={`Monthly Target: $${(supportData.target / 12).toLocaleString(
-            undefined,
-            {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            }
-          )}`}
-          raised={supportData.raisedMonthly}
-          target={supportData.target / 12}
-          minTarget={60}
-        />
-        <SupportGraph
-          heading={`Annual Target: $${supportData.target.toLocaleString(
+          heading={`Scholarship Annual Target: $${supportData.target.toLocaleString(
             undefined,
             {
               minimumFractionDigits: 2,

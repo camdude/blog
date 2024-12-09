@@ -431,7 +431,7 @@ export default function BlogPost({ blog, preview }) {
         </Section>
       </article>
 
-      <Section color="primary">
+      {/* <Section color="primary">
         <h2 className="heading-secondary">Partner with me?</h2>
         <p className="paragraph">
           Would you like to hear more about the work Cameron is doing on campus
@@ -449,7 +449,7 @@ export default function BlogPost({ blog, preview }) {
           <Button href="/partner">Give Financially</Button>
           <Button href="/subscribe">Support Prayerfully</Button>
         </div>
-      </Section>
+      </Section> */}
     </Layout>
   );
 }

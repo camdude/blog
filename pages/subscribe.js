@@ -12,16 +12,15 @@ export default function Subscribe({ blogs, preview, tags }) {
         title: "Subscribe",
         type: "website",
         url: "/subscribe",
-        desc: "To subscribe to my email updates about what I'm doing with AFES, please fill out this form.",
+        desc: "To subscribe to my email updates, please fill out this form.",
       }}
     >
       {preview && <AlertMessage />}
       <Section color="secondary">
-        <h2 className="heading-secondary">AFES Prayer Newsletter</h2>
+        <h2 className="heading-secondary">Subscribe to Prayer Newsletter</h2>
         <p className="paragraph">
           Thank you, I really appreciate your support. To subscribe to my email
-          updates about what I'm doing with AFES, please fill out the form
-          below.
+          updates, please fill out the form below.
         </p>
         <Mailchimp />
         <div className="u-center-text">
