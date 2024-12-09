@@ -51,10 +51,9 @@ export default function Partner({ supportData }) {
       <Section color="primary">
         <h2 className="heading-secondary">Support Progress</h2>
         <p className="paragraph">
-          You can see my projected income and current support for my scholarship
-          below.
+          You can see the current support for my scholarship below.
         </p>
-        <img className="" src="/budget.png" />
+        {/* <img className="" src="/budget.png" /> */}
         <SupportGraph
           heading={`Scholarship Annual Target: $${supportData.target.toLocaleString(
             undefined,
@@ -65,7 +64,7 @@ export default function Partner({ supportData }) {
           )}`}
           raised={supportData.raisedAnnual}
           target={supportData.target}
-          minTarget={80}
+          minTarget={(supportData.raisedAnnual / supportData.target) * 100}
         />
       </Section>
     </Layout>
