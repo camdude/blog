@@ -65,7 +65,7 @@ export default function Home() {
               apprenticeship with both of them in 2022.
             </p>
             <p className="paragraph">
-              Over many years, I believe God has been growing my my character,
+              Over many years, I believe God has been growing my character,
               conviction and competencies, for his use in gospel ministry. I
               hope to continue developing those qualities in order to serve him
               more effectively. I have a passion for seeing people come to know
@@ -107,7 +107,7 @@ export default function Home() {
             <p className="paragraph">
               I'd love for you to join with me as I continue to be trained in
               ministry. I post semi-regular prayer updates for those who are
-              interested in what i'm doing and staying connected with me.
+              interested in what I'm doing and staying connected with me.
             </p>
             <p className="paragraph">
               If you would like to financially support me to help cover some of
@@ -116,7 +116,7 @@ export default function Home() {
           </div>
           <div className="section-support__buttons">
             <Button href="/blog?tag=Moore%20Updates">Prayer Newsletter</Button>
-            <Button href="/partner">Finanical Partnership</Button>
+            <Button href="/partner">Financial Partnership</Button>
           </div>
         </div>
       </Section>
