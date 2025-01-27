@@ -11,7 +11,7 @@ const Footer = () => {
             <li className="Footer__listItem">
               <a
                 className="Footer__link link"
-                href="mailto:afes@cameronclifford.com"
+                href="mailto:dev@cameronclifford.com"
                 target="blank"
               >
                 <FontAwesomeIcon icon="envelope" /> Email
