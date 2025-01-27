@@ -42,7 +42,7 @@ export default function Partner({ supportData }) {
           <Button
             id="give_financially"
             target="_blank"
-            href="https://support.afes.org.au/support-cameron-clifford-university-of-tasmania-launceston-6441"
+            href="https://support.afes.org.au/support-ollege-cameron-clifford-college-scholarship-7168"
           >
             Give Financially
           </Button>
