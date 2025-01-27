@@ -17,8 +17,7 @@ export default function Home() {
           <div className="hero__content">
             <div className="hero__headingContainer">
               <h1 className="hero__heading">
-                Proclaiming Jesus Christ at University to make everyone mature
-                in him.
+                Glorifying God in all of life, to make Him known to all people.
               </h1>
               {/* <h2 className="hero__subheading">Hebrews 13:21</h2> */}
             </div>
@@ -40,15 +39,15 @@ export default function Home() {
               <a className="link" href="https://moore.edu.au/" target="_blank">
                 Moore Theological College
               </a>{" "}
-              student living in Sydney. I enjoy playing clarinet in concert
+              student who moved from Launceston, Tasmania. I enjoy playing clarinet in concert
               bands, playing board games, bushwalking, hanging out with friends
-              and getting out of the city lights to stargaze into earth's
+              and when I can getting out of the city lights to stargaze into earth's
               amazing galaxy.
             </p>
             <p className="paragraph">
               I've prevously worked for the{" "}
               <a className="link" href="https://afes.org.au/" target="_blank">
-                Australian Fellowship of Evangelical Students
+                AFES
               </a>{" "}
               and{" "}
               <a
@@ -56,13 +55,16 @@ export default function Home() {
                 href="https://thebranch.org.au/"
                 target="_blank"
               >
-                The Branch Christian Church
+                The Branch
               </a>{" "}
               after completing my 2-year{" "}
               <a className="link" href="https://mts.com.au/" target="_blank">
                 MTS
               </a>{" "}
-              apprenticeship with both of them in 2022.
+              apprenticeship in combined partnership with both of them in 2022.
+            </p>
+            <p className="paragraph">
+              During my theological studies I have the privilege to be serving at <a className="link" href="https://www.barneysingleburn.com/" target="_blank">St Barnabas Anglican Church</a>{" "} in Ingleburn.
             </p>
             <p className="paragraph">
               Over many years, I believe God has been growing my character,
@@ -80,21 +82,21 @@ export default function Home() {
                   <img src="/moore.png" alt="Moore Theological College" />
                 </a>
               </div>
-              {/* <div className="section-about__image">
+              <div className="section-about__image">
                 <a href="https://www.barneysingleburn.com/" target="_blank">
                   <img src="/stbarnabas.png" alt="St Barnabas Anglican" />
                 </a>
-              </div> */}
-              <div className="section-about__image">
+              </div>
+              {/* <div className="section-about__image">
                 <a href="https://afes.org.au/" target="_blank">
                   <img src="/afes.png" alt="AFES" />
                 </a>
-              </div>
-              <div className="section-about__image">
+              </div> */}
+              {/* <div className="section-about__image">
                 <a href="https://thebranch.org.au/" target="_blank">
                   <img src="/thebranch_new.png" alt="The Branch" />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -120,7 +122,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-    </Layout>
+    </Layout >
   );
 }
 
