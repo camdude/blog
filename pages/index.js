@@ -64,7 +64,7 @@ export default function Home() {
               apprenticeship in combined partnership with both of them in 2022.
             </p>
             <p className="paragraph">
-              During my theological studies I have the privilege to be serving at <a className="link" href="https://www.barneysingleburn.com/" target="_blank">St Barnabas Anglican Church</a>{" "} in Ingleburn.
+              During my theological studies I have the privilege to be serving at <a className="link" href="https://ingleburn.church/" target="_blank">St Barnabas Anglican Church</a>{" "} in Ingleburn.
             </p>
             <p className="paragraph">
               Over many years, I believe God has been growing my character,
@@ -83,7 +83,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="section-about__image">
-                <a href="https://www.barneysingleburn.com/" target="_blank">
+                <a href="https://ingleburn.church/" target="_blank">
                   <img src="/stbarnabas.png" alt="St Barnabas Anglican" />
                 </a>
               </div>
