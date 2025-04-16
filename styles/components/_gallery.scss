@@ -11,7 +11,7 @@
     text-align: center;
 
     @include respond(phone) {
-      max-width: 15rem;
+      max-width: 20rem;
     }
   }
 

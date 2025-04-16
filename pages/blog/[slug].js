@@ -27,9 +27,8 @@ import Banner from "../../components/Banner";
 export default function BlogPost({ blog, preview }) {
   const overrides = {
     h1: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${
-        blog?.slug
-      }#${createFragmentId(props.children[0])}`;
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug
+        }#${createFragmentId(props.children[0])}`;
       return (
         <ReactionElement
           subject={`Response to "${props.children[0]}"`}
@@ -45,9 +44,8 @@ export default function BlogPost({ blog, preview }) {
       );
     },
     h2: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${
-        blog?.slug
-      }#${createFragmentId(props.children[0])}`;
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug
+        }#${createFragmentId(props.children[0])}`;
       return (
         <ReactionElement
           subject={`Response to "${props.children[0]}`}
@@ -63,9 +61,8 @@ export default function BlogPost({ blog, preview }) {
       );
     },
     h3: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${
-        blog?.slug
-      }#${createFragmentId(props.children[0])}`;
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug
+        }#${createFragmentId(props.children[0])}`;
       return (
         <ReactionElement
           subject={`Response to "${props.children[0]}"`}
@@ -81,9 +78,8 @@ export default function BlogPost({ blog, preview }) {
       );
     },
     h4: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${
-        blog?.slug
-      }#${createFragmentId(props.children[0])}`;
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug
+        }#${createFragmentId(props.children[0])}`;
       return (
         <ReactionElement
           subject={`Response to "${props.children[0]}"`}
@@ -99,9 +95,8 @@ export default function BlogPost({ blog, preview }) {
       );
     },
     h5: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${
-        blog?.slug
-      }#${createFragmentId(props.children[0])}`;
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug
+        }#${createFragmentId(props.children[0])}`;
       return (
         <ReactionElement
           subject={`Response to "${props.children[0]}"`}
@@ -117,9 +112,8 @@ export default function BlogPost({ blog, preview }) {
       );
     },
     h6: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${
-        blog?.slug
-      }#${createFragmentId(props.children[0])}`;
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug
+        }#${createFragmentId(props.children[0])}`;
       return (
         <ReactionElement
           subject={`Response to "${props.children[0]}"`}
@@ -188,10 +182,10 @@ export default function BlogPost({ blog, preview }) {
         // Check if we have an override for the “style”
         return overrides[props.node.style]
           ? // if so, call the function and pass in the children, ignoring
-            // the other unnecessary props
-            overrides[props.node.style]({ children: props.children })
+          // the other unnecessary props
+          overrides[props.node.style]({ children: props.children })
           : // otherwise, fallback to the provided default with all props
-            BlockContent.defaultSerializers.types.block(props);
+          BlockContent.defaultSerializers.types.block(props);
       },
       image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
         return (
@@ -287,16 +281,16 @@ export default function BlogPost({ blog, preview }) {
         </Head>
         {preview && <AlertMessage />}
         <article id="Content">
-        <NextImage
-          className="BlogPost__coverImage"
-          src={urlFor(blog.coverImage).url()}
-          width={blog.coverImage.metadata.dimensions.width}
-          height={blog.coverImage.metadata.dimensions.height}
-          alt={""}
-          placeholder="blur"
-          blurDataURL={blog.coverImage.metadata.lqip}
-          loading="lazy"
-        />
+          <NextImage
+            className="BlogPost__coverImage"
+            src={urlFor(blog.coverImage).url()}
+            width={blog.coverImage.metadata.dimensions.width}
+            height={blog.coverImage.metadata.dimensions.height}
+            alt={""}
+            placeholder="blur"
+            blurDataURL={blog.coverImage.metadata.lqip}
+            loading="lazy"
+          />
         </article>
         <Section color="grey">
           <h1 className="BlogPost__title">{blog.title}</h1>
@@ -431,25 +425,23 @@ export default function BlogPost({ blog, preview }) {
         </Section>
       </article>
 
-      {/* <Section color="primary">
-        <h2 className="heading-secondary">Partner with me?</h2>
+      <Section color="primary">
+        <h2 className="heading-secondary">Are you a partner?</h2>
         <p className="paragraph">
-          Would you like to hear more about the work Cameron is doing on campus
-          in Launceston?
+          Would you like to support and stay updated with what Cameron is doing at Moore College as he is further equipped for future ministry?
         </p>
         <p className="paragraph">
-          Would you be willing to invest in this ministry so that students will
-          be trained and equipped to proclaim Christ at University?
+          I also have a few people who like to support me through giving to my AFES scholarship.
         </p>
         <p className="paragraph">
-          Please see the options below to either give financially or join my
-          prayer network.
+          Please see the options below to either give financially or subscribe to my
+          prayer updates.
         </p>
         <div className="section-support__buttons">
-          <Button href="/partner">Give Financially</Button>
           <Button href="/subscribe">Support Prayerfully</Button>
+          <Button href="/partner">Give Financially</Button>
         </div>
-      </Section> */}
+      </Section>
     </Layout>
   );
 }
