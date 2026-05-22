@@ -6,7 +6,7 @@ import CardImage from "../components/CardImage";
 import Card from "../components/Card";
 
 const BlogList = ({ blogs, filter }) => {
-  console.log(blogs);
+  // console.log(blogs);
 
   return blogs.map((post) =>
     filter.view.list ? (
