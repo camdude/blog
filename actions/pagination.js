@@ -1,96 +1,88 @@
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
-import { useSWRPages } from "swr";
-import { useGetBlogs } from "../actions";
-// import { useSWRInfinite, Suspense, usePagination } from "swr";
-import CardImage from "../components/CardImage";
-import Card from "../components/Card";
 
-const BlogList = ({ blogs, filter }) => {
-  // console.log(blogs);
+const PAGE_SIZE = 4;
 
-  return blogs.map((post) =>
-    filter.view.list ? (
-      <CardImage
-        key={post.slug}
-        coverImage={post.coverImage}
-        title={post.title}
-        author={post.author.name}
-        date={post.date}
-        link={{ href: "/blog/[slug]", as: `/blog/${post.slug}` }}
-      >
-        {post.description}
-      </CardImage>
-    ) : (
-      <Card
-        key={post.slug}
-        coverImage={post.coverImage}
-        title={post.title}
-        author={post.author.name}
-        date={post.date}
-        link={{ href: "/blog/[slug]", as: `/blog/${post.slug}` }}
-      >
-        {post.description}
-      </Card>
-    )
-  );
-};
+export const useGetBlogsPages = ({ initialBlogs, filter }) => {
+  const router = useRouter();
+  const tag = router.query.tag || "";
 
-export const useGetBlogsPages = ({ blogs, filter }) => {
-  // TODO: Update as useSWRPages is now depricated (https://swr.vercel.app/docs/pagination)
-  // const fetcher = (url) => fetch(url).then((res) => res.json());
+  const [blogs, setBlogs] = useState(initialBlogs || []);
+  const [offset, setOffset] = useState(PAGE_SIZE);
 
-  // const router = useRouter();
-  // const tag = router.query.tag || "";
-  // const getKey = (pageIndex, previousPageData) => {
-  //   if (previousPageData && !previousPageData.length) return null; // reached the end
-  //   return `/api/blogs?offset=${pageIndex || 0}&date=${
-  //     filter.date.asc ? "asc" : "desc"
-  //   }&tag=${tag}`; // SWR key
-  // };
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isReachingEnd, setIsReachingEnd] = useState(false);
 
-  // const { data, error, size, setSize, mutate } = useSWRInfinite(
-  //   getKey,
-  //   fetcher
-  // );
+  const fetchPage = useCallback(
+    async (offsetValue) => {
+      const res = await fetch(
+        `/api/blogs?offset=${offsetValue}&date=${
+          filter.date.asc ? "asc" : "desc"
+        }&tag=${tag}`
+      );
 
-  // const { pages, hasNextPage, isLoadingMore } = usePagination(size);
-
-  // console.log(pages);
-
-  return useSWRPages(
-    "index-page",
-    ({ offset, withSWR }) => {
-      const router = useRouter();
-      const tag = router.query.tag || "";
-
-      const blogsData = useGetBlogs({ offset, filter, tag });
-
-      const { data: paginatedBlogs, error } = withSWR(blogsData);
-
-      if (!offset && !paginatedBlogs && !error) {
-        return <BlogList blogs={blogs} filter={filter} />;
+      if (!res.ok) {
+        throw new Error("Failed to fetch blogs");
       }
 
-      if (!paginatedBlogs) {
-        return Array(4)
-          .fill(0)
-          .map((_, i) =>
-            filter.view.list ? (
-              <CardImage key={i} placeholder />
-            ) : (
-              <Card key={i} placeholder />
-            )
-          );
-      }
-
-      return <BlogList blogs={paginatedBlogs} filter={filter} />;
+      return res.json();
     },
-    (SWR, index) => {
-      if (SWR.data && SWR.data.length === 0) {
-        return null;
-      }
-      return (index + 1) * 4;
-    },
-    [filter]
+    [filter.date.asc, tag]
   );
+
+  // 🔥 RESET when filters change
+  useEffect(() => {
+    let ignore = false;
+
+    const resetAndFetch = async () => {
+      setIsLoadingMore(true);
+      setIsReachingEnd(false);
+
+      const firstPage = await fetchPage(0);
+
+      if (ignore) return;
+
+      setBlogs(firstPage);
+      setOffset(PAGE_SIZE);
+      setIsReachingEnd(firstPage.length < PAGE_SIZE);
+      setIsLoadingMore(false);
+    };
+
+    resetAndFetch();
+
+    return () => {
+      ignore = true;
+    };
+  }, [filter.view.list, filter.date.asc, tag, fetchPage]);
+
+  // 🔼 LOAD MORE
+  const loadMore = async () => {
+    if (isLoadingMore || isReachingEnd) return;
+
+    setIsLoadingMore(true);
+
+    const nextPage = await fetchPage(offset);
+
+    if (!nextPage.length) {
+      setIsReachingEnd(true);
+      setIsLoadingMore(false);
+      return;
+    }
+
+    setBlogs((prev) => [...prev, ...nextPage]);
+    setOffset((prev) => prev + PAGE_SIZE);
+
+    if (nextPage.length < PAGE_SIZE) {
+      setIsReachingEnd(true);
+    }
+
+    setIsLoadingMore(false);
+  };
+
+  return {
+    blogs,
+    loadMore,
+    isLoadingMore,
+    isReachingEnd,
+  };
 };
