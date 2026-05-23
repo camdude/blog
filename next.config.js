@@ -10,5 +10,12 @@ module.exports = {
         hostname: "cdn.sanity.io",
       },
     ],
-  }
+  },
+  sassOptions: {
+    silenceDeprecations: [
+      "legacy-js-api",
+      "import",
+      "global-builtin",
+      "color-functions",],
+  },
 };
