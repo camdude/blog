@@ -1,67 +1,109 @@
-import BlockContent from "@sanity/block-content-to-react";
+import { PortableText } from "@portabletext/react";
 import { createFragmentId } from "../utils/urlFunctions";
 import ReactionElement from "./ReactionElement";
 
 const TextBlock = ({ heading, slug, children }) => {
   const overrides = {
-    h1: (props) => (
-      <h1
-        className="blog__h1"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    ),
-    h2: (props) => (
-      <h2
-        className="blog__h2"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    ),
-    h3: (props) => (
-      <h3
-        className="blog__h3"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    ),
-    h4: (props) => (
-      <h4
-        className="blog__h4"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    ),
-    h5: (props) => (
-      <h5
-        className="blog__h5"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    ),
-    h6: (props) => (
-      <h6
-        className="blog__h6"
-        id={createFragmentId(props.children[0])}
-        {...props}
-      />
-    ),
-    a: (props) => <a className="blog__a" {...props} />,
-    blockquote: (props) => <blockquote className="blog__quote" {...props} />,
-    normal: (props) =>
-      props.children[0] === "" ? (
+    h1: ({ children }) => {
+      const headingText = String(children);
+
+      return (
+        <h1
+          className="blog__h1"
+          id={createFragmentId(headingText)}
+        >
+          {children}
+        </h1>
+      );
+    },
+
+    h2: ({ children }) => {
+      const headingText = String(children);
+
+      return (
+        <h2
+          className="blog__h2"
+          id={createFragmentId(headingText)}
+        >
+          {children}
+        </h2>
+      );
+    },
+
+    h3: ({ children }) => {
+      const headingText = String(children);
+
+      return (
+        <h3
+          className="blog__h3"
+          id={createFragmentId(headingText)}
+        >
+          {children}
+        </h3>
+      );
+    },
+
+    h4: ({ children }) => {
+      const headingText = String(children);
+
+      return (
+        <h4
+          className="blog__h4"
+          id={createFragmentId(headingText)}
+        >
+          {children}
+        </h4>
+      );
+    },
+
+    h5: ({ children }) => {
+      const headingText = String(children);
+
+      return (
+        <h5
+          className="blog__h5"
+          id={createFragmentId(headingText)}
+        >
+          {children}
+        </h5>
+      );
+    },
+
+    h6: ({ children }) => {
+      const headingText = String(children);
+
+      return (
+        <h6
+          className="blog__h6"
+          id={createFragmentId(headingText)}
+        >
+          {children}
+        </h6>
+      );
+    },
+
+    normal: ({ children }) =>
+      children?.[0] === "" ? (
         <div className="blog__break" />
       ) : (
-        <p className="blog__paragraph" {...props} />
+        <p className="blog__paragraph">
+          {children}
+        </p>
       ),
   };
 
-  const serializers = {
+  const components = {
     marks: {
-      link: ({ mark, children }) => {
-        const { blank, href } = mark;
+      link: ({ value, children }) => {
+        const { blank, href } = value;
+
         return blank ? (
-          <a className="blog__a" href={href} target="_blank" rel="noopener">
+          <a
+            className="blog__a"
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+          >
             {children}
           </a>
         ) : (
@@ -72,39 +114,57 @@ const TextBlock = ({ heading, slug, children }) => {
       },
     },
 
-    list: (props) => {
-      const { type } = props;
-      const bullet = type === "bullet";
-      if (bullet) {
-        return <ul className="blog__list" {...props} />;
-      }
-      return <ol className="blog__list" {...props} />;
+    list: {
+      bullet: ({ children }) => (
+        <ul className="blog__list">{children}</ul>
+      ),
+
+      number: ({ children }) => (
+        <ol className="blog__list">{children}</ol>
+      ),
     },
-    listItem: (props) => <li className="blog__listItem" {...props} />,
-    marks: {
-      link: ({ mark, children }) => {
-        const { blank, href } = mark;
-        return blank ? (
-          <a className="blog__a" href={href} target="_blank" rel="noreferrer">
-            {children}
-          </a>
-        ) : (
-          <a className="blog__a" href={href}>
-            {children}
-          </a>
-        );
-      },
+
+    listItem: {
+      bullet: ({ children }) => (
+        <li className="blog__listItem">
+          {children}
+        </li>
+      ),
+
+      number: ({ children }) => (
+        <li className="blog__listItem">
+          {children}
+        </li>
+      ),
     },
-    types: {
-      block: (props) => {
-        // Check if we have an override for the “style”
-        return overrides[props.node.style]
-          ? // if so, call the function and pass in the children, ignoring
-            // the other unnecessary props
-            overrides[props.node.style]({ children: props.children })
-          : // otherwise, fallback to the provided default with all props
-            BlockContent.defaultSerializers.types.block(props);
-      },
+
+    block: {
+      h1: ({ children }) =>
+        overrides.h1({ children }),
+
+      h2: ({ children }) =>
+        overrides.h2({ children }),
+
+      h3: ({ children }) =>
+        overrides.h3({ children }),
+
+      h4: ({ children }) =>
+        overrides.h4({ children }),
+
+      h5: ({ children }) =>
+        overrides.h5({ children }),
+
+      h6: ({ children }) =>
+        overrides.h6({ children }),
+
+      normal: ({ children }) =>
+        overrides.normal({ children }),
+
+      blockquote: ({ children }) => (
+        <blockquote className="blog__quote">
+          {children}
+        </blockquote>
+      ),
     },
   };
 
@@ -112,8 +172,12 @@ const TextBlock = ({ heading, slug, children }) => {
     <div className="TextBlock">
       <ReactionElement
         subject={`Response to "${heading}"`}
-        body={`https://cameronclifford.com/blog/${slug}#${createFragmentId(heading)}`}
-        link={`https://cameronclifford.com/blog/${slug}#${createFragmentId(heading)}`}
+        body={`https://cameronclifford.com/blog/${slug}#${createFragmentId(
+          heading
+        )}`}
+        link={`https://cameronclifford.com/blog/${slug}#${createFragmentId(
+          heading
+        )}`}
       >
         <h2
           className="heading-secondary TextBlock__heading"
@@ -122,7 +186,11 @@ const TextBlock = ({ heading, slug, children }) => {
           {heading}
         </h2>
       </ReactionElement>
-      <BlockContent serializers={serializers} blocks={children} />
+
+      <PortableText
+        value={children}
+        components={components}
+      />
     </div>
   );
 };

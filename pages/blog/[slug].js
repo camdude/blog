@@ -1,4 +1,4 @@
-import BlockContent from "@sanity/block-content-to-react";
+import { PortableText } from "@portabletext/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -26,124 +26,158 @@ import Banner from "../../components/Banner";
 
 export default function BlogPost({ blog, preview }) {
   const overrides = {
-    h1: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug
-        }#${createFragmentId(props.children[0])}`;
+    h1: ({ children }) => {
+      const headingText = String(children);
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
+        headingText
+      )}`;
+
       return (
         <ReactionElement
-          subject={`Response to "${props.children[0]}"`}
+          subject={`Response to "${headingText}"`}
           body={idLink}
           link={idLink}
         >
           <h1
             className="blog__h1"
-            id={createFragmentId(props.children[0])}
-            {...props}
-          />
+            id={createFragmentId(headingText)}
+          >
+            {children}
+          </h1>
         </ReactionElement>
       );
     },
-    h2: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug
-        }#${createFragmentId(props.children[0])}`;
+
+    h2: ({ children }) => {
+      const headingText = String(children);
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
+        headingText
+      )}`;
+
       return (
         <ReactionElement
-          subject={`Response to "${props.children[0]}`}
+          subject={`Response to "${headingText}"`}
           body={idLink}
           link={idLink}
         >
           <h2
             className="blog__h2"
-            id={createFragmentId(props.children[0])}
-            {...props}
-          />
+            id={createFragmentId(headingText)}
+          >
+            {children}
+          </h2>
         </ReactionElement>
       );
     },
-    h3: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug
-        }#${createFragmentId(props.children[0])}`;
+
+    h3: ({ children }) => {
+      const headingText = String(children);
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
+        headingText
+      )}`;
+
       return (
         <ReactionElement
-          subject={`Response to "${props.children[0]}"`}
+          subject={`Response to "${headingText}"`}
           body={idLink}
           link={idLink}
         >
           <h3
             className="blog__h3"
-            id={createFragmentId(props.children[0])}
-            {...props}
-          />
+            id={createFragmentId(headingText)}
+          >
+            {children}
+          </h3>
         </ReactionElement>
       );
     },
-    h4: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug
-        }#${createFragmentId(props.children[0])}`;
+
+    h4: ({ children }) => {
+      const headingText = String(children);
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
+        headingText
+      )}`;
+
       return (
         <ReactionElement
-          subject={`Response to "${props.children[0]}"`}
+          subject={`Response to "${headingText}"`}
           body={idLink}
           link={idLink}
         >
           <h4
             className="blog__h4"
-            id={createFragmentId(props.children[0])}
-            {...props}
-          />
+            id={createFragmentId(headingText)}
+          >
+            {children}
+          </h4>
         </ReactionElement>
       );
     },
-    h5: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug
-        }#${createFragmentId(props.children[0])}`;
+
+    h5: ({ children }) => {
+      const headingText = String(children);
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
+        headingText
+      )}`;
+
       return (
         <ReactionElement
-          subject={`Response to "${props.children[0]}"`}
+          subject={`Response to "${headingText}"`}
           body={idLink}
           link={idLink}
         >
           <h5
             className="blog__h5"
-            id={createFragmentId(props.children[0])}
-            {...props}
-          />
+            id={createFragmentId(headingText)}
+          >
+            {children}
+          </h5>
         </ReactionElement>
       );
     },
-    h6: (props) => {
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug
-        }#${createFragmentId(props.children[0])}`;
+
+    h6: ({ children }) => {
+      const headingText = String(children);
+      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
+        headingText
+      )}`;
+
       return (
         <ReactionElement
-          subject={`Response to "${props.children[0]}"`}
+          subject={`Response to "${headingText}"`}
           body={idLink}
           link={idLink}
         >
           <h6
             className="blog__h6"
-            id={createFragmentId(props.children[0])}
-            {...props}
-          />
+            id={createFragmentId(headingText)}
+          >
+            {children}
+          </h6>
         </ReactionElement>
       );
     },
-    a: (props) => <a className="blog__a" {...props} />,
-    blockquote: (props) => <blockquote className="blog__quote" {...props} />,
-    normal: (props) =>
-      props.children[0] === "" ? (
+
+    normal: ({ children }) =>
+      children?.[0] === "" ? (
         <div className="blog__break" />
       ) : (
-        <p className="blog__paragraph" {...props} />
+        <p className="blog__paragraph">{children}</p>
       ),
   };
 
-  const serializers = {
+  const components = {
     marks: {
-      link: ({ mark, children }) => {
-        const { blank, href } = mark;
+      link: ({ value, children }) => {
+        const { blank, href } = value;
+
         return blank ? (
-          <a className="blog__a" href={href} target="_blank" rel="noopener">
+          <a
+            className="blog__a"
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+          >
             {children}
           </a>
         ) : (
@@ -154,40 +188,54 @@ export default function BlogPost({ blog, preview }) {
       },
     },
 
-    list: (props) => {
-      const { type } = props;
-      const bullet = type === "bullet";
-      if (bullet) {
-        return <ul className="blog__list" {...props} />;
-      }
-      return <ol className="blog__list" {...props} />;
+    list: {
+      bullet: ({ children }) => (
+        <ul className="blog__list">{children}</ul>
+      ),
+
+      number: ({ children }) => (
+        <ol className="blog__list">{children}</ol>
+      ),
     },
-    listItem: (props) => <li className="blog__listItem" {...props} />,
-    marks: {
-      link: ({ mark, children }) => {
-        const { blank, href } = mark;
-        return blank ? (
-          <a className="blog__a" href={href} target="_blank" rel="noreferrer">
-            {children}
-          </a>
-        ) : (
-          <a className="blog__a" href={href}>
-            {children}
-          </a>
-        );
-      },
+
+    listItem: {
+      bullet: ({ children }) => (
+        <li className="blog__listItem">{children}</li>
+      ),
+
+      number: ({ children }) => (
+        <li className="blog__listItem">{children}</li>
+      ),
     },
+
+    block: {
+      h1: ({ children }) => overrides.h1({ children }),
+      h2: ({ children }) => overrides.h2({ children }),
+      h3: ({ children }) => overrides.h3({ children }),
+      h4: ({ children }) => overrides.h4({ children }),
+      h5: ({ children }) => overrides.h5({ children }),
+      h6: ({ children }) => overrides.h6({ children }),
+
+      normal: ({ children }) =>
+        overrides.normal({ children }),
+
+      blockquote: ({ children }) => (
+        <blockquote className="blog__quote">
+          {children}
+        </blockquote>
+      ),
+    },
+
     types: {
-      block: (props) => {
-        // Check if we have an override for the “style”
-        return overrides[props.node.style]
-          ? // if so, call the function and pass in the children, ignoring
-          // the other unnecessary props
-          overrides[props.node.style]({ children: props.children })
-          : // otherwise, fallback to the provided default with all props
-          BlockContent.defaultSerializers.types.block(props);
-      },
-      image: ({ node: { asset, alt, position = "center", crop, hotspot } }) => {
+      image: ({
+        value: {
+          asset,
+          alt,
+          position = "center",
+          crop,
+          hotspot,
+        },
+      }) => {
         return (
           <Image
             asset={asset}
@@ -198,7 +246,8 @@ export default function BlogPost({ blog, preview }) {
           />
         );
       },
-      file: ({ node: { asset } }) => {
+
+      file: ({ value: { asset } }) => {
         return (
           <FileDownload
             key={asset.filename}
@@ -208,31 +257,49 @@ export default function BlogPost({ blog, preview }) {
           />
         );
       },
-      gallery: ({ node: { images } }) => {
+
+      gallery: ({ value: { images } }) => {
         return <Gallery images={images} />;
       },
-      youtube: ({ node: { url } }) => {
+
+      youtube: ({ value: { url } }) => {
         return <YouTube url={url} />;
       },
-      facebook: ({ node: { url, size } }) => {
+
+      facebook: ({ value: { url, size } }) => {
         return <Facebook url={url} size={size} />;
       },
-      textBlock: ({ node: { heading, body } }) => {
+
+      textBlock: ({ value: { heading, body } }) => {
         return (
           <TextBlock heading={heading} slug={blog.slug}>
             {body}
           </TextBlock>
         );
       },
-      imageTextBlock: ({ node: { heading, body, image } }) => {
+
+      imageTextBlock: ({
+        value: { heading, body, image },
+      }) => {
         return (
-          <ImageTextBlock heading={heading} slug={blog.slug} image={image}>
+          <ImageTextBlock
+            heading={heading}
+            slug={blog.slug}
+            image={image}
+          >
             {body}
           </ImageTextBlock>
         );
       },
-      banner: ({ node: { image, alt, link } }) => {
-        return <Banner image={image} alt={alt} link={link} />;
+
+      banner: ({ value: { image, alt, link } }) => {
+        return (
+          <Banner
+            image={image}
+            alt={alt}
+            link={link}
+          />
+        );
       },
     },
   };
@@ -242,6 +309,7 @@ export default function BlogPost({ blog, preview }) {
   if (!router.isFallback && !blog?.slug) {
     return <ErrorPage statusCode="404" />;
   }
+
   if (router.isFallback) {
     return (
       <Layout
@@ -261,7 +329,11 @@ export default function BlogPost({ blog, preview }) {
       </Layout>
     );
   }
-  if (blog.protected?.isHidden && router.query.pwd != blog.protected.pwd) {
+
+  if (
+    blog.protected?.isHidden &&
+    router.query.pwd != blog.protected.pwd
+  ) {
     const [pwdInput, setPwdInput] = useState("");
 
     return (
@@ -275,58 +347,95 @@ export default function BlogPost({ blog, preview }) {
         }}
       >
         <Head>
-          <meta property="og:article:published_time" content={blog.date} />
-          <meta property="og:article:author" content="Cameron Clifford" />
-          <meta property="og:article:tag" content={blog.tags} />
+          <meta
+            property="og:article:published_time"
+            content={blog.date}
+          />
+          <meta
+            property="og:article:author"
+            content="Cameron Clifford"
+          />
+          <meta
+            property="og:article:tag"
+            content={blog.tags}
+          />
         </Head>
+
         {preview && <AlertMessage />}
+
         <article id="Content">
           <NextImage
             className="BlogPost__coverImage"
             src={urlFor(blog.coverImage).url()}
             width={blog.coverImage.metadata.dimensions.width}
             height={blog.coverImage.metadata.dimensions.height}
-            alt={""}
+            alt=""
             placeholder="blur"
             blurDataURL={blog.coverImage.metadata.lqip}
             loading="lazy"
           />
         </article>
+
         <Section color="grey">
           <h1 className="BlogPost__title">{blog.title}</h1>
+
           <div className="BlogPost__detailSection">
             <h4 className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
-              {`${blog.author.name}`}
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="user"
+              />
+              {blog.author.name}
             </h4>
+
             <h4 className="BlogPost__detail">
               <FontAwesomeIcon
                 className="BlogPost__detailIcon"
                 icon="calendar-alt"
               />
-              {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+              {moment(blog.date).format("MMMM Do, YYYY")}
             </h4>
+
             <div className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
-              <Link className="BlogPost__tag" href={`/blog?tag=${blog.tags}`}>
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="tag"
+              />
+
+              <Link
+                className="BlogPost__tag"
+                href={`/blog?tag=${blog.tags}`}
+              >
                 {blog.tags}
               </Link>
             </div>
           </div>
         </Section>
+
         <Section color="grey">
-          <h1 className="u-center-text">Password Protected</h1>
+          <h1 className="u-center-text">
+            Password Protected
+          </h1>
+
           <p className="paragraph u-center-text">
-            This post is protected with a password. Please enter it below to
-            access it's contents.
+            This post is protected with a password.
+            Please enter it below to access its
+            contents.
           </p>
+
           <br />
+
           <div className="u-center-text">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (pwdInput === blog.protected.pwd) {
-                  router.push(`/blog/${blog.slug}?pwd=${blog.protected.pwd}`);
+
+                if (
+                  pwdInput === blog.protected.pwd
+                ) {
+                  router.push(
+                    `/blog/${blog.slug}?pwd=${blog.protected.pwd}`
+                  );
                 } else {
                   alert("Incorrect Password");
                 }
@@ -336,9 +445,15 @@ export default function BlogPost({ blog, preview }) {
                 className="Form__field"
                 type="text"
                 value={pwdInput}
-                onChange={(e) => setPwdInput(e.target.value)}
+                onChange={(e) =>
+                  setPwdInput(e.target.value)
+                }
               />
-              <input className="Form__button" type="submit" />
+
+              <input
+                className="Form__button"
+                type="submit"
+              />
             </form>
           </div>
         </Section>
@@ -360,102 +475,157 @@ export default function BlogPost({ blog, preview }) {
       }}
     >
       <Head>
-        <meta property="og:article:published_time" content={blog.date} />
-        <meta property="og:article:author" content="Cameron Clifford" />
-        <meta property="og:article:tag" content={blog.tags} />
+        <meta
+          property="og:article:published_time"
+          content={blog.date}
+        />
+
+        <meta
+          property="og:article:author"
+          content="Cameron Clifford"
+        />
+
+        <meta
+          property="og:article:tag"
+          content={blog.tags}
+        />
       </Head>
+
       <RefTagger
-        bibleVersion={"NIV"}
+        bibleVersion="NIV"
         roundCorners={true}
-        socialSharing={""}
+        socialSharing=""
         customStyle={{
-          heading: { backgroundColor: "#1e91d6", color: "#ffffff" },
-          body: { moreLink: { color: "#1e91d6" } },
+          heading: {
+            backgroundColor: "#1e91d6",
+            color: "#ffffff",
+          },
+          body: {
+            moreLink: {
+              color: "#1e91d6",
+            },
+          },
         }}
       />
+
       {preview && <AlertMessage />}
+
       <article id="Content">
         <NextImage
           className="BlogPost__coverImage"
           src={urlFor(blog.coverImage).url()}
           width={blog.coverImage.metadata.dimensions.width}
           height={blog.coverImage.metadata.dimensions.height}
-          alt={""}
+          alt=""
           placeholder="blur"
           blurDataURL={blog.coverImage.metadata.lqip}
           loading="lazy"
         />
+
         <Section color="grey">
-          <h1 className="BlogPost__title">{blog.title}</h1>
+          <h1 className="BlogPost__title">
+            {blog.title}
+          </h1>
+
           <div className="BlogPost__detailSection">
             <h4 className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="user" />
-              {`${blog.author.name}`}
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="user"
+              />
+              {blog.author.name}
             </h4>
+
             <h4 className="BlogPost__detail">
               <FontAwesomeIcon
                 className="BlogPost__detailIcon"
                 icon="calendar-alt"
               />
-              {`${moment(blog.date).format("MMMM Do, YYYY")}`}
+              {moment(blog.date).format("MMMM Do, YYYY")}
             </h4>
+
             <div className="BlogPost__detail">
-              <FontAwesomeIcon className="BlogPost__detailIcon" icon="tag" />
-              <Link className="BlogPost__tag" href={`/blog?tag=${blog.tags}`}>
+              <FontAwesomeIcon
+                className="BlogPost__detailIcon"
+                icon="tag"
+              />
+
+              <Link
+                className="BlogPost__tag"
+                href={`/blog?tag=${blog.tags}`}
+              >
                 {blog.tags}
               </Link>
             </div>
-            {/* <div className="BlogPost__detail">
-              <FontAwesomeIcon
-                className="BlogPost__detailIcon"
-                icon="comments"
-              />
-              <Link
-                className="BlogPost__tag"
-                href={`mailto:afes@cameronclifford.com`}
-              >
-                Respond
-              </Link>
-            </div> */}
           </div>
 
           <div className="BlogPost__content">
-            <BlockContent serializers={serializers} blocks={blog.content} />
+            <PortableText
+              value={blog.content}
+              components={components}
+            />
           </div>
         </Section>
       </article>
 
       <Section color="primary">
-        <h2 className="heading-secondary">Are you a partner?</h2>
+        <h2 className="heading-secondary">
+          Are you a partner?
+        </h2>
+
         <p className="paragraph">
-          Would you like to support and stay updated with what Cameron is doing at Moore College as he is further equipped for future ministry?
+          Would you like to support and stay updated
+          with what Cameron is doing at Moore College
+          as he is further equipped for future ministry?
         </p>
+
         <p className="paragraph">
-          I also have a few people who like to support me through giving to my AFES scholarship.
+          I also have a few people who like to support
+          me through giving to my AFES scholarship.
         </p>
+
         <p className="paragraph">
-          Please see the options below to either give financially or subscribe to my
-          prayer updates.
+          Please see the options below to either give
+          financially or subscribe to my prayer
+          updates.
         </p>
+
         <div className="section-support__buttons">
-          <Button href="/subscribe">Support Prayerfully</Button>
-          <Button href="/partner">Give Financially</Button>
+          <Button href="/subscribe">
+            Support Prayerfully
+          </Button>
+
+          <Button href="/partner">
+            Give Financially
+          </Button>
         </div>
       </Section>
     </Layout>
   );
 }
 
-export async function getStaticProps({ params, preview = false, previewData }) {
-  const blog = await getBlogBySlug(params.slug, preview);
+export async function getStaticProps({
+  params,
+  preview = false,
+}) {
+  const blog = await getBlogBySlug(
+    params.slug,
+    preview
+  );
+
   return {
-    props: { page: blog.title, blog, preview },
+    props: {
+      page: blog.title,
+      blog,
+      preview,
+    },
     revalidate: 1,
   };
 }
 
 export async function getStaticPaths() {
   const blogs = await getAllBlogs();
+
   return {
     paths: blogs?.map((b) => ({
       params: {
