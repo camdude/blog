@@ -7,7 +7,7 @@ import { RefTagger } from "react-reftagger";
 import Image from "../../components/Image";
 import NextImage from "next/image";
 import Section from "../../layouts/Section";
-import { urlFor, getAllBlogs, getBlogBySlug, checkProtection } from "../../lib/api";
+import { urlFor, getAllBlogs, getBlogBySlug, checkProtection, getSubscriberByToken } from "../../lib/api";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AlertMessage from "../../components/AlertMessage";
@@ -645,14 +645,21 @@ export async function getServerSideProps({ params, req, preview = false }) {
     return { notFound: true }
   }
 
-  const cookieToken = req.cookies.access_token
+  if (post.isProtected) {
+    const cookieToken = req.cookies.access_token
+    const subscriber = cookieToken
+      ? await getSubscriberByToken(cookieToken)
+      : null
 
-  if (post.isProtected && !cookieToken) {
-    return {
-      redirect: {
-        destination: '/blog?err=401',
-        permanent: false,
-      },
+    console.log(cookieToken, subscriber)
+
+    if (!subscriber) {
+      return {
+        redirect: {
+          destination: '/blog?err=401',
+          permanent: false,
+        },
+      }
     }
   }
 
