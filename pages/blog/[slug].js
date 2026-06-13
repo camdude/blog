@@ -7,7 +7,7 @@ import { RefTagger } from "react-reftagger";
 import Image from "../../components/Image";
 import NextImage from "next/image";
 import Section from "../../layouts/Section";
-import { urlFor, getAllBlogs, getBlogBySlug } from "../../lib/api";
+import { urlFor, getAllBlogs, getBlogBySlug, checkProtection } from "../../lib/api";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AlertMessage from "../../components/AlertMessage";
@@ -604,14 +604,59 @@ export default function BlogPost({ blog, preview }) {
   );
 }
 
-export async function getStaticProps({
-  params,
-  preview = false,
-}) {
-  const blog = await getBlogBySlug(
-    params.slug,
-    preview
-  );
+// export async function getStaticProps({
+//   params,
+//   preview = false,
+// }) {
+//   const blog = await getBlogBySlug(
+//     params.slug,
+//     preview
+//   );
+
+//   return {
+//     props: {
+//       page: blog.title,
+//       blog,
+//       preview,
+//     },
+//     revalidate: 1,
+//   };
+// }
+
+// export async function getStaticPaths() {
+//   const blogs = await getAllBlogs();
+
+//   return {
+//     paths: blogs?.map((b) => ({
+//       params: {
+//         slug: b.slug,
+//       },
+//     })),
+//     fallback: true,
+//   };
+// }
+
+export async function getServerSideProps({ params, req, preview = false }) {
+  console.log(params.slug)
+  const post = await checkProtection(params.slug)
+  console.log("post:", post)
+
+  if (!post) {
+    return { notFound: true }
+  }
+
+  const cookieToken = req.cookies.access_token
+
+  if (post.isProtected && !cookieToken) {
+    return {
+      redirect: {
+        destination: '/blog?err=401',
+        permanent: false,
+      },
+    }
+  }
+
+  const blog = await getBlogBySlug(params.slug, preview)
 
   return {
     props: {
@@ -619,19 +664,5 @@ export async function getStaticProps({
       blog,
       preview,
     },
-    revalidate: 1,
-  };
-}
-
-export async function getStaticPaths() {
-  const blogs = await getAllBlogs();
-
-  return {
-    paths: blogs?.map((b) => ({
-      params: {
-        slug: b.slug,
-      },
-    })),
-    fallback: true,
-  };
+  }
 }

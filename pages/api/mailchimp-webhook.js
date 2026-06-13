@@ -25,7 +25,7 @@ export default async function handler(req, res) {
         return res.status(405).send('Method not allowed')
     }
 
-    console.log('Webhook body:', JSON.stringify(req.body))
+    // console.log('Webhook body:', JSON.stringify(req.body))
 
     const type = req.body['type']
     const email = req.body['data[email]']

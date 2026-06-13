@@ -12,10 +12,8 @@ import Layout from "../layouts/Layout";
 
 import CardImage from "../components/CardImage";
 import Card from "../components/Card";
+import { useRouter } from "next/router";
 
-/**
- * Blog list renderer (Option A: local component)
- */
 const BlogList = ({ blogs, filter }) => {
   return blogs.map((post) =>
     filter.view.list ? (
@@ -51,6 +49,9 @@ const BlogList = ({ blogs, filter }) => {
 };
 
 export default function Blog({ blogs: initialBlogs, preview, tags }) {
+  const router = useRouter();
+  const { err } = router.query;
+
   const [formOpen, setFormOpen] = useState(false);
   const [filter, setFilter] = useState({
     view: { list: 1 },
@@ -78,7 +79,18 @@ export default function Blog({ blogs: initialBlogs, preview, tags }) {
           "This space is a place for me to collect and share my thoughts on what I'm currently thinking and learning.",
       }}
     >
-      {preview && <AlertMessage />}
+      {err == 401 && <AlertMessage>
+          <h2 className="heading-tertiary u-center-text">401: Unauthorized Access</h2>
+          <p className="paragraph u-center-text">Use link in the email you recieved first.</p>
+        </AlertMessage>}
+      {preview &&
+        <AlertMessage>
+          <h2 className="heading-secondary">You are in preview mode</h2>
+          <br />
+          <Link href="/api/exit-preview">
+            Leave preview mode
+          </Link>
+        </AlertMessage>}
 
       <Section color="secondary">
         <h2 className="heading-secondary">Blog</h2>

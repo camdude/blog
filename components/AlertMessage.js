@@ -1,13 +1,9 @@
 import Link from "next/link";
 
-const AlertMessage = () => {
+const AlertMessage = ({children}) => {
   return (
     <div className="AlertMessage">
-      <h2 className="heading-secondary">You are in preview mode</h2>
-      <br />
-      <Link href="/api/exit-preview">
-        Leave preview mode
-      </Link>
+      {children}
     </div>
   );
 };
