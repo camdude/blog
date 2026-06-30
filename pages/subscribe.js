@@ -30,7 +30,7 @@ export default function Subscribe({ blogs, preview, tags }) {
             href="http://cameronclifford.com/api/feed/rss"
             target="blank"
           >
-            <FontAwesomeIcon icon="rss-square" />
+            <FontAwesomeIcon icon="rss" />
           </a>
           <a
             className="icon"

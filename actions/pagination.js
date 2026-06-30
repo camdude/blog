@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 6;
 
 export const useGetBlogsPages = ({ initialBlogs, filter }) => {
   const router = useRouter();

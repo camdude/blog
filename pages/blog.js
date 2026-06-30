@@ -24,8 +24,7 @@ const BlogList = ({ blogs, filter }) => {
         author={post.author.name}
         date={post.date}
         link={{
-          href: "/blog/[slug]",
-          as: `/blog/${post.slug}`,
+          href: `/blog/${post.slug}`,
         }}
       >
         {post.description}
@@ -38,8 +37,7 @@ const BlogList = ({ blogs, filter }) => {
         author={post.author.name}
         date={post.date}
         link={{
-          href: "/blog/[slug]",
-          as: `/blog/${post.slug}`,
+          href: `/blog/${post.slug}`,
         }}
       >
         {post.description}
@@ -128,7 +126,7 @@ export default function Blog({ blogs: initialBlogs, preview, tags }) {
                 target="blank"
                 rel="noreferrer"
               >
-                <FontAwesomeIcon icon="rss-square" />
+                <FontAwesomeIcon icon="rss" />
               </a>
 
               <a

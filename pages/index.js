@@ -40,12 +40,11 @@ export default function Home() {
                 Moore Theological College
               </a>{" "}
               student who moved from Launceston, Tasmania. I enjoy playing clarinet in concert
-              bands, playing board games, bushwalking, hanging out with friends
-              and when I can getting out of the city lights to stargaze into earth's
-              amazing galaxy.
+              bands, playing board games, bushwalking, hanging out with friends,
+              and when I can, getting out of the city lights to stargaze.
             </p>
             <p className="paragraph">
-              I've prevously worked for the{" "}
+              I've previously worked for the{" "}
               <a className="link" href="https://afes.org.au/" target="_blank">
                 AFES
               </a>{" "}
@@ -61,17 +60,17 @@ export default function Home() {
               <a className="link" href="https://mts.com.au/" target="_blank">
                 MTS
               </a>{" "}
-              apprenticeship in combined partnership with both of them in 2022.
+              apprenticeship with both of them in 2022.
             </p>
             <p className="paragraph">
-              During my theological studies I have the privilege to be serving at <a className="link" href="https://ingleburn.church/" target="_blank">St Barnabas Anglican Church</a>{" "} in Ingleburn.
+              During my theological studies I have the privilege of serving at <a className="link" href="https://ingleburn.church/" target="_blank">St Barnabas Anglican Church</a>{" "} in Ingleburn.
             </p>
             <p className="paragraph">
               Over many years, I believe God has been growing my character,
               conviction and competencies, for his use in gospel ministry. I
               hope to continue developing those qualities in order to serve him
               more effectively. I have a passion for seeing people come to know
-              Christ and encouraging others to constantly be growing in their
+              Christ and encouraging others to be constantly growing in their
               own spiritual maturity.
             </p>
           </div>

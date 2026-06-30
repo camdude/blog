@@ -23,7 +23,7 @@ const Footer = () => {
                 href="https://fb.me/cameron.clifford.1654"
                 target="blank"
               >
-                <FontAwesomeIcon icon={["fab", "facebook-square"]} /> Facebook
+                <FontAwesomeIcon icon={["fab", "square-facebook"]} /> Facebook
               </a>
             </li>
             <li className="Footer__listItem">

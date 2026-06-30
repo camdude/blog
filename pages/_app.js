@@ -13,7 +13,7 @@ import {
   faCalendarAlt,
   faTag,
   faEnvelope,
-  faRssSquare,
+  faRss,
   faFile,
   faDownload,
   faComments,
@@ -21,7 +21,7 @@ import {
   faHeart,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookSquare, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faSquareFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../styles/index.scss";
 import { Nobile } from "next/font/google";
@@ -40,9 +40,9 @@ library.add(
   faCalendarAlt,
   faTag,
   faEnvelope,
-  faFacebookSquare,
+  faSquareFacebook,
   faGithub,
-  faRssSquare,
+  faRss,
   faFile,
   faDownload,
   faComments,

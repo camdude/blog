@@ -24,146 +24,17 @@ import ReactionElement from "../../components/ReactionElement";
 import Facebook from "../../components/Facebook";
 import Banner from "../../components/Banner";
 
-export default function BlogPost({ blog, preview }) {
-  const overrides = {
-    h1: ({ children }) => {
-      const headingText = String(children);
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
-        headingText
-      )}`;
-
-      return (
-        <ReactionElement
-          subject={`Response to "${headingText}"`}
-          body={idLink}
-          link={idLink}
-        >
-          <h1
-            className="blog__h1"
-            id={createFragmentId(headingText)}
-          >
-            {children}
-          </h1>
-        </ReactionElement>
-      );
-    },
-
-    h2: ({ children }) => {
-      const headingText = String(children);
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
-        headingText
-      )}`;
-
-      return (
-        <ReactionElement
-          subject={`Response to "${headingText}"`}
-          body={idLink}
-          link={idLink}
-        >
-          <h2
-            className="blog__h2"
-            id={createFragmentId(headingText)}
-          >
-            {children}
-          </h2>
-        </ReactionElement>
-      );
-    },
-
-    h3: ({ children }) => {
-      const headingText = String(children);
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
-        headingText
-      )}`;
-
-      return (
-        <ReactionElement
-          subject={`Response to "${headingText}"`}
-          body={idLink}
-          link={idLink}
-        >
-          <h3
-            className="blog__h3"
-            id={createFragmentId(headingText)}
-          >
-            {children}
-          </h3>
-        </ReactionElement>
-      );
-    },
-
-    h4: ({ children }) => {
-      const headingText = String(children);
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
-        headingText
-      )}`;
-
-      return (
-        <ReactionElement
-          subject={`Response to "${headingText}"`}
-          body={idLink}
-          link={idLink}
-        >
-          <h4
-            className="blog__h4"
-            id={createFragmentId(headingText)}
-          >
-            {children}
-          </h4>
-        </ReactionElement>
-      );
-    },
-
-    h5: ({ children }) => {
-      const headingText = String(children);
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
-        headingText
-      )}`;
-
-      return (
-        <ReactionElement
-          subject={`Response to "${headingText}"`}
-          body={idLink}
-          link={idLink}
-        >
-          <h5
-            className="blog__h5"
-            id={createFragmentId(headingText)}
-          >
-            {children}
-          </h5>
-        </ReactionElement>
-      );
-    },
-
-    h6: ({ children }) => {
-      const headingText = String(children);
-      const idLink = `https://cameronclifford.com/blog/${blog?.slug}#${createFragmentId(
-        headingText
-      )}`;
-
-      return (
-        <ReactionElement
-          subject={`Response to "${headingText}"`}
-          body={idLink}
-          link={idLink}
-        >
-          <h6
-            className="blog__h6"
-            id={createFragmentId(headingText)}
-          >
-            {children}
-          </h6>
-        </ReactionElement>
-      );
-    },
-
-    normal: ({ children }) =>
-      children?.[0] === "" ? (
-        <div className="blog__break" />
-      ) : (
-        <p className="blog__paragraph">{children}</p>
-      ),
+export default function BlogPost({ blog, preview, siteOrigin }) {
+  const reactionHeading = (Tag) => ({ children }) => {
+    const headingText = String(children);
+    const idLink = `${siteOrigin}/blog/${blog?.slug}#${createFragmentId(headingText)}`;
+    return (
+      <ReactionElement subject={`Response to "${headingText}"`} body={idLink} link={idLink}>
+        <Tag className={`blog__${Tag}`} id={createFragmentId(headingText)}>
+          {children}
+        </Tag>
+      </ReactionElement>
+    );
   };
 
   const components = {
@@ -209,15 +80,19 @@ export default function BlogPost({ blog, preview }) {
     },
 
     block: {
-      h1: ({ children }) => overrides.h1({ children }),
-      h2: ({ children }) => overrides.h2({ children }),
-      h3: ({ children }) => overrides.h3({ children }),
-      h4: ({ children }) => overrides.h4({ children }),
-      h5: ({ children }) => overrides.h5({ children }),
-      h6: ({ children }) => overrides.h6({ children }),
+      h1: reactionHeading("h1"),
+      h2: reactionHeading("h2"),
+      h3: reactionHeading("h3"),
+      h4: reactionHeading("h4"),
+      h5: reactionHeading("h5"),
+      h6: reactionHeading("h6"),
 
       normal: ({ children }) =>
-        overrides.normal({ children }),
+        children?.[0] === "" ? (
+          <div className="blog__break" />
+        ) : (
+          <p className="blog__paragraph">{children}</p>
+        ),
 
       blockquote: ({ children }) => (
         <blockquote className="blog__quote">
@@ -272,7 +147,7 @@ export default function BlogPost({ blog, preview }) {
 
       textBlock: ({ value: { heading, body } }) => {
         return (
-          <TextBlock heading={heading} slug={blog.slug}>
+          <TextBlock heading={heading} slug={blog.slug} siteOrigin={siteOrigin}>
             {body}
           </TextBlock>
         );
@@ -665,11 +540,16 @@ export async function getServerSideProps({ params, req, preview = false }) {
 
   const blog = await getBlogBySlug(params.slug, preview)
 
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+  const host = req.headers["x-forwarded-host"] || req.headers.host;
+  const siteOrigin = `${protocol}://${host}`;
+
   return {
     props: {
       page: blog.title,
       blog,
       preview,
+      siteOrigin,
     },
   }
 }

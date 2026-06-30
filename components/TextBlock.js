@@ -2,96 +2,16 @@ import { PortableText } from "@portabletext/react";
 import { createFragmentId } from "../utils/urlFunctions";
 import ReactionElement from "./ReactionElement";
 
-const TextBlock = ({ heading, slug, children }) => {
-  const overrides = {
-    h1: ({ children }) => {
-      const headingText = String(children);
+const headingTag = (Tag) => ({ children }) => (
+  <Tag
+    className={`blog__${Tag}`}
+    id={createFragmentId(String(children))}
+  >
+    {children}
+  </Tag>
+);
 
-      return (
-        <h1
-          className="blog__h1"
-          id={createFragmentId(headingText)}
-        >
-          {children}
-        </h1>
-      );
-    },
-
-    h2: ({ children }) => {
-      const headingText = String(children);
-
-      return (
-        <h2
-          className="blog__h2"
-          id={createFragmentId(headingText)}
-        >
-          {children}
-        </h2>
-      );
-    },
-
-    h3: ({ children }) => {
-      const headingText = String(children);
-
-      return (
-        <h3
-          className="blog__h3"
-          id={createFragmentId(headingText)}
-        >
-          {children}
-        </h3>
-      );
-    },
-
-    h4: ({ children }) => {
-      const headingText = String(children);
-
-      return (
-        <h4
-          className="blog__h4"
-          id={createFragmentId(headingText)}
-        >
-          {children}
-        </h4>
-      );
-    },
-
-    h5: ({ children }) => {
-      const headingText = String(children);
-
-      return (
-        <h5
-          className="blog__h5"
-          id={createFragmentId(headingText)}
-        >
-          {children}
-        </h5>
-      );
-    },
-
-    h6: ({ children }) => {
-      const headingText = String(children);
-
-      return (
-        <h6
-          className="blog__h6"
-          id={createFragmentId(headingText)}
-        >
-          {children}
-        </h6>
-      );
-    },
-
-    normal: ({ children }) =>
-      children?.[0] === "" ? (
-        <div className="blog__break" />
-      ) : (
-        <p className="blog__paragraph">
-          {children}
-        </p>
-      ),
-  };
-
+const TextBlock = ({ heading, slug, siteOrigin, children }) => {
   const components = {
     marks: {
       link: ({ value, children }) => {
@@ -139,26 +59,19 @@ const TextBlock = ({ heading, slug, children }) => {
     },
 
     block: {
-      h1: ({ children }) =>
-        overrides.h1({ children }),
-
-      h2: ({ children }) =>
-        overrides.h2({ children }),
-
-      h3: ({ children }) =>
-        overrides.h3({ children }),
-
-      h4: ({ children }) =>
-        overrides.h4({ children }),
-
-      h5: ({ children }) =>
-        overrides.h5({ children }),
-
-      h6: ({ children }) =>
-        overrides.h6({ children }),
+      h1: headingTag("h1"),
+      h2: headingTag("h2"),
+      h3: headingTag("h3"),
+      h4: headingTag("h4"),
+      h5: headingTag("h5"),
+      h6: headingTag("h6"),
 
       normal: ({ children }) =>
-        overrides.normal({ children }),
+        children?.[0] === "" ? (
+          <div className="blog__break" />
+        ) : (
+          <p className="blog__paragraph">{children}</p>
+        ),
 
       blockquote: ({ children }) => (
         <blockquote className="blog__quote">
@@ -168,16 +81,14 @@ const TextBlock = ({ heading, slug, children }) => {
     },
   };
 
+  const headingUrl = `${siteOrigin}/blog/${slug}#${createFragmentId(heading)}`;
+
   return (
     <div className="TextBlock">
       <ReactionElement
         subject={`Response to "${heading}"`}
-        body={`https://cameronclifford.com/blog/${slug}#${createFragmentId(
-          heading
-        )}`}
-        link={`https://cameronclifford.com/blog/${slug}#${createFragmentId(
-          heading
-        )}`}
+        body={headingUrl}
+        link={headingUrl}
       >
         <h2
           className="heading-secondary TextBlock__heading"
