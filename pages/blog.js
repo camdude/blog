@@ -13,6 +13,7 @@ import Layout from "../layouts/Layout";
 import CardImage from "../components/CardImage";
 import Card from "../components/Card";
 import { useRouter } from "next/router";
+import PreviewBanner from "../components/PreviewBanner";
 
 const BlogList = ({ blogs, filter }) => {
   return blogs.map((post) =>
@@ -81,14 +82,7 @@ export default function Blog({ blogs: initialBlogs, preview, tags }) {
           <h2 className="heading-tertiary u-center-text">Unauthorized Access</h2>
           <p className="paragraph u-center-text">Use the link in the most recent email you received from me.</p>
         </AlertMessage>}
-      {preview &&
-        <AlertMessage>
-          <h2 className="heading-secondary">You are in preview mode</h2>
-          <br />
-          <Link href="/api/exit-preview">
-            Leave preview mode
-          </Link>
-        </AlertMessage>}
+      {preview && <PreviewBanner />}
 
       <Section color="secondary">
         <h2 className="heading-secondary">Blog</h2>

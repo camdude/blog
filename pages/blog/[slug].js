@@ -10,7 +10,7 @@ import Section from "../../layouts/Section";
 import { urlFor, getAllBlogs, getBlogBySlug, checkProtection, getSubscriberByToken } from "../../lib/api";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AlertMessage from "../../components/AlertMessage";
+import PreviewBanner from "../../components/PreviewBanner";
 import Layout from "../../layouts/Layout";
 import FileDownload from "../../components/FileDownload";
 import Gallery from "../../components/Gallery";
@@ -236,7 +236,7 @@ export default function BlogPost({ blog, preview, siteOrigin }) {
           />
         </Head>
 
-        {preview && <AlertMessage />}
+        {preview && <PreviewBanner />}
 
         <article id="Content">
           <NextImage
@@ -383,7 +383,7 @@ export default function BlogPost({ blog, preview, siteOrigin }) {
         }}
       />
 
-      {preview && <AlertMessage />}
+      {preview && <PreviewBanner />}
 
       <article id="Content">
         <NextImage
