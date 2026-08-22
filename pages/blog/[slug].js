@@ -520,7 +520,9 @@ export async function getServerSideProps({ params, req, preview = false }) {
     return { notFound: true }
   }
 
-  if (post.isProtected) {
+  // Preview mode is already gated by SANITY_PREVIEW_SECRET, so editors
+  // previewing a subscriber-only post don't need an access_token cookie.
+  if (!preview && post.isProtected) {
     const cookieToken = req.cookies.access_token
     const subscriber = cookieToken
       ? await getSubscriberByToken(cookieToken)

@@ -78,8 +78,8 @@ export default function Blog({ blogs: initialBlogs, preview, tags }) {
       }}
     >
       {err == 401 && <AlertMessage>
-          <h2 className="heading-tertiary u-center-text">401: Unauthorized Access</h2>
-          <p className="paragraph u-center-text">Use link in the email you recieved first.</p>
+          <h2 className="heading-tertiary u-center-text">Unauthorized Access</h2>
+          <p className="paragraph u-center-text">Use the link in the most recent email you received from me.</p>
         </AlertMessage>}
       {preview &&
         <AlertMessage>
